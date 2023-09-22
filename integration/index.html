@@ -1,0 +1,926 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../technology-explainer/">
+      
+      
+        <link rel="next" href="../reference/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Integration Examples - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/import-styles.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="sonardyne_light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sprint-nav-mini" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+<h4 class="announcement">Please note that this documentation is in beta and may be subject to change.</h4>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/SonardyneLogoWhite.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integration Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="sonardyne_light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="sonardyne_dark" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Sonardyne/son-idl" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sonardyne/son-idl
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/SonardyneLogoWhite.svg" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Sonardyne/son-idl" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sonardyne/son-idl
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technology-explainer/" class="md-nav__link">
+        Technology Explainer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Integration Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Integration Examples
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sprint-nav-mini" class="md-nav__link">
+    Sprint-Nav Mini
+  </a>
+  
+    <nav class="md-nav" aria-label="Sprint-Nav Mini">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#physical-installation" class="md-nav__link">
+    Physical installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    Time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sound-velocity" class="md-nav__link">
+    Sound Velocity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dvl-mounting" class="md-nav__link">
+    DVL mounting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-aiding" class="md-nav__link">
+    Position aiding
+  </a>
+  
+    <nav class="md-nav" aria-label="Position aiding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usbl" class="md-nav__link">
+    USBL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnss" class="md-nav__link">
+    GNSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xpos" class="md-nav__link">
+    XPOS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auv-x-sprint-nav-mini" class="md-nav__link">
+    AUV x SPRINT-Nav Mini
+  </a>
+  
+    <nav class="md-nav" aria-label="AUV x SPRINT-Nav Mini">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mounting-location" class="md-nav__link">
+    Mounting location
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aiding-sensors" class="md-nav__link">
+    Aiding sensors
+  </a>
+  
+    <nav class="md-nav" aria-label="Aiding sensors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gnss_1" class="md-nav__link">
+    GNSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usbl_1" class="md-nav__link">
+    USBL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sound-velocity_1" class="md-nav__link">
+    Sound Velocity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hnav" class="md-nav__link">
+    HNAV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timing" class="md-nav__link">
+    Timing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c2" class="md-nav__link">
+    C2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auv-lessons-learnt" class="md-nav__link">
+    AUV lessons learnt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/" class="md-nav__link">
+        Reference
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocol_reference/" class="md-nav__link">
+        Protocol Reference
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../external_reference/" class="md-nav__link">
+        External Reference
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Integration Examples</h1>
+
+<div><h2 id="sprint-nav-mini">Sprint-Nav Mini</h2>
+<p>SPRINT-Nav Mini is designed to be easily integrated into multiple classes of vehicle/vessel. All available inputs and outputs, as well as detailed integration documents, are described in the product manual. This section provides a broad overview of how to integrate a SPRINT-Nav Mini on a vehicle/vessel.</p>
+<h4 id="physical-installation">Physical installation</h4>
+<p>SPRINT-Nav Mini can be installed at any convenient location where the DVL has an unobstructed view of the seabed. However, to gain optimal performance there are some guidelines. </p>
+<p>CAD .stp files are available on Sonardyne's <a href="https://www.sonardyne.com/products-knowledge-base/sprint-nav-mini-stp-files/">knowledge base</a></p>
+<details class="son-info">
+<summary>Installation Guidelines</summary>
+<ul>
+<li>The location must not be subject to excessive vibration or impulse shock.  </li>
+<li>The location must not exceed the environmental limits for the temperature.  </li>
+<li>The location must provide a mounting surface that is of sufficient strength to support the weight of the SPRINT-Nav Mini safely and without flexing.  </li>
+<li>The location must provide access for power and communication connections.  </li>
+<li>The location must provide line of sight to the seabed for all four DVL transducers abiding by the clearance levels. </li>
+</ul>
+</details>
+<h4 id="time">Time</h4>
+<p>The SPRINT-Nav Mini can be time synchronised to UTC. This can be achieved via NTP or by providing a 1PPS signal and ZDA NMEA-0183 message from a GPS receiver or similar clock source. </p>
+<p>If the serial communication link has a known, stable latency then it is possible to use ZDA only, but 1PPS is recommended where possible. If the SPRINT-Nav Mini has been time synchronised and its quality is less than or equal to 0.5s it is possible to stop providing ZDA messages and simply rely on 1PPS aiding without any loss of accuracy.</p>
+<p>To improve robustness and usability, the SPRINT-Nav Mini incorporates a feature that automatically detects the relationship between the ZDA and 1PPS without any configuration. The SPRINT-Nav Mini achieves this by treating ZDA and 1PPS aiding separately: by filtering over several ZDA and 1PPS observations, it alleviates the requirement for a user to configure the ZDA and 1PPS relationship. In addition, the SPRINT-Nav Mini automatically detects the leading edge of the 1PPS trigger (assuming the pulse width is much less than 0.5s). 
+If external time synchronisation is lost the INS can continue to maintain an estimate of UTC time using its internal clock (~5ppm drift).</p>
+<p>The ZDA message should conform to the NMEA 0183 standard. The message can be received on any channel or over Ethernet. The 1PPS signal should be a 5V DC pulse with &gt;1 µs duration. The signal can be fed to SPRINT-Nav Mini via any of the trigger channels. </p>
+<p>There are three modes available:  </p>
+<ul>
+<li>None </li>
+<li>ZDA (+1PPS)</li>
+<li>NTP</li>
+</ul>
+<p>Time can also be output by a SPRINT-Nav Mini via an output ZDA + 1PPS, typically used for time synchronising other onboard survey sensors. </p>
+<h4 id="sound-velocity">Sound Velocity</h4>
+<p>Accurate knowledge of Sound Velocity is crucial for Hybrid (DVL/INS) navigation, as such SPRINT-Nav Mini supports three types of SV. It is recommended to always use external SV for operations requiring high navigation accuracy. </p>
+<ul>
+<li>Manual<ul>
+<li>Provides an ability to type in a Manual SV, to be used when SV is very stable or as a backup. </li>
+</ul>
+</li>
+<li>Derived<ul>
+<li>Uses water temperature and a manually entered salinity value to calculate SV.</li>
+</ul>
+</li>
+<li>External <ul>
+<li>Uses an external SV sensor to input a direct read Sound Velocity into the SPRINT-Nav Mini.</li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" href="../assets/Images/Valeport.jpg" data-type="image" data-width="100%" data-height="auto" data-title="Valeport SV Sensors." data-desc-position="bottom"><img alt="Valeport SV Sensors" data-title="Valeport SV Sensors." src="../assets/Images/Valeport.jpg" style="width: 40%;"></a></p>
+<details class="son-info">
+<summary>Notes on SV</summary>
+<ul>
+<li>Sonardyne find that a 25mm SV sensor provides enough accuracy for navigation and minimises risk of damage to the SV sensor.</li>
+<li>Place the SV sensor as close to the DVL as possible.</li>
+<li>Place the SV Sensor within the same body of water as the DVL.</li>
+<li>Any error in SV will often appear as an along track error if no external aiding source is provided i.e. GNSS or USBL.    </li>
+</ul>
+</details>
+<h4 id="dvl-mounting">DVL mounting</h4>
+<p>SPRINT-Nav Mini can be mounted at any angle, however typically the DVL is mounted facing directly down on the vehicle providing the best tracking of the seabed. Occasionally on trenchers or other vehicles where a direct view of the seabed is not possible, the DVL may be installed at an angle. </p>
+<p><a class="glightbox" href="../assets/Images/Mini_Beams.gif" data-type="image" data-width="100%" data-height="auto" data-title="SPRINT-Nav Mini beams." data-desc-position="bottom"><img alt="DVL_Beams" data-title="SPRINT-Nav Mini beams." src="../assets/Images/Mini_Beams.gif" style="width: 40%;"></a></p>
+<h4 id="position-aiding">Position aiding</h4>
+<h5 id="usbl">USBL</h5>
+<p>SPRINT-Nav Mini supports USBL aiding via industry-standard telegrams. </p>
+<h5 id="gnss">GNSS</h5>
+<p>SPRINT-Nav Mini uses GNSS for aiding of both time and position via industry-standard telegrams.</p>
+<h5 id="xpos">XPOS</h5>
+<p>SPRINT-Nav Mini supports Sonardyne's proprietary XPOS message for aiding of generic position observations. Typically an XPOS message is provided to a SPRINT-Nav Mini when a vehicle is docked, initialising on deck or any scenario whereby a GNSS or USBL message is not appropriate. </p>
+<h2 id="auv-x-sprint-nav-mini">AUV x SPRINT-Nav Mini</h2>
+<p>SPRINT-Nav Mini has been designed for AUV integration and this section will describe an example integration into a 10" AUV, with a common setup with a mix of input, output, C2 (Command &amp; Control) and peripheral survey sensors. </p>
+<details class="son-info">
+<summary>Inputs</summary>
+<ul>
+<li>GNSS</li>
+<li>USBL</li>
+<li>Sound Velocity </li>
+</ul>
+</details>
+<details class="son-info">
+<summary>Outputs</summary>
+<ul>
+<li>HNAV</li>
+<li>ZDA + 1PPS</li>
+</ul>
+</details>
+<details class="son-info">
+<summary>C2</summary>
+<ul>
+<li>gRPC API</li>
+</ul>
+</details>
+<details class="son-info">
+<summary>Survey Sensors</summary>
+<ul>
+<li>Voyis Recon - Laser</li>
+<li>Voyis Recon - Camera</li>
+</ul>
+</details>
+<p><a class="glightbox" href="../assets/Images/Sparus.jpeg" data-type="image" data-width="100%" data-height="auto" data-title="Sparus AUV" data-desc-position="bottom"><img alt="Sparus" data-title="Sparus AUV" src="../assets/Images/Sparus.jpeg" style="height: 50vh;"></a></p>
+<h3 id="mounting-location">Mounting location</h3>
+<p>In this example the SPRINT-Nav Mini is mounted in the free flooded nose cone of a <a href="https://ocean.soton.ac.uk/smarty200">Sparus</a>. The DVL has a clear view of the seabed with no obstructed beams. </p>
+<p><a class="glightbox" href="../assets/Images/sparus_inside.jpg" data-type="image" data-width="100%" data-height="auto" data-title="Sparus AUV mounting location" data-desc-position="bottom"><img alt="Sparus inner view" data-title="Sparus AUV mounting location" src="../assets/Images/sparus_inside.jpg" style="height: 50vh;"></a></p>
+<h3 id="aiding-sensors">Aiding sensors</h3>
+<p>SPRINT-Nav Mini can have multiple aiding sensors enabled at once so it will seamlessly use GNSS on surface and USBL when it becomes available subsea. </p>
+<h4 id="gnss_1">GNSS</h4>
+<p>When on the surface the AUV receives both positioning updates (GGA) and timing (ZDA + 1PPS) from the onboard GNSS which is mounted on a mast at the rear of the vehicle. </p>
+<details class="son-info">
+<summary>GNSS aiding on an AUV</summary>
+<ul>
+<li>When configuring a GNSS in SPRINT-Nav Mini, consider that GNSS accuracy estimates are often optimistic. Sonardyne recommend setting a relaxed manual GNSS quality.</li>
+<li>GNSS often gives erroneous positions as a vehicle surfaces and when a vehicle dives. SPRINT-Nav Mini will reject data that falls outside its own position error estimate, however why not consider disabling GNSS when diving and for a period of time after breaking the surface. </li>
+<li>SPRINT-Nav Mini doesn't currently use VTG for velocity aiding, but will in the future. </li>
+</ul>
+</details>
+<h4 id="usbl_1">USBL</h4>
+<p>When submerged, the AUV utilises Sonardyne's Mini Ranger 2 Robotics Pack to track an <a href="https://www.sonardyne.com/products/avtrak-6-nano-auv-swarm-tracking-and-communications/">AvTrak 6 Nano</a> mounted in the AUV. This AvTrak 6 Nano is used for communicating with the surface and also for sending position updates into the SPRINT-Nav Mini. </p>
+<details class="son-info">
+<summary>USBL Aiding a SPRINT-Nav Mini on an AUV</summary>
+<ul>
+<li>All AvTrak 6 nano's, when being tracked by "Robotics Pack", can output a time-stamped GGA message directly from their serial port in addition to the native SPOS format which can be interfaced directly to the SPRINT-Nav Mini. See the AvTrak 6 Nano manual for more details. </li>
+<li>Ranger 2 Robotics Pack can track up to 10 vehicles at once, simultaneously sending them correct absolute position information as well as exchanging telemetry. </li>
+</ul>
+</details>
+<h4 id="sound-velocity_1">Sound Velocity</h4>
+<p>For sound velocity a Valeport 25mm SVS is used, outputting the valeport standard telegram into the vehicle control system and then over UDP into the SPRINT-Nav Mini.  </p>
+<h3 id="outputs">Outputs</h3>
+<h4 id="hnav">HNAV</h4>
+<p>HNAV is output at 100Hz for vehicle guidance purposes. All status flags are decoded and presented in the AUV Web UI so that the operator knows when it is ok for the vehicle to begin operations. Certain flags from the HNAV are decoded which will cause vehicle behaviours. Please see <a href="../reference/">Reference</a> for further details.</p>
+<details class="son-info">
+<summary>HNAV Notes</summary>
+<ul>
+<li>If an output message is populated at a rate quicker than the rate of the incoming sensor the HNAV status field will reflect invalid (because the flag indicates invalid or old). For example in a 100Hz output HNAV message, if DVL is coming into the SPRINT-Nav Mini at 10Hz, in excess of 90% of messages would be expected to have an invalid altitude flag. </li>
+<li>HNAV can be input directly into EIVA Naviscan in a traditional survey setup. </li>
+</ul>
+</details>
+<h4 id="timing">Timing</h4>
+<p>Timing is crucial for survey deliverables as all sensors which are logging data must log against a common time base. This is typically UTC. SPRINT-Nav Mini can be configured to both receive time updates and will also persist time when subsea.</p>
+<p>In this example a ZDA + 1PPS output is configured from the SPRINT-Nav Mini into all survey sensors on the AUV. </p>
+<details class="son-info">
+<summary>ZDA + 1PPS output</summary>
+<ul>
+<li>Outputting a ZDA + 1PPS doesn't mean that time won't drift when the vehicle is subsea, but all sensors will be in the same time base. </li>
+<li>SPRINT-Nav Mini constantly models and monitors time, as such when the AUV surfaces and GNSS timing is available once again, SPRINT-Nav Mini's UTC time will adjust to reflect the correct UTC time. </li>
+</ul>
+</details>
+<h3 id="c2">C2</h3>
+<p>Command and Control of a SPRINT-Nav Mini uses the Sonardyne gRPC API to modify settings dynamically during a mission as and when required, either autonomously or via the user-developed AUV interface. </p>
+<details class="son-info">
+<summary>Suggested SPRINT-Nav Mini C2</summary>
+<ul>
+<li>Via the user-developed AUV interface the AUV operator can reset the INS algorithm instantaneously if required.</li>
+<li>If the vehicle/operator knows that GNSS is erroneous it can be disabled as an aiding source for a period of time. </li>
+<li>If the SPRINT-Nav HNAV message flags a problem with the Sound Velocity sensor, the C2 changes the SV configuration to derived and then manual. </li>
+<li>The user-developed AUV interface allows a user to select which aiding sources should be used by the AUV pre-dive without using the SPRINT-Nav Mini user interface.</li>
+<li>The gRPC API is much lower bandwidth than the web UI allowing for over the horizon low bandwidth operations. </li>
+</ul>
+</details>
+<h3 id="data">Data</h3>
+<p>For high accuracy survey products, [Janus] (https://www.sonardyne.com/products/janus-ins-post-processing-software/) is commonly used. In this example logfiles are downloaded at the end of the mission via the web UI. </p>
+<details class="son-info">
+<summary>Data for long duration AUVs</summary>
+<ul>
+<li>SPRINT-Nav Mini will log data internally for 2 to 3 days. Less if raw DVL data is logged. </li>
+<li>For long duration missions the vehicle control system can periodically download logfiles from the unit via SFTP. </li>
+</ul>
+</details>
+<h3 id="auv-lessons-learnt">AUV lessons learnt</h3>
+<p>Sonardyne's applications engineering team have integrated SPRINT-Nav Mini into many different vehicles and have collated some best practice.  </p>
+<details class="son-info">
+<summary>Lessons learned</summary>
+<ul>
+<li>Consider the orientation of DVL beams, if following a pipeline is there a better orientation to keep all DVL beams facing the seabed?</li>
+<li>If HNAV indicates that SV is no longer valid, why not switch back to derived, or manual?</li>
+</ul>
+</details></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../technology-explainer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Technology Explainer" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Technology Explainer
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../reference/" class="md-footer__link md-footer__link--next" aria-label="Next: Reference" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Reference
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Sonardyne International Ltd – <a href="#__consent">Change cookie settings</a>
+
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Sonardyne" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/user/sonardyne" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/sonardyne" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/Sonardyne" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/sonardyne-international-ltd/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.footer", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
