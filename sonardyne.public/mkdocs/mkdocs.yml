@@ -1,0 +1,103 @@
+site_name: Documentation
+nav:
+    - About: index.md
+    - Quick Start: quick-start.md
+    - Technology Explainer: technology-explainer.md
+    - Integration Examples: integration.md
+    - Reference: reference.md
+    - Protocol Reference: protocol_reference.md
+    - External Reference: external_reference.md
+    - License: license.md
+theme:
+  name: material
+  custom_dir: overrides
+
+  font:
+    text: Roboto Mono
+  logo: assets/SonardyneLogoWhite.svg
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: sonardyne_light
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: sonardyne_dark
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    # Palette toggle for light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    # - navigation.tabs
+    - navigation.sections
+    - navigation.footer
+    # - navigation.indexes 
+    - toc.follow
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+extra_css:
+  - stylesheets/import-styles.css
+
+extra:
+  ex_example_code_path: ./sonardyne.public/example_code
+  ex_repo_url: https://github.com/Sonardyne/son-idl
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Sonardyne
+    - icon: fontawesome/brands/youtube 
+      link: https://www.youtube.com/user/sonardyne
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/sonardyne
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/Sonardyne
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/sonardyne-international-ltd/
+  generator: false
+
+copyright: >
+  Copyright &copy; 2023 Sonardyne International Ltd –
+  <a href="#__consent">Change cookie settings</a>
+repo_url: https://github.com/Sonardyne/son-idl
+repo_name: sonardyne/son-idl
+edit_uri: edit/master/docs/
+markdown_extensions:
+  - tables
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.snippets
+plugins:
+  - search
+  - macros
+  - mkdocs-video:
+      css_style:
+        width: "640px"
+        height: "480px"
+  - glightbox:
+     zoomable: true
+     caption_position: bottom
+     width: 100%
+     height: auto
+  
