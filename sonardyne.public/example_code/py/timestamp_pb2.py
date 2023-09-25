@@ -13,13 +13,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0ftimestamp.proto\x12\rsonardyne.api\"9\n\tTimestamp\x12\x13\n\x0b\x63ommon_time\x18\x01 \x01(\x01\x12\x17\n\x0finstrument_time\x18\x02 \x01(\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0ftimestamp.proto\x12\rsonardyne.api\"9\n\tTimestamp\x12\x13\n\x0b\x63ommon_time\x18\x01 \x01(\x01\x12\x17\n\x0finstrument_time\x18\x02 \x01(\x01\x42\x0f\xaa\x02\x0cSonardyneApib\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'timestamp_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'\252\002\014SonardyneApi'
   _TIMESTAMP._serialized_start=34
   _TIMESTAMP._serialized_end=91
 # @@protoc_insertion_point(module_scope)

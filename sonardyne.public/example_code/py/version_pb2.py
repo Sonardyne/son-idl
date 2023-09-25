@@ -13,13 +13,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rversion.proto\x12\rsonardyne.api\"\x10\n\x0eVersionRequest\">\n\x0fVersionResponse\x12\r\n\x05Major\x18\x01 \x01(\r\x12\r\n\x05Minor\x18\x02 \x01(\r\x12\r\n\x05Patch\x18\x03 \x01(\rb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rversion.proto\x12\rsonardyne.api\"\x10\n\x0eVersionRequest\">\n\x0fVersionResponse\x12\r\n\x05Major\x18\x01 \x01(\r\x12\r\n\x05Minor\x18\x02 \x01(\r\x12\r\n\x05Patch\x18\x03 \x01(\rB\x0f\xaa\x02\x0cSonardyneApib\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'version_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'\252\002\014SonardyneApi'
   _VERSIONREQUEST._serialized_start=32
   _VERSIONREQUEST._serialized_end=48
   _VERSIONRESPONSE._serialized_start=50

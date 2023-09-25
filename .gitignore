@@ -2,3 +2,4 @@ site/
 bin/
 obj/
 .vs/
+__pycache__/

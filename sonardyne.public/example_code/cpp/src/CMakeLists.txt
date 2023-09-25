@@ -14,7 +14,7 @@
 #OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Compile the .proto files
-foreach(_proto configuration configuration_uid result service timestamp version)
+foreach(_proto configuration result service timestamp uid version)
     get_filename_component(${_proto}_proto "../protos/${_proto}.proto" ABSOLUTE)
     get_filename_component(${_proto}_proto_path "${${_proto}_proto}" PATH)
 
@@ -40,10 +40,6 @@ add_library(son_grpc_proto
         ${configuration_proto_headers}
         ${configuration_grpc_sources}
         ${configuration_grpc_headers}
-        ${configuration_uid_proto_sources}
-        ${configuration_uid_proto_headers}
-        ${configuration_uid_grpc_sources}
-        ${configuration_uid_grpc_headers}
         ${result_proto_sources}
         ${result_proto_headers}
         ${result_grpc_sources}
@@ -56,6 +52,10 @@ add_library(son_grpc_proto
         ${timestamp_proto_headers}
         ${timestamp_grpc_sources}
         ${timestamp_grpc_headers}
+		${uid_proto_sources}
+        ${uid_proto_headers}
+        ${uid_grpc_sources}
+        ${uid_grpc_headers}
         ${version_proto_sources}
         ${version_proto_headers}
         ${version_grpc_sources}

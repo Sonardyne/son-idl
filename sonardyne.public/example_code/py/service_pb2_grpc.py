@@ -48,7 +48,7 @@ class SonardyneServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SetState(self, request, context):
-        """Gets instrument configuration.  The 'ConfigurationRequest' contains required instrument specific configuration type
+        """Sets instrument configuration.  Returns the updated configuration, result, and timestamp
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -63,7 +63,6 @@ class SonardyneServiceServicer(object):
 
     def StateStream(self, request, context):
         """A stream which publishes all state changes on the instrument.
-        Streams state to all state/configuration change
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

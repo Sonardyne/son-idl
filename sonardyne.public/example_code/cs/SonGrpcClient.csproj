@@ -16,10 +16,10 @@
     </PackageReference>
     
     <Protobuf Include="configuration.proto" ProtoRoot="../../idl/" GrpcServices="Client"/>
-    <Protobuf Include="configuration_uid.proto" ProtoRoot="../../idl/" GrpcServices="Client"/>
     <Protobuf Include="result.proto" ProtoRoot="../../idl/" GrpcServices="Client"/>
     <Protobuf Include="service.proto" ProtoRoot="../../idl/" GrpcServices="Client"/>
     <Protobuf Include="timestamp.proto" ProtoRoot="../../idl/" GrpcServices="Client"/>
+	<Protobuf Include="uid.proto" ProtoRoot="../../idl/" GrpcServices="Client"/>
     <Protobuf Include="version.proto" ProtoRoot="../../idl/" GrpcServices="Client"/>
   </ItemGroup>
 
