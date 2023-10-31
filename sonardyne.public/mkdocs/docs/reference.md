@@ -17,7 +17,7 @@ All data is transmitted LSB first.
 | Counter | \- | 0 to 255 | \- | 1 | Counter per message, increments before rolling over to 0. Allows detection of out of order receipt. |
 | Spare | \- | \- | \- | 2 | Not Used |
 | Payload | \- | \- | \- | \- | Message data (e.g. HNAV) |
-| Checksum | \- | \- | UINT16 | 2 | CRC-CCITT: 0x1021. Covers all bytes before and including data bytes. 
+| Checksum | \- | \- | UINT16 | 2 | CRC-X.25: 0x1021. Covers all bytes before and including data bytes. 
 
 ??? son-info "Notes"
 
