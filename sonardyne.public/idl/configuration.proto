@@ -40,6 +40,8 @@ message Configuration{ // Each type of configuration is repeated to allow multip
   repeated AidingConfiguration aiding_configurations = 101; // Collection of aiding configurations
   repeated SoundVelocityConfiguration sound_velocity_configurations = 102; // Collection of Sound Velocity configurations
   repeated DopplerVelocityLogConfiguration doppler_velocity_configurations = 103; // Collection of Doppler Velocity configurations
+  repeated PortConfiguration port_configuration = 104; //Collection of Communication port configurations
+  repeated LeverArmConfiguration leverarm_configuration = 105; //Collection of Lever arm configurations
 }
 
 // Set type of reset to execute
@@ -102,4 +104,65 @@ message DopplerVelocityLogConfiguration{
   Uid id = 1;                  // Used to identify recipient instrument/module
   Result result = 2;           // Populated by instrument when replying to a SetState
   UPDATE_RATE update_rate = 3; // Specifies the update rate in Hz
+}
+
+message LeverArm{
+  Uid id = 1;
+  double forward = 2;   // Forward component of the lever arm
+  double starboard = 3; // Starboard component of the lever arm
+  double down = 4;      // Down component of the lever arm
+}
+
+message LeverArmConfiguration{
+  Uid id = 1;            // The target component
+  Result result = 2;
+  LeverArm leverarm_from_CRP = 3; // A collection of lever arm messages
+}
+
+message PortConfiguration{
+  Uid id = 1;                 // Used to identify recipient instrument/module
+  Result result = 2;                      // Populated by instrument when replying to a SetState
+  oneof Type {
+    EthernetSettings ethernet = 3;
+    SerialSettings   serial   = 4;
+  }
+}
+
+message SerialSettings{
+  string portName  = 1;
+  int32 baudrate   = 2;
+  int32 dataBits   = 3;
+  int32 parityBits = 4;
+  int32 stopBits   = 5;
+}
+
+message TcpIp{
+  enum MODE{
+    UNSPECIFIED = 0;
+    CLIENT = 1;
+    SERVER = 2;
+  }
+
+  MODE mode = 1;
+}
+
+message Udp{
+  enum PROTOCOL{
+    UNSPECIFIED = 0;
+    UNICAST = 1;
+    BROADCAST = 2;
+    MULTICAST = 3;
+  }
+
+  PROTOCOL protocol = 1;
+}
+
+message EthernetSettings{
+  string ip_Address = 1;
+  int32  port = 2;
+
+  oneof Configuration {
+    TcpIp tcpIp = 100;
+    Udp udp   = 101;
+  }
 }
