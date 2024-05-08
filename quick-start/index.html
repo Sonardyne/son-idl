@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#connecting-to-the-api" class="md-skip">
+        <a href="#choice-of-technology" class="md-skip">
           Skip to content
         </a>
       
@@ -336,6 +336,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#choice-of-technology" class="md-nav__link">
+    Choice of Technology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connecting-to-the-api" class="md-nav__link">
     Connecting to the API
   </a>
@@ -552,7 +559,9 @@
 
   <h1>Quick Start</h1>
 
-<div><h2 id="connecting-to-the-api">Connecting to the API</h2>
+<div><h2 id="choice-of-technology">Choice of Technology</h2>
+<p>See <a href="../technology-explainer/">Technology Explainer</a> for more information on the two available API choices for Command and Control. gRPC and JSON will both support control of Sonardyne instruments listed <a href="../">here</a>. However, gRPC is a more expandable interface which will be extended to include real-time data and more configuration options, so is recommended for most integrations. </p>
+<h2 id="connecting-to-the-api">Connecting to the API</h2>
 <h3 id="configuring-grpc-or-json-via-web-ui">Configuring gRPC or JSON via Web UI</h3>
 <p>The 'External Control' page in the webUI (located under Configuration&gt;System&gt;Connections) allows selection of a gRPC or JSON interface. The JSON interface operates via any of the ports specified under the 'Network' tab, whereas the gRPC interface operates a TCP server on the port number specified in the webUI.</p>
 <details class="son-info">
