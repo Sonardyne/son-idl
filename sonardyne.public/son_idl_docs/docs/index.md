@@ -19,7 +19,7 @@ The below Sonardyne products support the Sonardyne API:
 
 |System/Instrument|Version|
 |--------|--------|
-|SPRINT-Nav Mini| 1.2.x|
+|SPRINT-Nav Mini| 1.2.607|
 
 ??? son-info "Future Support"
 

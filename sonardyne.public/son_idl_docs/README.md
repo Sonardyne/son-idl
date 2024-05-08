@@ -8,6 +8,7 @@
     - [Adding a file](#adding-a-file)
     - [Editing content](#editing-content)
   - [Syncing changes](#syncing-changes)
+  - [Step by step guide to make changes to master](#step-by-step-guide-to-make-changes-to-master)
 
 ## First time building and running
 
@@ -81,7 +82,58 @@ To "pull" or "get" changes from the server (likely changes made by others), Open
 
 >**Don't forget to push your work to the server once complete, else it won't be visible to anyone else!**
 
-These documents can be updated as often as necessary internally, but the external facing documents hosted on the [Sonardyne GitHub](https://github.com/Sonardyne) should only be updated when necessary, most likely in sync with release updates for the IDL.
+These documents can be updated as often as necessary internally, and changes put into master. The external facing documents can also be changed regularly [Sonardyne GitHub](https://github.com/Sonardyne), however the actual API/IDL defined in the reference sections will likely move slowly. 
+
+## Step by step guide to make changes to master
+
+1. Open VS code and "clone repositry" in source control tab
+2. Paste the following address and hit enter https://jira.snet.sonardyne.net:8443/scm/doc/son_idl_docs.git 
+
+![](docs\assets\Images\readme\Slide1.JPG)  
+3. Define a location on your PC for the repositry to be saved locally
+
+![](docs\assets\Images\readme\Slide2.JPG)  
+4. Navigate back to https://jira.snet.sonardyne.net:8443/scm/doc/son_idl_docs.git 
+5. Create a branch (to be your working branch, created based on master)
+
+![](docs\assets\Images\readme\Slide3.JPG)  
+6. Ensure you are in the right repositry, branch type is custom, branch from master and give your branch a sensible name.
+
+![](docs\assets\Images\readme\Slide4.JPG)  
+7. Once branch is created navigate to VSCode click just above (7)
+8. The branch you have created will be visible in the dropdown. Select this. If not visible try a refresh next to where you clicked previously.
+
+![](docs\assets\Images\readme\Slide5.JPG)  
+9. Ensure you are working in the correct branch by checking it is selected (bottom left)
+10. If you want to edit a markdown file click once to open, and right click open preview to see a live preview. This can be docked/split screen. 
+
+![](docs\assets\Images\readme\Slide6.JPG)  
+11. Make your change, check it is reflected in preview
+
+![](docs\assets\Images\readme\Slide7.JPG)  
+12. To see the data live in it's almost final format open a terminal.
+13. Type "mkdocs serve" to host a local version of the site on your PC. If your files are set to autosave this will update everytime a change is made.
+
+![](docs\assets\Images\readme\Slide8.JPG)  
+14. Once document is served it is visible on the link in the terminal any changes made will be reflected.
+
+![](docs\assets\Images\readme\Slide9.JPG)  
+![](docs\assets\Images\readme\Slide10.JPG)  
+15. Once happy with your changes navigate to source control in VSCode. You can then review individual changes or "stage all".
+16. Once changes that neeed to be commited to master have been staged click "commit" and then "sync" or "commit and sync" and give a reason above the commit button explaining succinctly the changes. This means your changes are now stored on Sonardyne's bitbucket server and locally on your PC. 
+
+![](docs\assets\Images\readme\Slide11.JPG)  
+17. In order for your changes to be merged into master you must do a pull request to merge into master. Select "create pull request"
+18. Choose to merge your branch into master
+
+![](docs\assets\Images\readme\Slide12.JPG)  
+19. Set approvers for this change. For documentation changes this is Roy Nutley or Chris Bennett and John Houlder. You can't review your own changes.
+
+![](docs\assets\Images\readme\Slide13.JPG)  
+
+Once the request is approved master will be updated. Contact John Houlder, Robert Roberts or Rob Sharp for how the documentation is pushed live (to be updated JDH 17/01/24)
+
+
 
 
  

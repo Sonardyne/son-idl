@@ -50,7 +50,7 @@ extra_css:
   - stylesheets/import-styles.css
 
 extra:
-  ex_example_code_path: ./sonardyne.public/example_code
+  ex_example_code_path: ./example_code
   ex_repo_url: https://github.com/Sonardyne/son-idl
   social:
     - icon: fontawesome/brands/github
@@ -100,4 +100,4 @@ plugins:
      caption_position: bottom
      width: 100%
      height: auto
-  
+    
