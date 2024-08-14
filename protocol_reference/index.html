@@ -12,7 +12,7 @@
         <link rel="prev" href="../reference/">
       
       
-        <link rel="next" href="../external_reference/">
+        <link rel="next" href="../json_reference/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Protocol Reference - Documentation</title>
+        <title>Protocol buffer reference - Documentation</title>
       
     
     
@@ -95,16 +95,6 @@
     </div>
     <div data-md-component="announce">
       
-        <aside class="md-banner">
-          <div class="md-banner__inner md-grid md-typeset">
-            
-            
-<h4 class="announcement">Please note that this documentation is in beta and may be subject to change.</h4>
-
-          </div>
-          
-        </aside>
-      
     </div>
     
     
@@ -133,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Protocol Reference
+              Protocol buffer reference
             
           </span>
         </div>
@@ -298,7 +288,7 @@
         
   
   <span class="md-ellipsis">
-    Quick Start
+    Quick start
   </span>
   
 
@@ -317,7 +307,7 @@
         
   
   <span class="md-ellipsis">
-    Technology Explainer
+    Technology explainer
   </span>
   
 
@@ -336,7 +326,7 @@
         
   
   <span class="md-ellipsis">
-    Integration Examples
+    Integration examples
   </span>
   
 
@@ -383,7 +373,7 @@
           
   
   <span class="md-ellipsis">
-    Protocol Reference
+    Protocol buffer reference
   </span>
   
 
@@ -394,7 +384,7 @@
         
   
   <span class="md-ellipsis">
-    Protocol Reference
+    Protocol buffer reference
   </span>
   
 
@@ -423,86 +413,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurationproto" class="md-nav__link">
-    configuration.proto
+  <a href="#sonardyne-publicidlcommonprimitivesproto" class="md-nav__link">
+    sonardyne-public/idl/common/primitives.proto
   </a>
   
-    <nav class="md-nav" aria-label="configuration.proto">
+    <nav class="md-nav" aria-label="sonardyne-public/idl/common/primitives.proto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#aidingconfiguration" class="md-nav__link">
-    AidingConfiguration
+  <a href="#boundeddouble" class="md-nav__link">
+    BoundedDouble
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
+  <a href="#boundedfloat" class="md-nav__link">
+    BoundedFloat
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configurationenvelope" class="md-nav__link">
-    ConfigurationEnvelope
+  <a href="#boundedint32" class="md-nav__link">
+    BoundedInt32
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configurationrequest" class="md-nav__link">
-    ConfigurationRequest
+  <a href="#boundedint64" class="md-nav__link">
+    BoundedInt64
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dopplervelocitylogconfiguration" class="md-nav__link">
-    DopplerVelocityLogConfiguration
+  <a href="#boundeduint32" class="md-nav__link">
+    BoundedUInt32
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#resetconfiguration" class="md-nav__link">
-    ResetConfiguration
+  <a href="#boundeduint64" class="md-nav__link">
+    BoundedUInt64
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#soundvelocityconfiguration" class="md-nav__link">
-    SoundVelocityConfiguration
+  <a href="#fixed32value" class="md-nav__link">
+    Fixed32Value
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#aidingconfigurationaiding_state" class="md-nav__link">
-    AidingConfiguration.AIDING_STATE
+  <a href="#fixed64value" class="md-nav__link">
+    Fixed64Value
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dopplervelocitylogconfigurationupdate_rate" class="md-nav__link">
-    DopplerVelocityLogConfiguration.UPDATE_RATE
+  <a href="#sfixed32value" class="md-nav__link">
+    SFixed32Value
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#resetconfigurationreset_type" class="md-nav__link">
-    ResetConfiguration.RESET_TYPE
+  <a href="#sfixed64value" class="md-nav__link">
+    SFixed64Value
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#soundvelocityconfigurationsound_velocity" class="md-nav__link">
-    SoundVelocityConfiguration.SOUND_VELOCITY
+  <a href="#sint32value" class="md-nav__link">
+    SInt32Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sint64value" class="md-nav__link">
+    SInt64Value
   </a>
   
 </li>
@@ -513,11 +510,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resultproto" class="md-nav__link">
-    result.proto
+  <a href="#sonardyne-publicidlcommonresultproto" class="md-nav__link">
+    sonardyne-public/idl/common/result.proto
   </a>
   
-    <nav class="md-nav" aria-label="result.proto">
+    <nav class="md-nav" aria-label="sonardyne-public/idl/common/result.proto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -540,31 +537,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#serviceproto" class="md-nav__link">
-    service.proto
+  <a href="#sonardyne-publicidlcommontimestampproto" class="md-nav__link">
+    sonardyne-public/idl/common/timestamp.proto
   </a>
   
-    <nav class="md-nav" aria-label="service.proto">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sonardyneservice" class="md-nav__link">
-    SonardyneService
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#timestampproto" class="md-nav__link">
-    timestamp.proto
-  </a>
-  
-    <nav class="md-nav" aria-label="timestamp.proto">
+    <nav class="md-nav" aria-label="sonardyne-public/idl/common/timestamp.proto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -580,11 +557,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uidproto" class="md-nav__link">
-    uid.proto
+  <a href="#sonardyne-publicidlcommonuidproto" class="md-nav__link">
+    sonardyne-public/idl/common/uid.proto
   </a>
   
-    <nav class="md-nav" aria-label="uid.proto">
+    <nav class="md-nav" aria-label="sonardyne-public/idl/common/uid.proto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -600,11 +577,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#versionproto" class="md-nav__link">
-    version.proto
+  <a href="#sonardyne-publicidlcommonversionproto" class="md-nav__link">
+    sonardyne-public/idl/common/version.proto
   </a>
   
-    <nav class="md-nav" aria-label="version.proto">
+    <nav class="md-nav" aria-label="sonardyne-public/idl/common/version.proto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -617,6 +594,209 @@
           <li class="md-nav__item">
   <a href="#versionresponse" class="md-nav__link">
     VersionResponse
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sonardyne-publicidlconfigurationaiding_configurationproto" class="md-nav__link">
+    sonardyne-public/idl/configuration/aiding_configuration.proto
+  </a>
+  
+    <nav class="md-nav" aria-label="sonardyne-public/idl/configuration/aiding_configuration.proto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aidingconfiguration" class="md-nav__link">
+    AidingConfiguration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aidingstate" class="md-nav__link">
+    AidingState
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aidingstateaidingstateenum" class="md-nav__link">
+    AidingState.AidingStateEnum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sonardyne-publicidlconfigurationconfiguration_envelopeproto" class="md-nav__link">
+    sonardyne-public/idl/configuration/configuration_envelope.proto
+  </a>
+  
+    <nav class="md-nav" aria-label="sonardyne-public/idl/configuration/configuration_envelope.proto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurationenvelope" class="md-nav__link">
+    ConfigurationEnvelope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurationrequest" class="md-nav__link">
+    ConfigurationRequest
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sonardyne-publicidlconfigurationdvl_configurationproto" class="md-nav__link">
+    sonardyne-public/idl/configuration/dvl_configuration.proto
+  </a>
+  
+    <nav class="md-nav" aria-label="sonardyne-public/idl/configuration/dvl_configuration.proto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dvlconfiguration" class="md-nav__link">
+    DvlConfiguration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dvlupdaterate" class="md-nav__link">
+    DvlUpdateRate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dvlupdateratedvlupdaterateenum" class="md-nav__link">
+    DvlUpdateRate.DvlUpdateRateEnum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sonardyne-publicidlconfigurationreset_configurationproto" class="md-nav__link">
+    sonardyne-public/idl/configuration/reset_configuration.proto
+  </a>
+  
+    <nav class="md-nav" aria-label="sonardyne-public/idl/configuration/reset_configuration.proto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resetconfiguration" class="md-nav__link">
+    ResetConfiguration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resettype" class="md-nav__link">
+    ResetType
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resettyperesettypeenum" class="md-nav__link">
+    ResetType.ResetTypeEnum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sonardyne-publicidlconfigurationshutdown_configurationproto" class="md-nav__link">
+    sonardyne-public/idl/configuration/shutdown_configuration.proto
+  </a>
+  
+    <nav class="md-nav" aria-label="sonardyne-public/idl/configuration/shutdown_configuration.proto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shutdownconfiguration" class="md-nav__link">
+    ShutdownConfiguration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sonardyne-publicidlconfigurationsound_velocity_configurationproto" class="md-nav__link">
+    sonardyne-public/idl/configuration/sound_velocity_configuration.proto
+  </a>
+  
+    <nav class="md-nav" aria-label="sonardyne-public/idl/configuration/sound_velocity_configuration.proto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soundvelocityconfiguration" class="md-nav__link">
+    SoundVelocityConfiguration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soundvelocitytype" class="md-nav__link">
+    SoundVelocityType
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soundvelocitytypesoundvelocitytypeenum" class="md-nav__link">
+    SoundVelocityType.SoundVelocityTypeEnum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sonardyne-publicidlservicesstate_serviceproto" class="md-nav__link">
+    sonardyne-public/idl/services/state_service.proto
+  </a>
+  
+    <nav class="md-nav" aria-label="sonardyne-public/idl/services/state_service.proto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stateservice" class="md-nav__link">
+    StateService
   </a>
   
 </li>
@@ -647,11 +827,30 @@
   
   
     <li class="md-nav__item">
+      <a href="../json_reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../external_reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    External Reference
+    External reference
   </span>
   
 
@@ -702,71 +901,641 @@
 <p><a name="top"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
-<li>
-<p><a href="#configuration-proto">configuration.proto</a></p>
-<ul>
-<li><a href="#sonardyne-api-AidingConfiguration">AidingConfiguration</a></li>
-<li><a href="#sonardyne-api-Configuration">Configuration</a></li>
-<li><a href="#sonardyne-api-ConfigurationEnvelope">ConfigurationEnvelope</a></li>
-<li><a href="#sonardyne-api-ConfigurationRequest">ConfigurationRequest</a></li>
-<li><a href="#sonardyne-api-DopplerVelocityLogConfiguration">DopplerVelocityLogConfiguration</a></li>
-<li><a href="#sonardyne-api-ResetConfiguration">ResetConfiguration</a></li>
-<li>
-<p><a href="#sonardyne-api-SoundVelocityConfiguration">SoundVelocityConfiguration</a></p>
-</li>
-<li>
-<p><a href="#sonardyne-api-AidingConfiguration-AIDING_STATE">AidingConfiguration.AIDING_STATE</a></p>
-</li>
-<li><a href="#sonardyne-api-DopplerVelocityLogConfiguration-UPDATE_RATE">DopplerVelocityLogConfiguration.UPDATE_RATE</a></li>
-<li><a href="#sonardyne-api-ResetConfiguration-RESET_TYPE">ResetConfiguration.RESET_TYPE</a></li>
-<li><a href="#sonardyne-api-SoundVelocityConfiguration-SOUND_VELOCITY">SoundVelocityConfiguration.SOUND_VELOCITY</a></li>
+<li><a href="#protocol-documentation">Protocol Documentation</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#sonardyne-publicidlcommonprimitivesproto">sonardyne-public/idl/common/primitives.proto</a><ul>
+<li><a href="#boundeddouble">BoundedDouble</a></li>
+<li><a href="#boundedfloat">BoundedFloat</a></li>
+<li><a href="#boundedint32">BoundedInt32</a></li>
+<li><a href="#boundedint64">BoundedInt64</a></li>
+<li><a href="#boundeduint32">BoundedUInt32</a></li>
+<li><a href="#boundeduint64">BoundedUInt64</a></li>
+<li><a href="#fixed32value">Fixed32Value</a></li>
+<li><a href="#fixed64value">Fixed64Value</a></li>
+<li><a href="#sfixed32value">SFixed32Value</a></li>
+<li><a href="#sfixed64value">SFixed64Value</a></li>
+<li><a href="#sint32value">SInt32Value</a></li>
+<li><a href="#sint64value">SInt64Value</a></li>
 </ul>
 </li>
-<li>
-<p><a href="#result-proto">result.proto</a></p>
-<ul>
-<li>
-<p><a href="#sonardyne-api-Result">Result</a></p>
-</li>
-<li>
-<p><a href="#sonardyne-api-Result-Outcome">Result.Outcome</a></p>
-</li>
+<li><a href="#sonardyne-publicidlcommonresultproto">sonardyne-public/idl/common/result.proto</a><ul>
+<li><a href="#result">Result</a></li>
+<li><a href="#resultoutcome">Result.Outcome</a></li>
 </ul>
 </li>
-<li>
-<p><a href="#service-proto">service.proto</a></p>
-<ul>
-<li><a href="#sonardyne-api-SonardyneService">SonardyneService</a></li>
+<li><a href="#sonardyne-publicidlcommontimestampproto">sonardyne-public/idl/common/timestamp.proto</a><ul>
+<li><a href="#timestamp">Timestamp</a></li>
 </ul>
 </li>
-<li>
-<p><a href="#timestamp-proto">timestamp.proto</a></p>
-<ul>
-<li><a href="#sonardyne-api-Timestamp">Timestamp</a></li>
+<li><a href="#sonardyne-publicidlcommonuidproto">sonardyne-public/idl/common/uid.proto</a><ul>
+<li><a href="#uid">Uid</a></li>
 </ul>
 </li>
-<li>
-<p><a href="#uid-proto">uid.proto</a></p>
-<ul>
-<li><a href="#sonardyne-api-Uid">Uid</a></li>
+<li><a href="#sonardyne-publicidlcommonversionproto">sonardyne-public/idl/common/version.proto</a><ul>
+<li><a href="#versionrequest">VersionRequest</a></li>
+<li><a href="#versionresponse">VersionResponse</a></li>
 </ul>
 </li>
-<li>
-<p><a href="#version-proto">version.proto</a></p>
-<ul>
-<li><a href="#sonardyne-api-VersionRequest">VersionRequest</a></li>
-<li><a href="#sonardyne-api-VersionResponse">VersionResponse</a></li>
+<li><a href="#sonardyne-publicidlconfigurationaiding_configurationproto">sonardyne-public/idl/configuration/aiding_configuration.proto</a><ul>
+<li><a href="#aidingconfiguration">AidingConfiguration</a></li>
+<li><a href="#aidingstate">AidingState</a></li>
+<li><a href="#aidingstateaidingstateenum">AidingState.AidingStateEnum</a></li>
 </ul>
 </li>
-<li>
-<p><a href="#scalar-value-types">Scalar Value Types</a></p>
-</li>
+<li><a href="#sonardyne-publicidlconfigurationconfiguration_envelopeproto">sonardyne-public/idl/configuration/configuration_envelope.proto</a><ul>
+<li><a href="#configurationenvelope">ConfigurationEnvelope</a></li>
+<li><a href="#configurationrequest">ConfigurationRequest</a></li>
 </ul>
-<p><a name="configuration-proto"></a></p>
+</li>
+<li><a href="#sonardyne-publicidlconfigurationdvl_configurationproto">sonardyne-public/idl/configuration/dvl_configuration.proto</a><ul>
+<li><a href="#dvlconfiguration">DvlConfiguration</a></li>
+<li><a href="#dvlupdaterate">DvlUpdateRate</a></li>
+<li><a href="#dvlupdateratedvlupdaterateenum">DvlUpdateRate.DvlUpdateRateEnum</a></li>
+</ul>
+</li>
+<li><a href="#sonardyne-publicidlconfigurationreset_configurationproto">sonardyne-public/idl/configuration/reset_configuration.proto</a><ul>
+<li><a href="#resetconfiguration">ResetConfiguration</a></li>
+<li><a href="#resettype">ResetType</a></li>
+<li><a href="#resettyperesettypeenum">ResetType.ResetTypeEnum</a></li>
+</ul>
+</li>
+<li><a href="#sonardyne-publicidlconfigurationshutdown_configurationproto">sonardyne-public/idl/configuration/shutdown_configuration.proto</a><ul>
+<li><a href="#shutdownconfiguration">ShutdownConfiguration</a></li>
+</ul>
+</li>
+<li><a href="#sonardyne-publicidlconfigurationsound_velocity_configurationproto">sonardyne-public/idl/configuration/sound_velocity_configuration.proto</a><ul>
+<li><a href="#soundvelocityconfiguration">SoundVelocityConfiguration</a></li>
+<li><a href="#soundvelocitytype">SoundVelocityType</a></li>
+<li><a href="#soundvelocitytypesoundvelocitytypeenum">SoundVelocityType.SoundVelocityTypeEnum</a></li>
+</ul>
+</li>
+<li><a href="#sonardyne-publicidlservicesstate_serviceproto">sonardyne-public/idl/services/state_service.proto</a><ul>
+<li><a href="#stateservice">StateService</a></li>
+</ul>
+</li>
+<li><a href="#scalar-value-types">Scalar Value Types</a></li>
+</ul>
+<p><a name="sonardyne-public_idl_common_primitives-proto"></a></p>
 <p align="right"><a href="#top">Top</a></p>
 
-<h2 id="configurationproto">configuration.proto</h2>
-<p><a name="sonardyne-api-AidingConfiguration"></a></p>
+<h2 id="sonardyne-publicidlcommonprimitivesproto">sonardyne-public/idl/common/primitives.proto</h2>
+<p><a name="sonardyne-api-pub-common-BoundedDouble"></a></p>
+<h3 id="boundeddouble">BoundedDouble</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#double">double</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#double">double</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#double">double</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-BoundedFloat"></a></p>
+<h3 id="boundedfloat">BoundedFloat</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#float">float</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#float">float</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#float">float</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-BoundedInt32"></a></p>
+<h3 id="boundedint32">BoundedInt32</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#int32">int32</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#int32">int32</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#int32">int32</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-BoundedInt64"></a></p>
+<h3 id="boundedint64">BoundedInt64</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#int64">int64</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#int64">int64</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#int64">int64</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-BoundedUInt32"></a></p>
+<h3 id="boundeduint32">BoundedUInt32</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#uint32">uint32</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#uint32">uint32</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#uint32">uint32</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-BoundedUInt64"></a></p>
+<h3 id="boundeduint64">BoundedUInt64</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#uint64">uint64</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#uint64">uint64</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#uint64">uint64</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-Fixed32Value"></a></p>
+<h3 id="fixed32value">Fixed32Value</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#fixed32">fixed32</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#fixed32">fixed32</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#fixed32">fixed32</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-Fixed64Value"></a></p>
+<h3 id="fixed64value">Fixed64Value</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#fixed64">fixed64</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#fixed64">fixed64</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#fixed64">fixed64</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-SFixed32Value"></a></p>
+<h3 id="sfixed32value">SFixed32Value</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#sfixed32">sfixed32</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#sfixed32">sfixed32</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#sfixed32">sfixed32</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-SFixed64Value"></a></p>
+<h3 id="sfixed64value">SFixed64Value</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#sfixed64">sfixed64</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#sfixed64">sfixed64</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#sfixed64">sfixed64</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-SInt32Value"></a></p>
+<h3 id="sint32value">SInt32Value</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#sint32">sint32</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#sint32">sint32</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#sint32">sint32</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-SInt64Value"></a></p>
+<h3 id="sint64value">SInt64Value</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#sint64">sint64</a></td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>min</td>
+<td><a href="#sint64">sint64</a></td>
+<td></td>
+<td>The minimum value (read only)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><a href="#sint64">sint64</a></td>
+<td></td>
+<td>The maximum value (read only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-public_idl_common_result-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlcommonresultproto">sonardyne-public/idl/common/result.proto</h2>
+<p><a name="sonardyne-api-pub-common-Result"></a></p>
+<h3 id="result">Result</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>success</td>
+<td><a href="#sonardyne-api-pub-common-Result-Outcome">Result.Outcome</a></td>
+<td></td>
+<td>Indicates success or failure. True for success, otherwise False</td>
+</tr>
+<tr>
+<td>message</td>
+<td><a href="#string">string</a></td>
+<td></td>
+<td>Description of the operations result</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-common-Result-Outcome"></a></p>
+<h3 id="resultoutcome">Result.Outcome</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNSPECIFIED</td>
+<td>0</td>
+<td>Result of operation unspecified (default value)</td>
+</tr>
+<tr>
+<td>SUCCESS</td>
+<td>1</td>
+<td>Operation has succeeded</td>
+</tr>
+<tr>
+<td>FAILURE</td>
+<td>2</td>
+<td>Operation has failed</td>
+</tr>
+<tr>
+<td>INVALID</td>
+<td>3</td>
+<td>Operation has been given invalid parameters</td>
+</tr>
+<tr>
+<td>RESTRICTED</td>
+<td>4</td>
+<td>Operation is not allowed - user does not have permission, or instrument is not in the correct mode.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-public_idl_common_timestamp-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlcommontimestampproto">sonardyne-public/idl/common/timestamp.proto</h2>
+<p><a name="sonardyne-api-pub-common-Timestamp"></a></p>
+<h3 id="timestamp">Timestamp</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>common_time_seconds</td>
+<td><a href="#double">double</a></td>
+<td></td>
+<td>Time since the UNIX epoch (01/01/1970) in seconds and fractional seconds</td>
+</tr>
+<tr>
+<td>instrument_time_seconds</td>
+<td><a href="#double">double</a></td>
+<td></td>
+<td>Monotonically increasing instrument time in seconds and fractional seconds</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-public_idl_common_uid-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlcommonuidproto">sonardyne-public/idl/common/uid.proto</h2>
+<p><a name="sonardyne-api-pub-common-Uid"></a></p>
+<h3 id="uid">Uid</h3>
+<p>Used to identify a recipient</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uid</td>
+<td><a href="#uint32">uint32</a></td>
+<td></td>
+<td>Unique identifier of a recipient</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="#string">string</a></td>
+<td></td>
+<td>Human-readable recipient name populated in reply</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-public_idl_common_version-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlcommonversionproto">sonardyne-public/idl/common/version.proto</h2>
+<p><a name="sonardyne-api-pub-common-VersionRequest"></a></p>
+<h3 id="versionrequest">VersionRequest</h3>
+<p><a name="sonardyne-api-pub-common-VersionResponse"></a></p>
+<h3 id="versionresponse">VersionResponse</h3>
+<p>A message that contains Semantic Versioning which comprises a three part version number: Major.Minor.Patch</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>major</td>
+<td><a href="#uint32">uint32</a></td>
+<td></td>
+<td>MAJOR version incremented for incompatible changes that break existing clients.</td>
+</tr>
+<tr>
+<td>minor</td>
+<td><a href="#uint32">uint32</a></td>
+<td></td>
+<td>MINOR version incremented for backward-compatible features or enhancements.</td>
+</tr>
+<tr>
+<td>patch</td>
+<td><a href="#uint32">uint32</a></td>
+<td></td>
+<td>PATCH version incremented for backward-compatible bug fixes or patches.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-public_idl_configuration_aiding_configuration-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlconfigurationaiding_configurationproto">sonardyne-public/idl/configuration/aiding_configuration.proto</h2>
+<p><a name="sonardyne-api-pub-configuration-AidingConfiguration"></a></p>
 <h3 id="aidingconfiguration">AidingConfiguration</h3>
 <p>Position aiding configuration, defines which position input(s) to use for aiding</p>
 <table>
@@ -781,39 +1550,38 @@
 <tbody>
 <tr>
 <td>id</td>
-<td><a href="#sonardyne-api-Uid">Uid</a></td>
+<td><a href="#sonardyne-api-pub-common-Uid">sonardyne.api.pub.common.Uid</a></td>
 <td></td>
 <td>Used to identify recipient instrument/module</td>
 </tr>
 <tr>
 <td>result</td>
-<td><a href="#sonardyne-api-Result">Result</a></td>
+<td><a href="#sonardyne-api-pub-common-Result">sonardyne.api.pub.common.Result</a></td>
 <td></td>
-<td>Populated by instrument when replying to a SetState</td>
+<td>Populated by instrument when replying to a SetState indicating the success of the operation</td>
 </tr>
 <tr>
 <td>enable_gnss</td>
-<td><a href="#sonardyne-api-AidingConfiguration-AIDING_STATE">AidingConfiguration.AIDING_STATE</a></td>
+<td><a href="#sonardyne-api-pub-configuration-AidingState">AidingState</a></td>
 <td></td>
 <td>Used to turn GNSS aiding on or off</td>
 </tr>
 <tr>
 <td>enable_xpos</td>
-<td><a href="#sonardyne-api-AidingConfiguration-AIDING_STATE">AidingConfiguration.AIDING_STATE</a></td>
+<td><a href="#sonardyne-api-pub-configuration-AidingState">AidingState</a></td>
 <td></td>
 <td>Used to turn XPOS aiding on or off</td>
 </tr>
 <tr>
 <td>enable_usbl</td>
-<td><a href="#sonardyne-api-AidingConfiguration-AIDING_STATE">AidingConfiguration.AIDING_STATE</a></td>
+<td><a href="#sonardyne-api-pub-configuration-AidingState">AidingState</a></td>
 <td></td>
 <td>Used to turn USBL aiding on or off</td>
 </tr>
 </tbody>
 </table>
-<p><a name="sonardyne-api-Configuration"></a></p>
-<h3 id="configuration">Configuration</h3>
-<p>Each type of configuration is repeated to allow multiple recipients per message, e.g. resetting multiple algorithms on an instrument</p>
+<p><a name="sonardyne-api-pub-configuration-AidingState"></a></p>
+<h3 id="aidingstate">AidingState</h3>
 <table>
 <thead>
 <tr>
@@ -825,203 +1593,21 @@
 </thead>
 <tbody>
 <tr>
-<td>reset_configurations</td>
-<td><a href="#sonardyne-api-ResetConfiguration">ResetConfiguration</a></td>
+<td>value</td>
+<td><a href="#sonardyne-api-pub-configuration-AidingState-AidingStateEnum">AidingState.AidingStateEnum</a></td>
+<td></td>
+<td>The state of the aiding</td>
+</tr>
+<tr>
+<td>valid_values</td>
+<td><a href="#sonardyne-api-pub-configuration-AidingState-AidingStateEnum">AidingState.AidingStateEnum</a></td>
 <td>repeated</td>
-<td>Collection of reset configurations</td>
-</tr>
-<tr>
-<td>aiding_configurations</td>
-<td><a href="#sonardyne-api-AidingConfiguration">AidingConfiguration</a></td>
-<td>repeated</td>
-<td>Collection of aiding configurations</td>
-</tr>
-<tr>
-<td>sound_velocity_configurations</td>
-<td><a href="#sonardyne-api-SoundVelocityConfiguration">SoundVelocityConfiguration</a></td>
-<td>repeated</td>
-<td>Collection of Sound Velocity configurations</td>
-</tr>
-<tr>
-<td>doppler_velocity_configurations</td>
-<td><a href="#sonardyne-api-DopplerVelocityLogConfiguration">DopplerVelocityLogConfiguration</a></td>
-<td>repeated</td>
-<td>Collection of Doppler Velocity configurations</td>
+<td>The valid values for the aiding state</td>
 </tr>
 </tbody>
 </table>
-<p><a name="sonardyne-api-ConfigurationEnvelope"></a></p>
-<h3 id="configurationenvelope">ConfigurationEnvelope</h3>
-<p>A container of an instrument configuration and timestamp</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>timestamp</td>
-<td><a href="#sonardyne-api-Timestamp">Timestamp</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>result</td>
-<td><a href="#sonardyne-api-Result">Result</a></td>
-<td></td>
-<td>Populated by instrument when replying to a SetState</td>
-</tr>
-<tr>
-<td>configuration</td>
-<td><a href="#sonardyne-api-Configuration">Configuration</a></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><a name="sonardyne-api-ConfigurationRequest"></a></p>
-<h3 id="configurationrequest">ConfigurationRequest</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>timestamp</td>
-<td><a href="#sonardyne-api-Timestamp">Timestamp</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>requestor</td>
-<td><a href="#string">string</a></td>
-<td></td>
-<td>Optional user-definable field</td>
-</tr>
-</tbody>
-</table>
-<p><a name="sonardyne-api-DopplerVelocityLogConfiguration"></a></p>
-<h3 id="dopplervelocitylogconfiguration">DopplerVelocityLogConfiguration</h3>
-<p>Doppler Velocity Log configuration which controls the update rate</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td><a href="#sonardyne-api-Uid">Uid</a></td>
-<td></td>
-<td>Used to identify recipient instrument/module</td>
-</tr>
-<tr>
-<td>result</td>
-<td><a href="#sonardyne-api-Result">Result</a></td>
-<td></td>
-<td>Populated by instrument when replying to a SetState</td>
-</tr>
-<tr>
-<td>update_rate</td>
-<td><a href="#sonardyne-api-DopplerVelocityLogConfiguration-UPDATE_RATE">DopplerVelocityLogConfiguration.UPDATE_RATE</a></td>
-<td></td>
-<td>Specifies the update rate in Hz</td>
-</tr>
-</tbody>
-</table>
-<p><a name="sonardyne-api-ResetConfiguration"></a></p>
-<h3 id="resetconfiguration">ResetConfiguration</h3>
-<p>Set type of reset to execute</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td><a href="#sonardyne-api-Uid">Uid</a></td>
-<td></td>
-<td>Used to identify recipient instrument/module</td>
-</tr>
-<tr>
-<td>result</td>
-<td><a href="#sonardyne-api-Result">Result</a></td>
-<td></td>
-<td>Populated by instrument when replying to a SetState</td>
-</tr>
-<tr>
-<td>reset_type</td>
-<td><a href="#sonardyne-api-ResetConfiguration-RESET_TYPE">ResetConfiguration.RESET_TYPE</a></td>
-<td></td>
-<td>Indicates the type of reset required</td>
-</tr>
-</tbody>
-</table>
-<p><a name="sonardyne-api-SoundVelocityConfiguration"></a></p>
-<h3 id="soundvelocityconfiguration">SoundVelocityConfiguration</h3>
-<p>Sound Velocity configuration which controls the type of trigger to use</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td><a href="#sonardyne-api-Uid">Uid</a></td>
-<td></td>
-<td>Used to identify recipient instrument/module</td>
-</tr>
-<tr>
-<td>result</td>
-<td><a href="#sonardyne-api-Result">Result</a></td>
-<td></td>
-<td>Populated by instrument when replying to a SetState</td>
-</tr>
-<tr>
-<td>sound_velocity_type</td>
-<td><a href="#sonardyne-api-SoundVelocityConfiguration-SOUND_VELOCITY">SoundVelocityConfiguration.SOUND_VELOCITY</a></td>
-<td></td>
-<td>Define the Sound Velocity source</td>
-</tr>
-<tr>
-<td>manual_salinity_value</td>
-<td><a href="#double">double</a></td>
-<td></td>
-<td>Used if Sound Velocity type is INTERNAL_SALINITY</td>
-</tr>
-<tr>
-<td>manual_velocity_value</td>
-<td><a href="#double">double</a></td>
-<td></td>
-<td>Used if Sound Velocity type is INTERNAL_MANUAL</td>
-</tr>
-</tbody>
-</table>
-<p><a name="sonardyne-api-AidingConfiguration-AIDING_STATE"></a></p>
-<h3 id="aidingconfigurationaiding_state">AidingConfiguration.AIDING_STATE</h3>
+<p><a name="sonardyne-api-pub-configuration-AidingState-AidingStateEnum"></a></p>
+<h3 id="aidingstateaidingstateenum">AidingState.AidingStateEnum</h3>
 <table>
 <thead>
 <tr>
@@ -1032,9 +1618,9 @@
 </thead>
 <tbody>
 <tr>
-<td>AIDING_STATE_UNSPECIFIED</td>
+<td>UNKNOWN</td>
 <td>0</td>
-<td>Default value if field is not populated</td>
+<td></td>
 </tr>
 <tr>
 <td>ENABLED</td>
@@ -1048,8 +1634,134 @@
 </tr>
 </tbody>
 </table>
-<p><a name="sonardyne-api-DopplerVelocityLogConfiguration-UPDATE_RATE"></a></p>
-<h3 id="dopplervelocitylogconfigurationupdate_rate">DopplerVelocityLogConfiguration.UPDATE_RATE</h3>
+<p><a name="sonardyne-public_idl_configuration_configuration_envelope-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlconfigurationconfiguration_envelopeproto">sonardyne-public/idl/configuration/configuration_envelope.proto</h2>
+<p><a name="sonardyne-api-pub-configuration-ConfigurationEnvelope"></a></p>
+<h3 id="configurationenvelope">ConfigurationEnvelope</h3>
+<p>A container of instrument configurations, a timestamp and a result.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timestamp</td>
+<td><a href="#sonardyne-api-pub-common-Timestamp">sonardyne.api.pub.common.Timestamp</a></td>
+<td></td>
+<td>Timestamp of the configuration</td>
+</tr>
+<tr>
+<td>result</td>
+<td><a href="#sonardyne-api-pub-common-Result">sonardyne.api.pub.common.Result</a></td>
+<td></td>
+<td>Populated by instrument when replying to a SetState indicating the success of the operation</td>
+</tr>
+<tr>
+<td>configuration</td>
+<td><a href="https://protobuf.dev/programming-guides/proto3/#any">google.protobuf.Any</a></td>
+<td>repeated</td>
+<td>The configuration data - can be any of <a href="#aidingconfiguration">AidingConfiguration</a>, <a href="#dvlconfiguration">DvlConfiguration</a>, <a href="#resetconfiguration">ResetConfiguration</a>, <a href="#shutdownconfiguration">ShutdownConfiguration</a> or <a href="#soundvelocityconfiguration">SoundVelocityConfiguration</a></td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-configuration-ConfigurationRequest"></a></p>
+<h3 id="configurationrequest">ConfigurationRequest</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timestamp</td>
+<td><a href="#sonardyne-api-pub-common-Timestamp">sonardyne.api.pub.common.Timestamp</a></td>
+<td></td>
+<td>Timestamp of the request</td>
+</tr>
+<tr>
+<td>requestor</td>
+<td><a href="#string">string</a></td>
+<td></td>
+<td>Optional user-definable field</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-public_idl_configuration_dvl_configuration-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlconfigurationdvl_configurationproto">sonardyne-public/idl/configuration/dvl_configuration.proto</h2>
+<p><a name="sonardyne-api-pub-configuration-DvlConfiguration"></a></p>
+<h3 id="dvlconfiguration">DvlConfiguration</h3>
+<p>Doppler Velocity Log configuration which controls the update rate</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><a href="#sonardyne-api-pub-common-Uid">sonardyne.api.pub.common.Uid</a></td>
+<td></td>
+<td>Used to identify recipient instrument/module</td>
+</tr>
+<tr>
+<td>result</td>
+<td><a href="#sonardyne-api-pub-common-Result">sonardyne.api.pub.common.Result</a></td>
+<td></td>
+<td>Populated by instrument when replying to a SetState indicating the success of the operation</td>
+</tr>
+<tr>
+<td>update_rate</td>
+<td><a href="#sonardyne-api-pub-configuration-DvlUpdateRate">DvlUpdateRate</a></td>
+<td></td>
+<td>Specifies the update rate</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-configuration-DvlUpdateRate"></a></p>
+<h3 id="dvlupdaterate">DvlUpdateRate</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#sonardyne-api-pub-configuration-DvlUpdateRate-DvlUpdateRateEnum">DvlUpdateRate.DvlUpdateRateEnum</a></td>
+<td></td>
+<td>The type of reset to execute</td>
+</tr>
+<tr>
+<td>valid_values</td>
+<td><a href="#sonardyne-api-pub-configuration-DvlUpdateRate-DvlUpdateRateEnum">DvlUpdateRate.DvlUpdateRateEnum</a></td>
+<td>repeated</td>
+<td>The valid values for the reset type</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-configuration-DvlUpdateRate-DvlUpdateRateEnum"></a></p>
+<h3 id="dvlupdateratedvlupdaterateenum">DvlUpdateRate.DvlUpdateRateEnum</h3>
 <table>
 <thead>
 <tr>
@@ -1060,9 +1772,9 @@
 </thead>
 <tbody>
 <tr>
-<td>UPDATE_RATE_UNSPECIFIED</td>
+<td>UNKNOWN</td>
 <td>0</td>
-<td>Default value if field is not populated</td>
+<td></td>
 </tr>
 <tr>
 <td>TRIGGER_RISING</td>
@@ -1101,8 +1813,71 @@
 </tr>
 </tbody>
 </table>
-<p><a name="sonardyne-api-ResetConfiguration-RESET_TYPE"></a></p>
-<h3 id="resetconfigurationreset_type">ResetConfiguration.RESET_TYPE</h3>
+<p><a name="sonardyne-public_idl_configuration_reset_configuration-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlconfigurationreset_configurationproto">sonardyne-public/idl/configuration/reset_configuration.proto</h2>
+<p><a name="sonardyne-api-pub-configuration-ResetConfiguration"></a></p>
+<h3 id="resetconfiguration">ResetConfiguration</h3>
+<p>Set type of reset to execute</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><a href="#sonardyne-api-pub-common-Uid">sonardyne.api.pub.common.Uid</a></td>
+<td></td>
+<td>Used to identify recipient instrument/module</td>
+</tr>
+<tr>
+<td>result</td>
+<td><a href="#sonardyne-api-pub-common-Result">sonardyne.api.pub.common.Result</a></td>
+<td></td>
+<td>Populated by instrument when replying to a SetState indicating the success of the operation</td>
+</tr>
+<tr>
+<td>reset_type</td>
+<td><a href="#sonardyne-api-pub-configuration-ResetType">ResetType</a></td>
+<td></td>
+<td>Indicates the type of reset required</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-configuration-ResetType"></a></p>
+<h3 id="resettype">ResetType</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#sonardyne-api-pub-configuration-ResetType-ResetTypeEnum">ResetType.ResetTypeEnum</a></td>
+<td></td>
+<td>The type of reset to execute</td>
+</tr>
+<tr>
+<td>valid_values</td>
+<td><a href="#sonardyne-api-pub-configuration-ResetType-ResetTypeEnum">ResetType.ResetTypeEnum</a></td>
+<td>repeated</td>
+<td>The valid values for the reset type</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-configuration-ResetType-ResetTypeEnum"></a></p>
+<h3 id="resettyperesettypeenum">ResetType.ResetTypeEnum</h3>
 <table>
 <thead>
 <tr>
@@ -1113,9 +1888,9 @@
 </thead>
 <tbody>
 <tr>
-<td>RESET_TYPE_UNSPECIFIED</td>
+<td>UNKNOWN</td>
 <td>0</td>
-<td>Default value if field is not populated</td>
+<td></td>
 </tr>
 <tr>
 <td>SOFT_RESET</td>
@@ -1129,8 +1904,113 @@
 </tr>
 </tbody>
 </table>
-<p><a name="sonardyne-api-SoundVelocityConfiguration-SOUND_VELOCITY"></a></p>
-<h3 id="soundvelocityconfigurationsound_velocity">SoundVelocityConfiguration.SOUND_VELOCITY</h3>
+<p><a name="sonardyne-public_idl_configuration_shutdown_configuration-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlconfigurationshutdown_configurationproto">sonardyne-public/idl/configuration/shutdown_configuration.proto</h2>
+<p><a name="sonardyne-api-pub-configuration-ShutdownConfiguration"></a></p>
+<h3 id="shutdownconfiguration">ShutdownConfiguration</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><a href="#sonardyne-api-pub-common-Uid">sonardyne.api.pub.common.Uid</a></td>
+<td></td>
+<td>Used to identify recipient instrument/module</td>
+</tr>
+<tr>
+<td>result</td>
+<td><a href="#sonardyne-api-pub-common-Result">sonardyne.api.pub.common.Result</a></td>
+<td></td>
+<td>Populated by instrument when replying to a SetState indicating the success of the operation</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-public_idl_configuration_sound_velocity_configuration-proto"></a></p>
+<p align="right"><a href="#top">Top</a></p>
+
+<h2 id="sonardyne-publicidlconfigurationsound_velocity_configurationproto">sonardyne-public/idl/configuration/sound_velocity_configuration.proto</h2>
+<p><a name="sonardyne-api-pub-configuration-SoundVelocityConfiguration"></a></p>
+<h3 id="soundvelocityconfiguration">SoundVelocityConfiguration</h3>
+<p>Sound Velocity configuration which controls the type of trigger to use</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><a href="#sonardyne-api-pub-common-Uid">sonardyne.api.pub.common.Uid</a></td>
+<td></td>
+<td>Used to identify recipient instrument/module</td>
+</tr>
+<tr>
+<td>result</td>
+<td><a href="#sonardyne-api-pub-common-Result">sonardyne.api.pub.common.Result</a></td>
+<td></td>
+<td>Populated by instrument when replying to a SetState indicating the success of the operation</td>
+</tr>
+<tr>
+<td>sound_velocity_type</td>
+<td><a href="#sonardyne-api-pub-configuration-SoundVelocityType">SoundVelocityType</a></td>
+<td></td>
+<td>Define the Sound Velocity source</td>
+</tr>
+<tr>
+<td>manual_salinity_value_parts_per_thousand</td>
+<td><a href="#sonardyne-api-pub-common-BoundedDouble">sonardyne.api.pub.common.BoundedDouble</a></td>
+<td></td>
+<td>Used if Sound Velocity type is INTERNAL_SALINITY</td>
+</tr>
+<tr>
+<td>manual_velocity_value_metres_per_second</td>
+<td><a href="#sonardyne-api-pub-common-BoundedDouble">sonardyne.api.pub.common.BoundedDouble</a></td>
+<td></td>
+<td>Used if Sound Velocity type is INTERNAL_MANUAL</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-configuration-SoundVelocityType"></a></p>
+<h3 id="soundvelocitytype">SoundVelocityType</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><a href="#sonardyne-api-pub-configuration-SoundVelocityType-SoundVelocityTypeEnum">SoundVelocityType.SoundVelocityTypeEnum</a></td>
+<td></td>
+<td>Define the Sound Velocity source</td>
+</tr>
+<tr>
+<td>valid_values</td>
+<td><a href="#sonardyne-api-pub-configuration-SoundVelocityType-SoundVelocityTypeEnum">SoundVelocityType.SoundVelocityTypeEnum</a></td>
+<td>repeated</td>
+<td>Define the range of valid values</td>
+</tr>
+</tbody>
+</table>
+<p><a name="sonardyne-api-pub-configuration-SoundVelocityType-SoundVelocityTypeEnum"></a></p>
+<h3 id="soundvelocitytypesoundvelocitytypeenum">SoundVelocityType.SoundVelocityTypeEnum</h3>
 <table>
 <thead>
 <tr>
@@ -1141,9 +2021,9 @@
 </thead>
 <tbody>
 <tr>
-<td>SOUND_VELOCITY_UNSPECIFIED</td>
+<td>UNKNOWN</td>
 <td>0</td>
-<td>Default value if field is not populated</td>
+<td></td>
 </tr>
 <tr>
 <td>EXTERNAL</td>
@@ -1162,70 +2042,12 @@
 </tr>
 </tbody>
 </table>
-<p><a name="result-proto"></a></p>
+<p><a name="sonardyne-public_idl_services_state_service-proto"></a></p>
 <p align="right"><a href="#top">Top</a></p>
 
-<h2 id="resultproto">result.proto</h2>
-<p><a name="sonardyne-api-Result"></a></p>
-<h3 id="result">Result</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>success</td>
-<td><a href="#sonardyne-api-Result-Outcome">Result.Outcome</a></td>
-<td></td>
-<td>Indicates success or failure. True for success, otherwise False</td>
-</tr>
-<tr>
-<td>message</td>
-<td><a href="#string">string</a></td>
-<td></td>
-<td>Description of the operations result</td>
-</tr>
-</tbody>
-</table>
-<p><a name="sonardyne-api-Result-Outcome"></a></p>
-<h3 id="resultoutcome">Result.Outcome</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Number</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SUCCESS</td>
-<td>0</td>
-<td>Operation has succeeded</td>
-</tr>
-<tr>
-<td>FAILURE</td>
-<td>1</td>
-<td>Operation has failed</td>
-</tr>
-<tr>
-<td>INVALID</td>
-<td>2</td>
-<td>Operation has been given invalid parameters</td>
-</tr>
-</tbody>
-</table>
-<p><a name="service-proto"></a></p>
-<p align="right"><a href="#top">Top</a></p>
-
-<h2 id="serviceproto">service.proto</h2>
-<p><a name="sonardyne-api-SonardyneService"></a></p>
-<h3 id="sonardyneservice">SonardyneService</h3>
+<h2 id="sonardyne-publicidlservicesstate_serviceproto">sonardyne-public/idl/services/state_service.proto</h2>
+<p><a name="sonardyne-api-StateService"></a></p>
+<h3 id="stateservice">StateService</h3>
 <table>
 <thead>
 <tr>
@@ -1238,127 +2060,27 @@
 <tbody>
 <tr>
 <td>GetVersion</td>
-<td><a href="#sonardyne-api-VersionRequest">VersionRequest</a></td>
-<td><a href="#sonardyne-api-VersionResponse">VersionResponse</a></td>
+<td><a href="#sonardyne-api-pub-common-VersionRequest">pub.common.VersionRequest</a></td>
+<td><a href="#sonardyne-api-pub-common-VersionResponse">pub.common.VersionResponse</a></td>
 <td>Gets the api protocol version</td>
 </tr>
 <tr>
 <td>SetState</td>
-<td><a href="#sonardyne-api-ConfigurationEnvelope">ConfigurationEnvelope</a></td>
-<td><a href="#sonardyne-api-ConfigurationEnvelope">ConfigurationEnvelope</a></td>
+<td><a href="#sonardyne-api-pub-configuration-ConfigurationEnvelope">pub.configuration.ConfigurationEnvelope</a></td>
+<td><a href="#sonardyne-api-pub-configuration-ConfigurationEnvelope">pub.configuration.ConfigurationEnvelope</a></td>
 <td>Sets instrument configuration. Returns the updated configuration, result, and timestamp</td>
 </tr>
 <tr>
 <td>GetState</td>
-<td><a href="#sonardyne-api-ConfigurationRequest">ConfigurationRequest</a></td>
-<td><a href="#sonardyne-api-ConfigurationEnvelope">ConfigurationEnvelope</a></td>
+<td><a href="#sonardyne-api-pub-configuration-ConfigurationRequest">pub.configuration.ConfigurationRequest</a></td>
+<td><a href="#sonardyne-api-pub-configuration-ConfigurationEnvelope">pub.configuration.ConfigurationEnvelope</a></td>
 <td>Gets instrument configuration. The 'ConfigurationRequest' contains required instrument specific configuration type</td>
 </tr>
 <tr>
 <td>StateStream</td>
-<td><a href="#sonardyne-api-ConfigurationRequest">ConfigurationRequest</a></td>
-<td><a href="#sonardyne-api-ConfigurationEnvelope">ConfigurationEnvelope</a> stream</td>
+<td><a href="#sonardyne-api-pub-configuration-ConfigurationRequest">pub.configuration.ConfigurationRequest</a></td>
+<td><a href="#sonardyne-api-pub-configuration-ConfigurationEnvelope">pub.configuration.ConfigurationEnvelope</a> stream</td>
 <td>A stream which publishes all state changes on the instrument.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="timestamp-proto"></a></p>
-<p align="right"><a href="#top">Top</a></p>
-
-<h2 id="timestampproto">timestamp.proto</h2>
-<p><a name="sonardyne-api-Timestamp"></a></p>
-<h3 id="timestamp">Timestamp</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>common_time</td>
-<td><a href="#double">double</a></td>
-<td></td>
-<td>Time since the UNIX epoch (01/01/1970) in seconds and fractional seconds</td>
-</tr>
-<tr>
-<td>instrument_time</td>
-<td><a href="#double">double</a></td>
-<td></td>
-<td>Monotonically increasing instrument time in seconds and fractional seconds</td>
-</tr>
-</tbody>
-</table>
-<p><a name="uid-proto"></a></p>
-<p align="right"><a href="#top">Top</a></p>
-
-<h2 id="uidproto">uid.proto</h2>
-<p><a name="sonardyne-api-Uid"></a></p>
-<h3 id="uid">Uid</h3>
-<p>Used to identify a recipient</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>uid</td>
-<td><a href="#uint32">uint32</a></td>
-<td></td>
-<td>Unique identifier of a recipient</td>
-</tr>
-<tr>
-<td>name</td>
-<td><a href="#string">string</a></td>
-<td></td>
-<td>Human-readable recipient name populated in reply</td>
-</tr>
-</tbody>
-</table>
-<p><a name="version-proto"></a></p>
-<p align="right"><a href="#top">Top</a></p>
-
-<h2 id="versionproto">version.proto</h2>
-<p><a name="sonardyne-api-VersionRequest"></a></p>
-<h3 id="versionrequest">VersionRequest</h3>
-<p><a name="sonardyne-api-VersionResponse"></a></p>
-<h3 id="versionresponse">VersionResponse</h3>
-<p>A message that contains Semantic Versioning which comprises a three part version number: Major.Minor.Patch</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Major</td>
-<td><a href="#uint32">uint32</a></td>
-<td></td>
-<td>MAJOR version incremented for incompatible changes that break existing clients.</td>
-</tr>
-<tr>
-<td>Minor</td>
-<td><a href="#uint32">uint32</a></td>
-<td></td>
-<td>MINOR version incremented for backward-compatible features or enhancements.</td>
-</tr>
-<tr>
-<td>Patch</td>
-<td><a href="#uint32">uint32</a></td>
-<td></td>
-<td>PATCH version incremented for backward-compatible bug fixes or patches.</td>
 </tr>
 </tbody>
 </table>
@@ -1589,13 +2311,13 @@
         
         
           
-          <a href="../external_reference/" class="md-footer__link md-footer__link--next" aria-label="Next: External Reference">
+          <a href="../json_reference/" class="md-footer__link md-footer__link--next" aria-label="Next: JSON reference">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                External Reference
+                JSON reference
               </div>
             </div>
             <div class="md-footer__button md-icon">

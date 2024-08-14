@@ -20,7 +20,7 @@
     
     
       
-        <title>Integration Examples - Documentation</title>
+        <title>Integration examples - Documentation</title>
       
     
     
@@ -95,16 +95,6 @@
     </div>
     <div data-md-component="announce">
       
-        <aside class="md-banner">
-          <div class="md-banner__inner md-grid md-typeset">
-            
-            
-<h4 class="announcement">Please note that this documentation is in beta and may be subject to change.</h4>
-
-          </div>
-          
-        </aside>
-      
     </div>
     
     
@@ -133,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Integration Examples
+              Integration examples
             
           </span>
         </div>
@@ -298,7 +288,7 @@
         
   
   <span class="md-ellipsis">
-    Quick Start
+    Quick start
   </span>
   
 
@@ -317,7 +307,7 @@
         
   
   <span class="md-ellipsis">
-    Technology Explainer
+    Technology explainer
   </span>
   
 
@@ -343,7 +333,7 @@
           
   
   <span class="md-ellipsis">
-    Integration Examples
+    Integration examples
   </span>
   
 
@@ -354,7 +344,7 @@
         
   
   <span class="md-ellipsis">
-    Integration Examples
+    Integration examples
   </span>
   
 
@@ -397,7 +387,7 @@
         
           <li class="md-nav__item">
   <a href="#sound-velocity" class="md-nav__link">
-    Sound Velocity
+    Sound velocity
   </a>
   
 </li>
@@ -487,7 +477,7 @@
         
           <li class="md-nav__item">
   <a href="#sound-velocity_1" class="md-nav__link">
-    Sound Velocity
+    Sound velocity
   </a>
   
 </li>
@@ -587,7 +577,26 @@
         
   
   <span class="md-ellipsis">
-    Protocol Reference
+    Protocol buffer reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json_reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON reference
   </span>
   
 
@@ -606,7 +615,7 @@
         
   
   <span class="md-ellipsis">
-    External Reference
+    External reference
   </span>
   
 
@@ -652,10 +661,10 @@
   
 
 
-  <h1>Integration Examples</h1>
+  <h1>Integration examples</h1>
 
 <div><h2 id="sprint-nav-mini">Sprint-Nav Mini</h2>
-<p>SPRINT-Nav Mini is designed to be easily integrated into multiple classes of vehicle/vessel. All available inputs and outputs, as well as detailed integration documents, are described in the product manual. This section provides a broad overview of how to integrate a SPRINT-Nav Mini on a vehicle/vessel.</p>
+<p>SPRINT-Nav Mini is designed to be easily integrated into multiple classes of vehicle/vessel. All available inputs and outputs, as well as detailed integration documents, are described in the product manual and the manual should be considered the reference for the use of these systems. This section provides a broad overview of how the API alongside other messages can be used with a SPRINT-Nav mini.</p>
 <h4 id="physical-installation">Physical installation</h4>
 <p>SPRINT-Nav Mini can be installed at any convenient location where the DVL has an unobstructed view of the seabed. However, to gain optimal performance there are some guidelines. </p>
 <p>CAD .stp files are available on Sonardyne's <a href="https://www.sonardyne.com/products-knowledge-base/sprint-nav-mini-stp-files/">knowledge base</a></p>
@@ -682,7 +691,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <li>NTP</li>
 </ul>
 <p>Time can also be output by a SPRINT-Nav Mini via an output ZDA + 1PPS, typically used for time synchronising other onboard survey sensors. </p>
-<h4 id="sound-velocity">Sound Velocity</h4>
+<h4 id="sound-velocity">Sound velocity</h4>
 <p>Accurate knowledge of Sound Velocity is crucial for Hybrid (DVL/INS) navigation, as such SPRINT-Nav Mini supports three types of SV. It is recommended to always use external SV for operations requiring high navigation accuracy. </p>
 <ul>
 <li>Manual<ul>
@@ -694,7 +703,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 </ul>
 </li>
 <li>External <ul>
-<li>Uses an external SV sensor to input a direct read Sound Velocity into the SPRINT-Nav Mini.</li>
+<li>Uses an external SV sensor to input a direct read sound velocity into the SPRINT-Nav Mini.</li>
 </ul>
 </li>
 </ul>
@@ -709,7 +718,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 </ul>
 </details>
 <h4 id="dvl-mounting">DVL mounting</h4>
-<p>SPRINT-Nav Mini can be mounted at any angle, however typically the DVL is mounted facing directly down on the vehicle providing the best tracking of the seabed. Occasionally on trenchers or other vehicles where a direct view of the seabed is not possible, the DVL may be installed at an angle. </p>
+<p>SPRINT-Nav Mini can be mounted at any angle however, typically the DVL is mounted facing directly down on the vehicle providing the best tracking of the seabed. Occasionally on trenchers or other vehicles where a direct view of the seabed is not possible, the DVL may be installed at an angle. </p>
 <p><a class="glightbox" href="../assets/Images/Mini_Beams.gif" data-type="image" data-width="100%" data-height="auto" data-title="SPRINT-Nav Mini beams." data-desc-position="bottom"><img alt="DVL_Beams" data-title="SPRINT-Nav Mini beams." src="../assets/Images/Mini_Beams.gif" style="width: 40%;"></a></p>
 <h4 id="position-aiding">Position aiding</h4>
 <h5 id="usbl">USBL</h5>
@@ -719,7 +728,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <h5 id="xpos">XPOS</h5>
 <p>SPRINT-Nav Mini supports Sonardyne's proprietary XPOS message for aiding of generic position observations. Typically an XPOS message is provided to a SPRINT-Nav Mini when a vehicle is docked, initialising on deck or any scenario whereby a GNSS or USBL message is not appropriate. </p>
 <h2 id="auv-x-sprint-nav-mini">AUV x SPRINT-Nav Mini</h2>
-<p>SPRINT-Nav Mini has been designed for AUV integration and this section will describe an example integration into a 10" AUV, with a common setup with a mix of input, output, C2 (Command &amp; Control) and peripheral survey sensors. </p>
+<p>SPRINT-Nav Mini has been designed for AUV integration and this section will describe an example integration into a 10" AUV, with a common setup with a mix of input, output, C2 (command &amp; control) and peripheral survey sensors. </p>
 <details class="son-info">
 <summary>Inputs</summary>
 <ul>
@@ -760,7 +769,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <summary>GNSS aiding on an AUV</summary>
 <ul>
 <li>When configuring a GNSS in SPRINT-Nav Mini, consider that GNSS accuracy estimates are often optimistic. Sonardyne recommend setting a relaxed manual GNSS quality.</li>
-<li>GNSS often gives erroneous positions as a vehicle surfaces and when a vehicle dives. SPRINT-Nav Mini will reject data that falls outside its own position error estimate, however why not consider disabling GNSS when diving and for a period of time after breaking the surface. </li>
+<li>GNSS often gives erroneous positions as a vehicle surfaces and when a vehicle dives. SPRINT-Nav Mini will reject data that falls outside its own position error estimate however, why not consider disabling GNSS when diving and for a period of time after breaking the surface. </li>
 <li>SPRINT-Nav Mini doesn't currently use VTG for velocity aiding, but will in the future. </li>
 </ul>
 </details>
@@ -773,11 +782,11 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <li>Ranger 2 Robotics Pack can track up to 10 vehicles at once, simultaneously sending them correct absolute position information as well as exchanging telemetry. </li>
 </ul>
 </details>
-<h4 id="sound-velocity_1">Sound Velocity</h4>
-<p>For sound velocity a Valeport 25mm SVS is used, outputting the valeport standard telegram into the vehicle control system and then over UDP into the SPRINT-Nav Mini.  </p>
+<h4 id="sound-velocity_1">Sound velocity</h4>
+<p>For sound velocity a Valeport 25 mm SVS is used, outputting the valeport standard telegram into the vehicle control system and then over UDP into the SPRINT-Nav Mini.  </p>
 <h3 id="outputs">Outputs</h3>
 <h4 id="hnav">HNAV</h4>
-<p>HNAV is output at 100Hz for vehicle guidance purposes. All status flags are decoded and presented in the AUV Web UI so that the operator knows when it is ok for the vehicle to begin operations. Certain flags from the HNAV are decoded which will cause vehicle behaviours. Please see <a href="../reference/">Reference</a> for further details.</p>
+<p>HNAV is output at 100 Hz for vehicle guidance purposes. All status flags are decoded and presented in the AUV Web UI so that the operator knows when it is ok for the vehicle to begin operations. Certain flags from the HNAV are decoded which will cause vehicle behaviours. See <a href="../reference/">Reference</a> for further details.</p>
 <details class="son-info">
 <summary>HNAV Notes</summary>
 <ul>
@@ -852,7 +861,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../technology-explainer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Technology Explainer">
+          <a href="../technology-explainer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Technology explainer">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -862,7 +871,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
                 Previous
               </span>
               <div class="md-ellipsis">
-                Technology Explainer
+                Technology explainer
               </div>
             </div>
           </a>

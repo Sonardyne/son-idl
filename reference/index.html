@@ -95,16 +95,6 @@
     </div>
     <div data-md-component="announce">
       
-        <aside class="md-banner">
-          <div class="md-banner__inner md-grid md-typeset">
-            
-            
-<h4 class="announcement">Please note that this documentation is in beta and may be subject to change.</h4>
-
-          </div>
-          
-        </aside>
-      
     </div>
     
     
@@ -298,7 +288,7 @@
         
   
   <span class="md-ellipsis">
-    Quick Start
+    Quick start
   </span>
   
 
@@ -317,7 +307,7 @@
         
   
   <span class="md-ellipsis">
-    Technology Explainer
+    Technology explainer
   </span>
   
 
@@ -336,7 +326,7 @@
         
   
   <span class="md-ellipsis">
-    Integration Examples
+    Integration examples
   </span>
   
 
@@ -402,14 +392,14 @@
         
           <li class="md-nav__item">
   <a href="#simple-binary-protocol" class="md-nav__link">
-    Simple Binary Protocol
+    Simple binary protocol
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#hnav-definition" class="md-nav__link">
-    HNAV Definition
+    HNAV definition
   </a>
   
 </li>
@@ -444,7 +434,26 @@
         
   
   <span class="md-ellipsis">
-    Protocol Reference
+    Protocol buffer reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json_reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSON reference
   </span>
   
 
@@ -463,7 +472,7 @@
         
   
   <span class="md-ellipsis">
-    External Reference
+    External reference
   </span>
   
 
@@ -513,18 +522,18 @@
 
 <div><h2 id="hnav">HNAV</h2>
 <p>The Hybrid Navigation (HNAV) message includes all information required for vehicle guidance, control and navigation.
-All fields will be initialised to 0, once a field has been assigned a value it will retain that value until a further update is available. The status bits should be used to determine when data is old/stale.
-The HNAV requires the Simple binary protocol to successfully decode the message, see appendix G3 Simple Binary Protocol. 
+All fields will be initialised to 0. once a field has been assigned a value it will retain that value until a further update is available. The status bits should be used to determine when data is old/stale.
+The HNAV requires the Simple binary protocol to successfully decode the message; see Appendix G3 Simple Binary Protocol. 
 All data is transmitted LSB first.</p>
 <p><a href="https://github.com/Sonardyne/sprint-nav-mini-hnav">A C++ HNAV Decoder is available on Sonardyne's Github</a></p>
-<h3 id="simple-binary-protocol">Simple Binary Protocol</h3>
+<h3 id="simple-binary-protocol">Simple binary protocol</h3>
 <table>
 <thead>
 <tr>
-<th>Data Field</th>
-<th>LSB/(FixedValue)</th>
+<th>Data field</th>
+<th>LSB/(fixed value)</th>
 <th>Range</th>
-<th>Data Type</th>
+<th>Data type</th>
 <th>Size(Bytes)</th>
 <th>Notes</th>
 </tr>
@@ -601,14 +610,14 @@ All data is transmitted LSB first.</p>
 <p>Each Output message has its own Message ID, the message ID of HNAV is 0</p>
 <p>Each Output message will have a fixed size, the HNAV is 55 Bytes</p>
 </details>
-<h3 id="hnav-definition">HNAV Definition</h3>
+<h3 id="hnav-definition">HNAV definition</h3>
 <table>
 <thead>
 <tr>
-<th>Data Field</th>
-<th>LSB/(FixedValue)</th>
+<th>Data field</th>
+<th>LSB/(fixed value)</th>
 <th>Range</th>
-<th>Data Type</th>
+<th>Data type</th>
 <th>Size(Bytes)</th>
 <th>Notes</th>
 </tr>
@@ -903,7 +912,7 @@ All data is transmitted LSB first.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../integration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Integration Examples">
+          <a href="../integration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Integration examples">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -913,20 +922,20 @@ All data is transmitted LSB first.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Integration Examples
+                Integration examples
               </div>
             </div>
           </a>
         
         
           
-          <a href="../protocol_reference/" class="md-footer__link md-footer__link--next" aria-label="Next: Protocol Reference">
+          <a href="../protocol_reference/" class="md-footer__link md-footer__link--next" aria-label="Next: Protocol buffer reference">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Protocol Reference
+                Protocol buffer reference
               </div>
             </div>
             <div class="md-footer__button md-icon">
