@@ -1,0 +1,44 @@
+//Copyright 2024 Sonardyne
+
+//Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+//documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
+//rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+//permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+//The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+//Software.
+
+//THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+//WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+//COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+//OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+syntax = "proto3";
+
+import "sonardyne-public/idl/common/result.proto";
+import "sonardyne-public/idl/common/uid.proto";
+import "sonardyne-public/idl/common/primitives.proto";
+
+package sonardyne.api.pub.configuration;
+
+message SoundVelocityType{
+  enum SoundVelocityTypeEnum{
+    UNKNOWN                    = 0;
+    EXTERNAL                   = 1; // Use external - N.B. The port must be specified in the webUI
+    INTERNAL_SALINITY          = 2; // Use internal (derived from salinity)
+    INTERNAL_MANUAL            = 3; // Use manually defined value
+  }
+
+  SoundVelocityTypeEnum value = 1; // Define the Sound Velocity source
+  repeated SoundVelocityTypeEnum valid_values = 2; // Define the range of valid values
+}
+
+// Sound Velocity configuration which controls the type of trigger to use
+message SoundVelocityConfiguration{
+
+  sonardyne.api.pub.common.Uid id                         = 1; // Used to identify recipient instrument/module
+  sonardyne.api.pub.common.Result result                  = 2; // Populated by instrument when replying to a SetState indicating the success of the operation
+  SoundVelocityType sound_velocity_type                   = 3; // Define the Sound Velocity source
+  sonardyne.api.pub.common.BoundedDouble manual_salinity_value_parts_per_thousand = 4; // Used if Sound Velocity type is INTERNAL_SALINITY
+  sonardyne.api.pub.common.BoundedDouble manual_velocity_value_metres_per_second  = 5; // Used if Sound Velocity type is INTERNAL_MANUAL
+}

@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>	
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="sonardyne-public\idl\common\Primitives.cs" />
+    <Compile Remove="sonardyne-public\idl\common\Result.cs" />
+    <Compile Remove="sonardyne-public\idl\common\Timestamp.cs" />
+    <Compile Remove="sonardyne-public\idl\common\Uid.cs" />
+    <Compile Remove="sonardyne-public\idl\common\Version.cs" />
+    <Compile Remove="sonardyne-public\idl\configuration\AidingConfiguration.cs" />
+    <Compile Remove="sonardyne-public\idl\configuration\ConfigurationEnvelope.cs" />
+    <Compile Remove="sonardyne-public\idl\configuration\DvlConfiguration.cs" />
+    <Compile Remove="sonardyne-public\idl\configuration\ResetConfiguration.cs" />
+    <Compile Remove="sonardyne-public\idl\configuration\ShutdownConfiguration.cs" />
+    <Compile Remove="sonardyne-public\idl\configuration\SoundVelocityConfiguration.cs" />
+    <Compile Remove="sonardyne-public\idl\services\StateService.cs" />
+    <Compile Remove="sonardyne-public\idl\services\StateServiceGrpc.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="sonardyne-public\idl\common\Primitives.cs" />
+    <None Include="sonardyne-public\idl\common\Result.cs" />
+    <None Include="sonardyne-public\idl\common\Timestamp.cs" />
+    <None Include="sonardyne-public\idl\common\Uid.cs" />
+    <None Include="sonardyne-public\idl\common\Version.cs" />
+    <None Include="sonardyne-public\idl\configuration\AidingConfiguration.cs" />
+    <None Include="sonardyne-public\idl\configuration\ConfigurationEnvelope.cs" />
+    <None Include="sonardyne-public\idl\configuration\DvlConfiguration.cs" />
+    <None Include="sonardyne-public\idl\configuration\ResetConfiguration.cs" />
+    <None Include="sonardyne-public\idl\configuration\ShutdownConfiguration.cs" />
+    <None Include="sonardyne-public\idl\configuration\SoundVelocityConfiguration.cs" />
+    <None Include="sonardyne-public\idl\services\StateService.cs" />
+    <None Include="sonardyne-public\idl\services\StateServiceGrpc.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.27.2" />
+    <PackageReference Include="Grpc.Net.client" Version="2.63.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.64.0">
+      <PrivateAssets>all</PrivateAssets>      
+    </PackageReference>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\common\primitives.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\common\result.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\common\timestamp.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\common\uid.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\common\version.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\configuration\reset_configuration.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\configuration\aiding_configuration.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None"> 
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\configuration\configuration_envelope.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\configuration\dvl_configuration.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\configuration\shutdown_configuration.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\configuration\sound_velocity_configuration.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcServices="None">
+	  </Protobuf>
+	  <Protobuf Include="$(ProjectDir)..\..\..\sonardyne-public\idl\services\state_service.proto" ProtoRoot="$(ProjectDir)..\..\..\" OutputDir="$(ProjectDir)" GrpcOutputDir="$(ProjectDir)" GrpcServices="Client">
+	  </Protobuf>
+  </ItemGroup>
+
+</Project>
