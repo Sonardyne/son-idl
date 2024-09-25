@@ -6,7 +6,7 @@ SPRINT-Nav Mini is designed to be easily integrated into multiple classes of veh
 
 SPRINT-Nav Mini can be installed at any convenient location where the DVL has an unobstructed view of the seabed. However, to gain optimal performance there are some guidelines. 
 
-CAD .stp files are available on Sonardyne's [knowledge base](https://www.sonardyne.com/products-knowledge-base/sprint-nav-mini-stp-files/)
+CAD (Computer Aided Design) .stp files are available on Sonardyne's [knowledge base](https://www.sonardyne.com/products-knowledge-base/sprint-nav-mini-stp-files/)
 
 ??? son-info "Installation Guidelines"
     - The location must not be subject to excessive vibration or impulse shock.  
@@ -18,7 +18,7 @@ CAD .stp files are available on Sonardyne's [knowledge base](https://www.sonardy
  
 #### Time
 
-The SPRINT-Nav Mini can be time synchronised to UTC. This can be achieved via NTP or by providing a 1PPS signal and ZDA NMEA-0183 message from a GPS receiver or similar clock source. 
+The SPRINT-Nav Mini can be time synchronised to UTC. This can be achieved via NTP or by providing a 1PPS signal and ZDA NMEA-0183 message from a GNSS receiver or similar clock source. 
 
 If the serial communication link has a known, stable latency then it is possible to use ZDA only, but 1PPS is recommended where possible. If the SPRINT-Nav Mini has been time synchronised and its quality is less than or equal to 0.5s it is possible to stop providing ZDA messages and simply rely on 1PPS aiding without any loss of accuracy.
 
@@ -37,10 +37,10 @@ Time can also be output by a SPRINT-Nav Mini via an output ZDA + 1PPS, typically
 
 #### Sound velocity
 
-Accurate knowledge of Sound Velocity is crucial for Hybrid (DVL/INS) navigation, as such SPRINT-Nav Mini supports three types of SV. It is recommended to always use external SV for operations requiring high navigation accuracy. 
+Accurate knowledge of Sound Velocity (SV) is crucial for Hybrid (DVL/INS) navigation, as such SPRINT-Nav Mini supports three types of SV. It is recommended to always use external SV for operations requiring high navigation accuracy. 
 
 * Manual
-    * Provides an ability to type in a Manual SV, to be used when SV is very stable or as a backup. 
+    * Provides an ability to type in a manual SV, to be used when SV is very stable or as a backup. 
 * Derived
     * Uses water temperature and a manually entered salinity value to calculate SV.
 * External 
@@ -73,7 +73,7 @@ SPRINT-Nav Mini supports Sonardyne's proprietary XPOS message for aiding of gene
 
 ## AUV x SPRINT-Nav Mini
 
-SPRINT-Nav Mini has been designed for AUV integration and this section will describe an example integration into a 10" AUV, with a common setup with a mix of input, output, C2 (command & control) and peripheral survey sensors. 
+SPRINT-Nav Mini has been designed for AUV integration and this section will describe an example integration into a 10" diameter AUV, with a common setup with a mix of input, output, C2 (command & control) and peripheral survey sensors. 
 
 ??? son-info "Inputs"
     - GNSS
@@ -81,7 +81,7 @@ SPRINT-Nav Mini has been designed for AUV integration and this section will desc
     - Sound Velocity 
 
 ??? son-info "Outputs"
-    - HNAV
+    - HNav
     - ZDA + 1PPS
 
 ??? son-info "C2"
@@ -107,7 +107,7 @@ When on the surface the AUV receives both positioning updates (GGA) and timing (
 
 ??? son-info "GNSS aiding on an AUV"
     * When configuring a GNSS in SPRINT-Nav Mini, consider that GNSS accuracy estimates are often optimistic. Sonardyne recommend setting a relaxed manual GNSS quality.
-    * GNSS often gives erroneous positions as a vehicle surfaces and when a vehicle dives. SPRINT-Nav Mini will reject data that falls outside its own position error estimate however, why not consider disabling GNSS when diving and for a period of time after breaking the surface. 
+    * GNSS often gives erroneous positions as a vehicle surfaces and when a vehicle dives. SPRINT-Nav Mini will reject data that falls outside its own position error estimate, disable GNSS when diving and for a period of time after breaking the surface. 
     * SPRINT-Nav Mini doesn't currently use VTG for velocity aiding, but will in the future. 
 
 
@@ -119,16 +119,18 @@ When submerged, the AUV utilises Sonardyne's Mini Ranger 2 Robotics Pack to trac
     * Ranger 2 Robotics Pack can track up to 10 vehicles at once, simultaneously sending them correct absolute position information as well as exchanging telemetry. 
 
 #### Sound velocity
-For sound velocity a Valeport 25 mm SVS is used, outputting the valeport standard telegram into the vehicle control system and then over UDP into the SPRINT-Nav Mini.  
+For sound velocity a Valeport 25 mm SVS is used, outputting the Valeport standard telegram into the vehicle control system and then over UDP into the SPRINT-Nav Mini.  
 
 ### Outputs
 
-#### HNAV
-HNAV is output at 100 Hz for vehicle guidance purposes. All status flags are decoded and presented in the AUV Web UI so that the operator knows when it is ok for the vehicle to begin operations. Certain flags from the HNAV are decoded which will cause vehicle behaviours. See [Reference](reference.md) for further details.
+#### HNav
+HNav is output at 100 Hz for vehicle guidance purposes. All status flags are decoded and presented in the AUV Web UI so that the operator knows when it is ok for the vehicle to begin operations. 
 
-??? son-info "HNAV Notes"
-    * If an output message is populated at a rate quicker than the rate of the incoming sensor the HNAV status field will reflect invalid (because the flag indicates invalid or old). For example in a 100Hz output HNAV message, if DVL is coming into the SPRINT-Nav Mini at 10Hz, in excess of 90% of messages would be expected to have an invalid altitude flag. 
-    * HNAV can be input directly into EIVA Naviscan in a traditional survey setup. 
+See [Reference](reference.md) for further details.
+
+??? son-info "HNav Notes"
+    * If an output message is populated at a rate quicker than the rate of the incoming sensor the HNav status field will be set to invalid (because the flag indicates invalid or old). For example in a 100 Hz output HNav message, if DVL is coming into the SPRINT-Nav Mini at 10 Hz, in excess of 90% of messages would be expected to have an invalid altitude flag. 
+    * HNav can be input directly into EIVA NaviScan in a traditional survey setup. 
 
 #### Timing
 Timing is crucial for survey deliverables as all sensors which are logging data must log against a common time base. This is typically UTC. SPRINT-Nav Mini can be configured to both receive time updates and will also persist time when subsea.
@@ -143,16 +145,16 @@ In this example a ZDA + 1PPS output is configured from the SPRINT-Nav Mini into 
 Command and Control of a SPRINT-Nav Mini uses the Sonardyne gRPC API to modify settings dynamically during a mission as and when required, either autonomously or via the user-developed AUV interface. 
 
 ??? son-info "Suggested SPRINT-Nav Mini C2"
-    * Via the user-developed AUV interface the AUV operator can reset the INS algorithm instantaneously if required.
+    * Via the user-developed AUV interface the AUV operator can reset the INS algorithm instantaneously if required (soft reset).
     * If the vehicle/operator knows that GNSS is erroneous it can be disabled as an aiding source for a period of time. 
-    * If the SPRINT-Nav HNAV message flags a problem with the Sound Velocity sensor, the C2 changes the SV configuration to derived and then manual. 
+    * If the SPRINT-Nav HNav message flags a problem with the Sound Velocity sensor, the C2 changes the SV configuration to derived and then manual. 
     * The user-developed AUV interface allows a user to select which aiding sources should be used by the AUV pre-dive without using the SPRINT-Nav Mini user interface.
     * The gRPC API is much lower bandwidth than the web UI allowing for over the horizon low bandwidth operations. 
      
 
 
 ### Data 
-For high accuracy survey products, [Janus] (https://www.sonardyne.com/products/janus-ins-post-processing-software/) is commonly used. In this example logfiles are downloaded at the end of the mission via the web UI. 
+For high accuracy survey products, [Janus] (https://www.sonardyne.com/products/janus-ins-post-processing-software/) is typically used. In this example logfiles are downloaded at the end of the mission via the web UI. 
 
 ??? son-info "Data for long duration AUVs"
     * SPRINT-Nav Mini will log data internally for 2 to 3 days. Less if raw DVL data is logged. 
@@ -163,7 +165,145 @@ Sonardyne's applications engineering team have integrated SPRINT-Nav Mini into m
 
 ??? son-info "Lessons learned"
     * Consider the orientation of DVL beams, if following a pipeline is there a better orientation to keep all DVL beams facing the seabed?
-    * If HNAV indicates that SV is no longer valid, why not switch back to derived, or manual?
+    * If HNav indicates that SV is no longer valid, why not switch back to derived, or manual?
 
+## BlueOS 
 
+The below guide details how to use Sonardyne's BlueOS application for the purpose of providing guidance and navigation information for Blue Robotics platforms, including the BlueROV. 
 
+Further information on the application is available on the [Sonardyne GitHub](https://github.com/Sonardyne/blueos-sprint-nav-extension) including all of the required files.
+
+![BlueRov](./assets/Images/BlueRov.jpeg){: style="height: 50vh;" data-title="BlueRov" }
+
+??? son-info "Supported BlueOS versions"
+    -  The version of BlueOS needs to be 1.1.0-beta18 or higher to support the installing of third-party extensions.
+  
+
+### Setting up the SPRINT-Nav
+Connect the SPRINT-Nav via an Ethernet connection to the BlueROV.
+
+#### Set the IP address
+Ensure that the SPRINT-Nav is setup on the same network prefix as the BlueROV. To see how, please read the user manual, available from [Sonardyne Support](https://www.sonardyne.com/support-centre/).
+
+* Network Prefix: 192.168.2.0
+* Subnet mask: 225.255.255.0
+
+An example SPRINT-Nav IP Address is:
+
+* 192.168.2.10
+
+This is the address that will be used for the rest of this example.
+
+??? son-info "Notes on networking"
+    - The above provided IP addresses are not the default for SPRINT-Nav products; see the manual for more information. 
+
+#### Setup the SPRINT-Nav HNav streams
+Under *Configuration* > *System* > *Network* ensure there are at least two TCP server ports available. Sonardyne recommends not using ports already in use for other messages. 
+
+![SPRINT-Nav Network Page](./assets/Images/sprint-nav-network-page.png){: style="height: 50vh;" data-title="SPRINT-Nav network" }
+
+Under *Configuration* > *Outputs*, select HNav, it is recommended to only use a rate of up to 5 Hz , and set the output to be any TCP server port. This example uses port 4000.
+
+??? son-info "Notes on update rate"
+    - To maintain real-time HNav input, keep the update rate at 5 Hz or slower, otherwise the HNav data available to the vehicle for guidance may be latent, if the BlueOS host device can't keep up with decoding high rate messages.
+
+![SPRINT-Nav HNav Page](./assets/Images/sprint-nav-hnav-setup-page.png){" data-title="SPRINT-Nav HNav output" }
+
+### Download the extension
+Once you have opened the BlueOS UI by accessing http://192.168.2.2, click on the *Extensions* tab.
+
+Navigate to the Sonardyne extension and click install. 
+
+??? son-info "Dependencies"
+    The below dependencies are required for the extension to be used. 
+
+    | Dependency | Version |
+    |:--------:|:-----:|
+    | pymavlink | 2.4.41 |
+    | grpcio | 1.63.0 |
+    | grpcio-tools | 1.63.0 |
+    | pyserial | 3.5 |
+    | pyubx2 | 1.2.43 |
+    | crc | 7.0.0 |
+
+### Using the UI
+
+Open the UI via either the tab in the BlueOS sidebar menu or by navigating to http://192.168.2.2:9091. A screen similar to the image below will load.
+
+![Extension Window](./assets/Images/blueos-extension-window.png){: style="height: 50vh;" data-title="blueOS extension window" }
+
+Once the HNav stream is configured enter the SPRINT-Nav IP address and associated TCP port for the HNav stream. 
+
+![Edit HNav Stream](./assets/Images/editing-hnav-port-info.png){:" data-title="blueOS HNav output" }
+
+If the port is available the below notification will be received. 
+
+![Accept HNav Stream](./assets/Images/accepted-hnav-stream.png){:" data-title="BlueOS HNav output" }
+
+Navigate to the *Dashboard* tab to see the information being shown live and being streamed to BlueOS. 
+
+![Extension Dashboard](./assets/Images/dashboard.png){: style="height: 50vh;" data-title="BlueOS Dashboard" }
+
+Opening the Cockpit extension in BlueOS shows the number of satellites set to 1, indicating that a HNav stream is being consumed. If the SPRINT-Nav is in Hybrid mode, the position information will be forwarded to BlueOS and the vehicle icon will update accordingly. 
+
+### Using a GNSS sensor
+The extension allows the option to consume a GNSS from a unit directly connected to one of the BlueOS serial ports. Sonardyne have tested this extension using a U-blox GNSS receiver and details for how to configure this receiver to output the required NMEA messages is available on the [Sonardyne Github](https://github.com/Sonardyne/blueos-sprint-nav-extension/blob/main/gnss-configuration/README.md). 
+
+??? son-info "Notes on GNSS"
+    - SPRINT-Nav can not consume U-blox proprietary messages.
+    - SPRINT-Nav position will utilise the accuracy set in either the HDOP field of the GGA message or a manual value (Horizontal quality) configured in the web UI; ensure this value represents the true accuracy (1 DRMS) of your GNSS.
+
+After the GNSS has been configured to output both GPGGA and GPZDA messages at a rate of 1 Hz, the SPRINT-Nav needs to be configured to consume these messages.
+
+Navigate to *Configuration* > *INPUTS* > *GNSS*. For this example TCP server port 4002 was used. 
+
+Ensure you select *Enable for use* and click the *Apply* button. Click *View Comms*, to monitor the incoming traffic into the SPRINT-Nav on this port.
+
+![GNSS Setup](./assets/Images/sprint-nav-gnss-setup.png){: style="height: 50vh;" data-title="SPRINT-Nav GNSS setup" }
+
+Navigate to *Configuration* > *SYSTEM* > *TIME*. For this example TCP Server port 4002 was used. This is the same port for GNSS input. Click *Apply*. Click *View Comms*, to monitor the incoming traffic into the SPRINT-Nav on this port.
+
+![ZDA Setup](./assets/Images/sprint-nav-zda-setup.png){: style="height: 50vh;" data-title="SPRINT-Nav time setup" }
+
+The user can now go back to the SPRINT-Nav extension and connect to the serial port by setting up the *BlueOS GNSS Configuration* option. Once the alert appears that indicates success, the user can setup the *SPRINT-Nav GPGGA/ZDA Input* option, to start streaming the GNSS derived messages into the SPRINT-Nav.
+
+### Building on target
+To build the docker image on the vehicle instead of using the BlueOS extension manager, please follow the instruction below.
+
+* Connect the vehicle to the internet
+* Enable *Pirate Mode*
+* Open the *Terminal*
+* Type: *red-pill* (This allows the user to access the Raspberry Pi on the vehicle)
+* git clone https://github.com/Sonardyne/blueos-sprint-nav-extension.git
+* cd blueos-sprint-nav-extension
+* DOCKER_BUILDKIT=1 docker buildx build --target=build-blueos-docker-image --tag=sprint-nav-blueos-extension --load .
+* docker run -it --net=host --privileged -v /dev:/dev -v /dev:/dev -v /usr/blueos/extensions/data-logger:/webui/logs sprint-nav-blueos-extension /bin/bash
+* Navigate to http://192.168.2.2:9091
+
+### Position hold
+The SPRINT-Nav extension supports the use of position hold. It is advised when using this mode to ensure that the SPRINT-Nav has DVL bottom lock. 
+
+It is also advised to switch from `manual mode` to `altitude mode` before switching to `position hold`. Once the vehicle is in `altitude mode` the user can switch to `position hold`. Vehicles can become unstable when switching from `manual mode` to `position mode`.
+
+![Position Hold](./assets/Images/Position_Hold.gif){: style="height: 50vh;" data-title="SPRINT-Nav position hold" }
+
+### Troubleshooting 
+#### No position available
+If the SPRINT-Nav is in aligning mode, Cockpit will report that one satellite has been detected but no position updates are available. The SPRINT-Nav needs to be in Hybrid mode for position updates to become available. This will take approximately 15 minutes after booting or a hard reset.
+
+![No Position Available](./assets/Images/no-position-available.png){" data-title="No position available" }
+
+#### TCP 50051 connection refused
+The below alert will pop up if the UI is opened before the hosting server has booted. A simple refresh of the web UI will fix this.
+
+![No Connection](./assets/Images/no-connection.png){" data-title="Connection refused" }
+
+#### Dashboard properties not populating
+If the dashboard is not populating with values check any firewalls or security software that is on the host PC. The dashboard consumes a gRPC stream which can be blocked by firewalls or third-party security software.
+
+#### Position hold not reliably holding position
+Position hold will function best when the SPRINT-Nav has good DVL bottom lock or has recent DVL bottom lock as the velocities will be closer to truth. Check DVL has bottom lock on the dashboard, and that the DVL error velocity is under 0.2 m/s.
+
+![Dashboard](./assets/Images/sprint_nav_UI.PNG){" data-title="Dashboard" }
+
+![Velocity Quality](./assets/Images/sprint_nav_UI_velocity_quality.PNG){" data-title="Velocity Quality" }

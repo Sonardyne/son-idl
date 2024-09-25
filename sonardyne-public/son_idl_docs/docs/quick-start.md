@@ -1,5 +1,5 @@
 ## Choice of Technology
-See [Technology Explainer](technology-explainer.md) for more information on the two available API choices for Command and Control. gRPC and JSON will both support control of Sonardyne instruments listed [here](index.md). However, gRPC is a more expandable interface which will be extended to include real-time data and more configuration options, so is recommended for most integrations. 
+See [Technology Explainer](technology-explainer.md) for more information on the two available API choices for Command and Control. gRPC and JSON will both support control of Sonardyne instruments listed [here](index.md). gRPC is a more expandable interface which will be extended to include real-time data and more configuration options, and as such is recommended for most integrations. 
 
 ## Connecting to the API
 
