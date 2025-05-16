@@ -107,7 +107,7 @@ When on the surface the AUV receives both positioning updates (GGA) and timing (
 
 ??? son-info "GNSS aiding on an AUV"
     * When configuring a GNSS in SPRINT-Nav Mini, consider that GNSS accuracy estimates are often optimistic. Sonardyne recommend setting a relaxed manual GNSS quality.
-    * GNSS often gives erroneous positions as a vehicle surfaces and when a vehicle dives. SPRINT-Nav Mini will reject data that falls outside its own position error estimate, disable GNSS when diving and for a period of time after breaking the surface. 
+    * GNSS often gives erroneous positions as a vehicle surfaces and when a vehicle dives. SPRINT-Nav Mini will reject data that falls outside its own position error estimate, Sonardyne advise users to disable GNSS when diving and for a period of time after breaking the surface, particularly as the SPRINT-Nav's position estimate will likely be large when surfacing, and thus the system is more susceptible to poor quality GNSS.  
     * SPRINT-Nav Mini doesn't currently use VTG for velocity aiding, but will in the future. 
 
 
@@ -176,9 +176,10 @@ Further information on the application is available on the [Sonardyne GitHub](ht
 ![BlueRov](./assets/Images/BlueRov.jpeg){: style="height: 50vh;" data-title="BlueRov" }
 
 ??? son-info "Supported BlueOS versions"
-    -  The version of BlueOS needs to be 1.1.0-beta18 or higher to support the installing of third-party extensions.
+    -  The recommended minimum stable version of BlueOS is 1.4. This version allows the user to view the GPS heading input in *System Setup* > *Configure* > *Compass*. Once the HNav data is streaming to the BlueROV, the EKF heading will match the GPS heading. 
   
-
+    ![Compass Configuration Page](./assets/Images/gps-output.png){" data-title="GPS output" }
+  
 ### Setting up the SPRINT-Nav
 Connect the SPRINT-Nav via an Ethernet connection to the BlueROV.
 
@@ -219,7 +220,7 @@ Navigate to the Sonardyne extension and click install.
 
     | Dependency | Version |
     |:--------:|:-----:|
-    | pymavlink | 2.4.41 |
+    | pymavlink | 2.4.42 |
     | grpcio | 1.63.0 |
     | grpcio-tools | 1.63.0 |
     | pyserial | 3.5 |
@@ -228,7 +229,7 @@ Navigate to the Sonardyne extension and click install.
 
 ### Using the UI
 
-Open the UI via either the tab in the BlueOS sidebar menu or by navigating to http://192.168.2.2:9091. A screen similar to the image below will load.
+Open the UI via either the tab in the BlueOS sidebar menu or by navigating to http://192.168.2.2:9091. A screen similar to the image below will load. Upon reloading the UI, any previously set address or ports will be have been preserved, but the streams will not be reconnected until the accept buttons are clicked.
 
 ![Extension Window](./assets/Images/blueos-extension-window.png){: style="height: 50vh;" data-title="blueOS extension window" }
 
@@ -244,7 +245,7 @@ Navigate to the *Dashboard* tab to see the information being shown live and bein
 
 ![Extension Dashboard](./assets/Images/dashboard.png){: style="height: 50vh;" data-title="BlueOS Dashboard" }
 
-Opening the Cockpit extension in BlueOS shows the number of satellites set to 1, indicating that a HNav stream is being consumed. If the SPRINT-Nav is in Hybrid mode, the position information will be forwarded to BlueOS and the vehicle icon will update accordingly. 
+Opening the Cockpit extension in BlueOS shows the number of satellites set to 12, indicating that a HNav stream is being consumed. The number of satellites has been set to 12 to ensure that the value is higher than the minimum acceptable value for ArduSub. If the SPRINT-Nav is in Hybrid mode, the position information will be forwarded to BlueOS and the vehicle icon will update accordingly. 
 
 ### Using a GNSS sensor
 The extension allows the option to consume a GNSS from a unit directly connected to one of the BlueOS serial ports. Sonardyne have tested this extension using a U-blox GNSS receiver and details for how to configure this receiver to output the required NMEA messages is available on the [Sonardyne Github](https://github.com/Sonardyne/blueos-sprint-nav-extension/blob/main/gnss-configuration/README.md). 
@@ -253,7 +254,7 @@ The extension allows the option to consume a GNSS from a unit directly connected
     - SPRINT-Nav can not consume U-blox proprietary messages.
     - SPRINT-Nav position will utilise the accuracy set in either the HDOP field of the GGA message or a manual value (Horizontal quality) configured in the web UI; ensure this value represents the true accuracy (1 DRMS) of your GNSS.
 
-After the GNSS has been configured to output both GPGGA and GPZDA messages at a rate of 1 Hz, the SPRINT-Nav needs to be configured to consume these messages.
+After the GNSS has been configured to output both GPGGA and GPZDA messages at a rate of 2 Hz, the SPRINT-Nav needs to be configured to consume these messages.
 
 Navigate to *Configuration* > *INPUTS* > *GNSS*. For this example TCP server port 4002 was used. 
 
@@ -286,6 +287,15 @@ The SPRINT-Nav extension supports the use of position hold. It is advised when u
 It is also advised to switch from `manual mode` to `altitude mode` before switching to `position hold`. Once the vehicle is in `altitude mode` the user can switch to `position hold`. Vehicles can become unstable when switching from `manual mode` to `position mode`.
 
 ![Position Hold](./assets/Images/Position_Hold.gif){: style="height: 50vh;" data-title="SPRINT-Nav position hold" }
+
+### Surveying
+The SPRINT-Nav extension supports following a survey line by providing the BlueROV with both position and heading updates. It is advised when using this mode to ensure that the SPRINT-Nav has DVL bottom lock.
+
+It is also advised to switch to `position hold` while the user is drawing a survey line for the vehicle to follow. [QGroundControl Plan](https://docs.qgroundcontrol.com/Stable_V4.3/en/qgc-user-guide/plan_view/plan_view.html) can be used to draw a path or to set a geofence. Once the survey has been uploaded to the BlueROV, switching to `auto` mode will cause the vehicle to start following the highlighted survey.
+
+The image below shows the BlueROV following a survey line before being instructed to return to a point near the starting position.
+
+![Path Following](./assets/Images/bluerov_lawnmover_pattern.jpg){: style="height: 50vh;" data-title="BlueROV Survey" }
 
 ### Troubleshooting 
 #### No position available
