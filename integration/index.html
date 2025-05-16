@@ -611,6 +611,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#surveying" class="md-nav__link">
+    Surveying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     Troubleshooting
   </a>
@@ -885,7 +892,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <summary>GNSS aiding on an AUV</summary>
 <ul>
 <li>When configuring a GNSS in SPRINT-Nav Mini, consider that GNSS accuracy estimates are often optimistic. Sonardyne recommend setting a relaxed manual GNSS quality.</li>
-<li>GNSS often gives erroneous positions as a vehicle surfaces and when a vehicle dives. SPRINT-Nav Mini will reject data that falls outside its own position error estimate, disable GNSS when diving and for a period of time after breaking the surface. </li>
+<li>GNSS often gives erroneous positions as a vehicle surfaces and when a vehicle dives. SPRINT-Nav Mini will reject data that falls outside its own position error estimate, Sonardyne advise users to disable GNSS when diving and for a period of time after breaking the surface, particularly as the SPRINT-Nav's position estimate will likely be large when surfacing, and thus the system is more susceptible to poor quality GNSS.  </li>
 <li>SPRINT-Nav Mini doesn't currently use VTG for velocity aiding, but will in the future. </li>
 </ul>
 </details>
@@ -958,8 +965,9 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <details class="son-info">
 <summary>Supported BlueOS versions</summary>
 <ul>
-<li>The version of BlueOS needs to be 1.1.0-beta18 or higher to support the installing of third-party extensions.</li>
+<li>The recommended minimum stable version of BlueOS is 1.4. This version allows the user to view the GPS heading input in <em>System Setup</em> &gt; <em>Configure</em> &gt; <em>Compass</em>. Once the HNav data is streaming to the BlueROV, the EKF heading will match the GPS heading. </li>
 </ul>
+<p><a class="glightbox" href="../assets/Images/gps-output.png" data-type="image" data-width="100%" data-height="auto" data-title="GPS output" data-desc-position="bottom"><img _='"' alt="Compass Configuration Page" data-title="GPS output" src="../assets/Images/gps-output.png"></a></p>
 </details>
 <h3 id="setting-up-the-sprint-nav">Setting up the SPRINT-Nav</h3>
 <p>Connect the SPRINT-Nav via an Ethernet connection to the BlueROV.</p>
@@ -1007,7 +1015,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <tbody>
 <tr>
 <td style="text-align: center;">pymavlink</td>
-<td style="text-align: center;">2.4.41</td>
+<td style="text-align: center;">2.4.42</td>
 </tr>
 <tr>
 <td style="text-align: center;">grpcio</td>
@@ -1033,7 +1041,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 </table>
 </details>
 <h3 id="using-the-ui">Using the UI</h3>
-<p>Open the UI via either the tab in the BlueOS sidebar menu or by navigating to http://192.168.2.2:9091. A screen similar to the image below will load.</p>
+<p>Open the UI via either the tab in the BlueOS sidebar menu or by navigating to http://192.168.2.2:9091. A screen similar to the image below will load. Upon reloading the UI, any previously set address or ports will be have been preserved, but the streams will not be reconnected until the accept buttons are clicked.</p>
 <p><a class="glightbox" href="../assets/Images/blueos-extension-window.png" data-type="image" data-width="100%" data-height="auto" data-title="blueOS extension window" data-desc-position="bottom"><img alt="Extension Window" data-title="blueOS extension window" src="../assets/Images/blueos-extension-window.png" style="height: 50vh;"></a></p>
 <p>Once the HNav stream is configured enter the SPRINT-Nav IP address and associated TCP port for the HNav stream. </p>
 <p><a class="glightbox" href="../assets/Images/editing-hnav-port-info.png" data-type="image" data-width="100%" data-height="auto" data-title="blueOS HNav output" data-desc-position="bottom"><img _='"' alt="Edit HNav Stream" data-title="blueOS HNav output" src="../assets/Images/editing-hnav-port-info.png"></a></p>
@@ -1041,7 +1049,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <p><a class="glightbox" href="../assets/Images/accepted-hnav-stream.png" data-type="image" data-width="100%" data-height="auto" data-title="BlueOS HNav output" data-desc-position="bottom"><img _='"' alt="Accept HNav Stream" data-title="BlueOS HNav output" src="../assets/Images/accepted-hnav-stream.png"></a></p>
 <p>Navigate to the <em>Dashboard</em> tab to see the information being shown live and being streamed to BlueOS. </p>
 <p><a class="glightbox" href="../assets/Images/dashboard.png" data-type="image" data-width="100%" data-height="auto" data-title="BlueOS Dashboard" data-desc-position="bottom"><img alt="Extension Dashboard" data-title="BlueOS Dashboard" src="../assets/Images/dashboard.png" style="height: 50vh;"></a></p>
-<p>Opening the Cockpit extension in BlueOS shows the number of satellites set to 1, indicating that a HNav stream is being consumed. If the SPRINT-Nav is in Hybrid mode, the position information will be forwarded to BlueOS and the vehicle icon will update accordingly. </p>
+<p>Opening the Cockpit extension in BlueOS shows the number of satellites set to 12, indicating that a HNav stream is being consumed. The number of satellites has been set to 12 to ensure that the value is higher than the minimum acceptable value for ArduSub. If the SPRINT-Nav is in Hybrid mode, the position information will be forwarded to BlueOS and the vehicle icon will update accordingly. </p>
 <h3 id="using-a-gnss-sensor">Using a GNSS sensor</h3>
 <p>The extension allows the option to consume a GNSS from a unit directly connected to one of the BlueOS serial ports. Sonardyne have tested this extension using a U-blox GNSS receiver and details for how to configure this receiver to output the required NMEA messages is available on the <a href="https://github.com/Sonardyne/blueos-sprint-nav-extension/blob/main/gnss-configuration/README.md">Sonardyne Github</a>. </p>
 <details class="son-info">
@@ -1051,7 +1059,7 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <li>SPRINT-Nav position will utilise the accuracy set in either the HDOP field of the GGA message or a manual value (Horizontal quality) configured in the web UI; ensure this value represents the true accuracy (1 DRMS) of your GNSS.</li>
 </ul>
 </details>
-<p>After the GNSS has been configured to output both GPGGA and GPZDA messages at a rate of 1 Hz, the SPRINT-Nav needs to be configured to consume these messages.</p>
+<p>After the GNSS has been configured to output both GPGGA and GPZDA messages at a rate of 2 Hz, the SPRINT-Nav needs to be configured to consume these messages.</p>
 <p>Navigate to <em>Configuration</em> &gt; <em>INPUTS</em> &gt; <em>GNSS</em>. For this example TCP server port 4002 was used. </p>
 <p>Ensure you select <em>Enable for use</em> and click the <em>Apply</em> button. Click <em>View Comms</em>, to monitor the incoming traffic into the SPRINT-Nav on this port.</p>
 <p><a class="glightbox" href="../assets/Images/sprint-nav-gnss-setup.png" data-type="image" data-width="100%" data-height="auto" data-title="SPRINT-Nav GNSS setup" data-desc-position="bottom"><img alt="GNSS Setup" data-title="SPRINT-Nav GNSS setup" src="../assets/Images/sprint-nav-gnss-setup.png" style="height: 50vh;"></a></p>
@@ -1075,6 +1083,11 @@ If external time synchronisation is lost the INS can continue to maintain an est
 <p>The SPRINT-Nav extension supports the use of position hold. It is advised when using this mode to ensure that the SPRINT-Nav has DVL bottom lock. </p>
 <p>It is also advised to switch from <code>manual mode</code> to <code>altitude mode</code> before switching to <code>position hold</code>. Once the vehicle is in <code>altitude mode</code> the user can switch to <code>position hold</code>. Vehicles can become unstable when switching from <code>manual mode</code> to <code>position mode</code>.</p>
 <p><a class="glightbox" href="../assets/Images/Position_Hold.gif" data-type="image" data-width="100%" data-height="auto" data-title="SPRINT-Nav position hold" data-desc-position="bottom"><img alt="Position Hold" data-title="SPRINT-Nav position hold" src="../assets/Images/Position_Hold.gif" style="height: 50vh;"></a></p>
+<h3 id="surveying">Surveying</h3>
+<p>The SPRINT-Nav extension supports following a survey line by providing the BlueROV with both position and heading updates. It is advised when using this mode to ensure that the SPRINT-Nav has DVL bottom lock.</p>
+<p>It is also advised to switch to <code>position hold</code> while the user is drawing a survey line for the vehicle to follow. <a href="https://docs.qgroundcontrol.com/Stable_V4.3/en/qgc-user-guide/plan_view/plan_view.html">QGroundControl Plan</a> can be used to draw a path or to set a geofence. Once the survey has been uploaded to the BlueROV, switching to <code>auto</code> mode will cause the vehicle to start following the highlighted survey.</p>
+<p>The image below shows the BlueROV following a survey line before being instructed to return to a point near the starting position.</p>
+<p><a class="glightbox" href="../assets/Images/bluerov_lawnmover_pattern.jpg" data-type="image" data-width="100%" data-height="auto" data-title="BlueROV Survey" data-desc-position="bottom"><img alt="Path Following" data-title="BlueROV Survey" src="../assets/Images/bluerov_lawnmover_pattern.jpg" style="height: 50vh;"></a></p>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <h4 id="no-position-available">No position available</h4>
 <p>If the SPRINT-Nav is in aligning mode, Cockpit will report that one satellite has been detected but no position updates are available. The SPRINT-Nav needs to be in Hybrid mode for position updates to become available. This will take approximately 15 minutes after booting or a hard reset.</p>
