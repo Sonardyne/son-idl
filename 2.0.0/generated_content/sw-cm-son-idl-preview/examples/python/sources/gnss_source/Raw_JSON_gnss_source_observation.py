@@ -13,7 +13,7 @@ socket.sendall(json.dumps(
                     "@type": "type.googleapis.com/sonardyne.api.sources.gnss_source.GnssSourceObservation",
                     "ggaTelegram": {
                         "timeOfValidity": {
-                            "commonTimeSeconds": 1772207939.695202
+                            "commonTimeSeconds": 1772209963.6559536
                         },
                         "hdop": 0.5,
                         "numberOfSatellites": 10,
