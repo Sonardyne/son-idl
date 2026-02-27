@@ -12,7 +12,7 @@ socket.sendall(json.dumps(
                 {
                     "@type": "type.googleapis.com/sonardyne.api.sources.time_source.ZdaTimeSourceObservation",
                     "zdaData": {
-                        "currentUtcTimeSeconds": 1772207941.182004
+                        "currentUtcTimeSeconds": 1772209965.5212357
                     }
                 }
             ]
