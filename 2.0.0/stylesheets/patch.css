@@ -1,0 +1,7 @@
+/* This patch file fixes table borders being too dark in dark mode. */
+[data-md-color-scheme="sonardyne_dark"] {
+    table, th, td {
+        border: 1px solid #3c216a;
+        border-collapse: collapse;
+    }
+}

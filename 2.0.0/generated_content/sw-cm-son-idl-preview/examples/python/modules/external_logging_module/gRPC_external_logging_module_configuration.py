@@ -1,0 +1,9 @@
+import sonardyne_api as son
+
+with son.WrapperGrpc('0.0.0.0', 8103) as wrapper:  
+    print(wrapper.set_configuration(son.ExternalLoggingModuleConfiguration(
+        ethernet_logging_port=son.EthernetPort(
+            source_port=8105,
+            tcp_server=son.TcpServerParameters()
+        )
+    )))

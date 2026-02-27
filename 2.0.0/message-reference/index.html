@@ -1,0 +1,3459 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../versioning-and-compatibility/">
+      
+      
+        <link rel="next" href="../vehicle-guides/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.2">
+    
+    
+      
+        <title>Message Reference - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.d451bc0e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a5377069.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/import-styles.css">
+    
+      <link rel="stylesheet" href="../stylesheets/patch.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="sonardyne_light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#message-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/SonardyneLogoWhite.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Message Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="sonardyne_light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="sonardyne_dark" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Sonardyne/son-idl" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sonardyne/son-idl
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+  Sonardyne API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Message Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../vehicle-guides/" class="md-tabs__link">
+        
+  
+    
+  
+  Vehicle Guides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../networking/" class="md-tabs__link">
+        
+  
+    
+  
+  Networking
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../licence/" class="md-tabs__link">
+        
+  
+    
+  
+  Licence
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/SonardyneLogoWhite.svg" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Sonardyne/son-idl" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sonardyne/son-idl
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Sonardyne API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Sonardyne API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference-and-examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protobuf Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning-and-compatibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versioning & Compatibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Message Reference
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Message Reference
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sonardyne-simple-binary-protocol" class="md-nav__link">
+    Sonardyne Simple Binary Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hnav" class="md-nav__link">
+    HNAV
+  </a>
+  
+    <nav class="md-nav" aria-label="HNAV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bit-fields" class="md-nav__link">
+    Bit Fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xlhnav" class="md-nav__link">
+    XLHNAV
+  </a>
+  
+    <nav class="md-nav" aria-label="XLHNAV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition_1" class="md-nav__link">
+    Definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-source" class="md-nav__link">
+    Data Source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lbl-range-aiding" class="md-nav__link">
+    LBL Range Aiding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-masks" class="md-nav__link">
+    Status Masks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lnav-lnavutc" class="md-nav__link">
+    LNAV &amp; LNAVUTC
+  </a>
+  
+    <nav class="md-nav" aria-label="LNAV & LNAVUTC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition_2" class="md-nav__link">
+    Definition
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lnav-notes" class="md-nav__link">
+    LNAV Notes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-bit-fields" class="md-nav__link">
+    Status Bit Fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplex-protocol" class="md-nav__link">
+    Multiplex Protocol
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiplex Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packet-format" class="md-nav__link">
+    Packet Format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id-field-format" class="md-nav__link">
+    ID Field Format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-message" class="md-nav__link">
+    Example Message
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vehicle-guides/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vehicle Guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Licence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<div><h1 id="message-reference">Message Reference</h1>
+<p>The SPRINT-Nav provides two methods for streaming output data:</p>
+<ul>
+<li>Using the API (non-guaranteed latency).</li>
+<li>Using the following proprietary Sonardyne navigation messages (for time-critical, low latency vehicle control).</li>
+</ul>
+<p>This section defines output messages as implemented on SPRINT-Nav U. For additional message definitions, see the product manual.</p>
+<h2 id="sonardyne-simple-binary-protocol">Sonardyne Simple Binary Protocol</h2>
+<p>The Simple Binary Protocol provides a generic wrapper to output messages.</p>
+<table>
+<thead>
+<tr>
+<th>Data field</th>
+<th>LSB/(fixed value)</th>
+<th>Range</th>
+<th>Data type</th>
+<th>Size(Bytes)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Header</td>
+<td>(0xAA 0xBF)</td>
+<td>0 to 255</td>
+<td>UINT8</td>
+<td>2</td>
+<td>Header to denote the start of the packet</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>(0)</td>
+<td>0 to 255</td>
+<td>UINT8</td>
+<td>1</td>
+<td>Version of protocol</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>(0)</td>
+<td>0 to 65535</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Message ID (HNAV = 0), see Note 1</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>-</td>
+<td>0 - 4096</td>
+<td>-</td>
+<td>2</td>
+<td>Size of data field in bytes, see note 2</td>
+</tr>
+<tr>
+<td>Counter</td>
+<td>-</td>
+<td>0 to 255</td>
+<td>-</td>
+<td>1</td>
+<td>Counter per message, increments before rolling over to 0. Allows detection of out of order receipt.</td>
+</tr>
+<tr>
+<td>Spare</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>2</td>
+<td>Not Used</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Message data (e.g. HNAV)</td>
+</tr>
+<tr>
+<td>CRC</td>
+<td>-</td>
+<td>-</td>
+<td>UINT16</td>
+<td>2</td>
+<td>CRC-16/X-25. Covers all bytes before and including data bytes.</td>
+</tr>
+</tbody>
+</table>
+<details class="son-info">
+<summary>Notes</summary>
+<ol>
+<li>Each output message has its own message ID, the message ID of HNAV is 0</li>
+<li>Each output message has a fixed size, the HNAV is 55 bytes</li>
+</ol>
+</details>
+<h2 id="hnav">HNAV</h2>
+<p>The Hybrid Navigation (HNAV) message includes all information required for the majority of vehicle guidance, control, and navigation applications. 
+It utilises scaled fields to reduce size to allow for effective transmission on both Serial and Ethernet. 
+All fields will be initialised to 0.
+Once a field has been assigned a value, it will retain that value until updated - unless specified otherwise in the definition below.
+The status bits should be used to determine when data is old/stale.
+The HNAV requires the <a href="#sonardyne-simple-binary-protocol">Simple Binary Protocol</a> to successfully decode the message.
+All data is transmitted LSB first.</p>
+<p><a href="https://github.com/Sonardyne/sprint-nav-mini-hnav">A C++ HNAV Decoder is available on Sonardyne's Github.</a></p>
+<h3 id="definition">Definition</h3>
+<p>Simple Binary Protocol ID = 0</p>
+<p>Size = 55 bytes</p>
+<table>
+<thead>
+<tr>
+<th>Data field</th>
+<th>LSB/(fixed value)</th>
+<th>Range</th>
+<th>Data type</th>
+<th>Size(Bytes)</th>
+<th>Data Source (See Notes)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version</td>
+<td>0</td>
+<td>0 to 255</td>
+<td>UINT8</td>
+<td>1</td>
+<td>Navigation Algorithm</td>
+<td>Version of message</td>
+</tr>
+<tr>
+<td>Time of Validity (UTC)</td>
+<td>10-6 seconds</td>
+<td>-</td>
+<td>UINT64</td>
+<td>8</td>
+<td>Always Available</td>
+<td></td>
+</tr>
+<tr>
+<td>Latitude</td>
+<td>2-31×90 deg</td>
+<td>+/- 90 deg</td>
+<td>INT32</td>
+<td>4</td>
+<td>Navigation Algorithm</td>
+<td></td>
+</tr>
+<tr>
+<td>Longitude</td>
+<td>2-31×180 deg</td>
+<td>+/- 180 deg</td>
+<td>INT32</td>
+<td>4</td>
+<td>Navigation Algorithm</td>
+<td></td>
+</tr>
+<tr>
+<td>Depth</td>
+<td>1mm</td>
+<td>+/- 12,000m</td>
+<td>INT32</td>
+<td>4</td>
+<td>Navigation Algorithm &amp; Sensor</td>
+<td>Depth at vehicle CRP, depth from pressure sensor during alignment</td>
+</tr>
+<tr>
+<td>Altitude</td>
+<td>0.01m</td>
+<td>0 to 600m</td>
+<td>UINT16</td>
+<td>2</td>
+<td>DVL</td>
+<td>Altitude is referenced from SPRINT-Nav’s DVL reference point to the seabed and is the mean of all valid beams (not compensated for CRP measurements or pitch and roll).</td>
+</tr>
+<tr>
+<td>Roll</td>
+<td>0.0055 deg</td>
+<td>+/- 180 deg</td>
+<td>INT16</td>
+<td>2</td>
+<td>Navigation Algorithm</td>
+<td>Available within 60s of startup</td>
+</tr>
+<tr>
+<td>Pitch</td>
+<td>0.0055 deg</td>
+<td>+/- 90 deg</td>
+<td>INT16</td>
+<td>2</td>
+<td>Navigation Algorithm</td>
+<td>Available within 60s of startup</td>
+</tr>
+<tr>
+<td>Heading</td>
+<td>0.0055 deg</td>
+<td>0 to 360 deg</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Navigation Algorithm</td>
+<td>Available within 60s of startup</td>
+</tr>
+<tr>
+<td>Fwd Velocity</td>
+<td>1mm/s</td>
+<td>+/-30m/s</td>
+<td>INT16</td>
+<td>2</td>
+<td>Navigation algorithm</td>
+<td>Sourced from DVL during alignment, Hybrid velocities when in Hybrid mode</td>
+</tr>
+<tr>
+<td>Stbd Velocity</td>
+<td>1mm/s</td>
+<td>+/-30m/s</td>
+<td>INT16</td>
+<td>2</td>
+<td>Navigation algorithm</td>
+<td>Sourced from DVL during alignment, Hybrid velocities when in Hybrid mode</td>
+</tr>
+<tr>
+<td>Dwn Velocity</td>
+<td>1mm/s</td>
+<td>+/-30m/s</td>
+<td>INT16</td>
+<td>2</td>
+<td>Navigation algorithm</td>
+<td>Sourced from DVL during alignment, Hybrid velocities when in Hybrid mode</td>
+</tr>
+<tr>
+<td>Fwd Ang Rate</td>
+<td>0.011 deg/s</td>
+<td>+/-300deg/s</td>
+<td>INT16</td>
+<td>2</td>
+<td>Navigation Algorithm</td>
+<td></td>
+</tr>
+<tr>
+<td>Stbd Ang Rate</td>
+<td>0.011 deg/s</td>
+<td>+/-300deg/s</td>
+<td>INT16</td>
+<td>2</td>
+<td>Navigation Algorithm</td>
+<td></td>
+</tr>
+<tr>
+<td>Dwn Ang Rate</td>
+<td>0.011 deg/s</td>
+<td>+/-300deg/s</td>
+<td>INT16</td>
+<td>2</td>
+<td>Navigation Algorithm</td>
+<td></td>
+</tr>
+<tr>
+<td>Sound Velocity</td>
+<td>0.03m/s</td>
+<td>1375 to 1900 m/s</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Calculated or Read</td>
+<td>As currently in use by the system</td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>0.01°C</td>
+<td>+/- 100°C</td>
+<td>INT16</td>
+<td>2</td>
+<td>Temperature sensor</td>
+<td>Sensor</td>
+</tr>
+<tr>
+<td>Position Quality</td>
+<td>-</td>
+<td>-</td>
+<td>FLOAT32</td>
+<td>4</td>
+<td>Navigation Algorithm</td>
+<td>2D Quality (CEP50)</td>
+</tr>
+<tr>
+<td>Heading Quality</td>
+<td>0.005°</td>
+<td>0 to 180 deg</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Navigation algorithm</td>
+<td>Set to 180 during alignment</td>
+</tr>
+<tr>
+<td>Velocity Quality</td>
+<td>1mm/s</td>
+<td>0 to 30 m/s</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Navigation algorithm</td>
+<td>2D Quality, in vessel frame and based on DVL error velocity when in sensor mode</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>See Status table</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bit-fields">Bit Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Status Bit</th>
+<th>Field name</th>
+<th>Notes/Bit Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>System Error</td>
+<td>No error reported by system = 0 System Error reported = 1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Mode</td>
+<td>Alignment mode = 0 Navigation mode = 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Heading</td>
+<td>valid = 0 Invalid = 1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Altitude</td>
+<td>valid = 0 Invalid = 1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Velocity</td>
+<td>valid = 0 Invalid = 1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Depth</td>
+<td>valid = 0 Invalid = 1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Sound Velocity</td>
+<td>valid = 0 Invalid = 1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Temperature</td>
+<td>valid = 0 Invalid = 1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Spare</td>
+<td>Not Used</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Position</td>
+<td>valid = 0 Invalid = 1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>UTC Time</td>
+<td>valid = 0 Invalid = 1</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Spare</td>
+<td>Not Used</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Spare</td>
+<td>Not Used</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Spare</td>
+<td>Not Used</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Spare</td>
+<td>Not Used</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Spare</td>
+<td>Not Used</td>
+</tr>
+</tbody>
+</table>
+<p>Notes on HNAV Bit fields:</p>
+<p>Navigation and Hybrid Mode:</p>
+<ul>
+<li>The terms Navigation mode and Hybrid mode are used interchangeably in Sonardyne documentation and refer to the operation of the system once initial system startup and alignment are complete.</li>
+</ul>
+<p>Invalid or old:</p>
+<ul>
+<li>HNAV bit field for Altitude will be flagged as invalid (1) if data is invalid or if it is old. These data items are derived purely from the DVL sensor, which will often be configured to a slower update than the HNAV message, therefore the majority of Altitude flags will be marked as invalid.</li>
+</ul>
+<p>Status fields:</p>
+<ul>
+<li>Status fields indicate whether data (and associated quality metrics) are suitable for use e.g. as an input to a vehicle control system.</li>
+</ul>
+<h2 id="xlhnav">XLHNAV</h2>
+<p>The Extra Large Hybrid Navigation (XLHNAV) message includes all information required for the majority of vehicle guidance, control, and navigation applications. 
+It has been designed to use native types that allow the full precision used internally to be output.<br>
+Integer fields will be initialised to 0 and floating point fields will be initialised to NaN (Not a Number). 
+Once a field has been assigned a value, it will retain that value until updated - unless specified otherwise in the definition below. 
+Single or logically grouped data values have a corresponding timestamp; this can be used from one message to the next to determine when data has been updated.
+The XLHNAV requires the <a href="#sonardyne-simple-binary-protocol">Simple Binary Protocol</a>  to successfully decode the message.
+All data is transmitted LSB first.</p>
+<h3 id="definition_1">Definition</h3>
+<p>Simple Binary Protocol ID = 1</p>
+<p>Size = 595 bytes</p>
+<table>
+<thead>
+<tr>
+<th>Data Field</th>
+<th>Units</th>
+<th>Expected Range</th>
+<th>Data Source (see notes)</th>
+<th>Data Type</th>
+<th>Size(bytes)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version</td>
+<td>N/A</td>
+<td>0 to 255</td>
+<td>N/A</td>
+<td>UINT8</td>
+<td>1</td>
+<td>Currently version is 0</td>
+</tr>
+<tr>
+<td>Time of Validity (UTC time)</td>
+<td>s</td>
+<td>-</td>
+<td>N/A</td>
+<td>Double</td>
+<td>8</td>
+<td>Relative to 1st Jan 1970</td>
+</tr>
+<tr>
+<td>Time of Validity (Instrument time)</td>
+<td>s</td>
+<td>-</td>
+<td>N/A</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>UTC Time Source</td>
+<td>N/A</td>
+<td>Enum</td>
+<td>Time System</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Last Used. (0 = None, 1 = ZDA, 2=ZDA+1PPS, 3=1PPS, 4=NTP)</td>
+</tr>
+<tr>
+<td>UTC Time Sync Quality</td>
+<td>s</td>
+<td>-</td>
+<td>Time System</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>Time sync age</td>
+<td>s</td>
+<td></td>
+<td>Time System</td>
+<td>Double</td>
+<td>8</td>
+<td>Time since last update applied</td>
+</tr>
+<tr>
+<td>Latitude</td>
+<td>degs</td>
+<td>+/- 90deg</td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>Longitude</td>
+<td>degs</td>
+<td>+/- 180deg</td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>Depth</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>Orientation w</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double </td>
+<td>8</td>
+<td><a href="https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles">Quaternion</a>, available within 60s of startup</td>
+</tr>
+<tr>
+<td>Orientation x</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double </td>
+<td>8</td>
+<td>Quaternion, available within 60s of startup</td>
+</tr>
+<tr>
+<td>Orientation y</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double </td>
+<td>8</td>
+<td>Quaternion, available within 60s of startup</td>
+</tr>
+<tr>
+<td>Orientation z</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double </td>
+<td>8</td>
+<td>Quaternion, available within 60s of startup</td>
+</tr>
+<tr>
+<td>Velocity - Vehicle Forward</td>
+<td>m/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Sourced from and valid at DVL during alignment</td>
+</tr>
+<tr>
+<td>Velocity - Vehicle Starboard</td>
+<td>m/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Sourced from and valid at DVL during alignment</td>
+</tr>
+<tr>
+<td>Velocity - Vehicle Down</td>
+<td>m/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Sourced from and valid at DVL during alignment</td>
+</tr>
+<tr>
+<td>Angular Rates - Vehicle Forward</td>
+<td>deg/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>Angular Rates - Vehicle Starboard</td>
+<td>deg/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>Angular Rates - Vehicle Down</td>
+<td>deg/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>Acceleration - Vehicle Forward </td>
+<td>m/s/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Valid at IMU measurement point, compensated for gravity</td>
+</tr>
+<tr>
+<td>Acceleration - Vehicle Starboard </td>
+<td>m/s/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Valid at IMU measurement point compensated for gravity</td>
+</tr>
+<tr>
+<td>Acceleration - Vehicle Down</td>
+<td>m/s/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Valid at IMU measurement point compensated for gravity</td>
+</tr>
+<tr>
+<td>Position Quality (1DRMS)</td>
+<td>m</td>
+<td>-</td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>2-D</td>
+</tr>
+<tr>
+<td>Position Quality Error Ellipse Major Axis</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>Position Quality Error Ellipse Minor Axis</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>Position Quality Error Ellipse direction</td>
+<td>deg</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>Depth Quality (std. dev).</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>2D Velocity Quality (1DRMS)</td>
+<td>m/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>2D Velocity Error Ellipse Major Axis</td>
+<td>m/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>2D Velocity Error Ellipse Minor Axis</td>
+<td>m/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>2D Velocity Error Ellipse Direction</td>
+<td>deg</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>Vertical Velocity Std Dev.</td>
+<td>m/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>Heading Quality (std dev)</td>
+<td>deg</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>Heave</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Valid at vehicle CRP not affected by any configured remote point</td>
+</tr>
+<tr>
+<td>IMU Bias Stability - Gyro X</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Mahalanobis distance on bias state update</td>
+</tr>
+<tr>
+<td>IMU Bias Stability - Gyro Y</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>IMU Bias Stability - Gyro Z</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>IMU Bias Stability - Accel X</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>IMU Bias Stability - Accel Y</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>IMU Bias Stability - Accel Z</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>Mode Status</td>
+<td>n/a</td>
+<td>Enum</td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>0 : Awaiting Position, 1 : Aligning, 2: : Navigating</td>
+</tr>
+<tr>
+<td>DVL Beam 1 TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>DVL</td>
+<td>Double</td>
+<td>8</td>
+<td>Beam number using Sonardyne Beam number convention (note different from PD4) (see manual)</td>
+</tr>
+<tr>
+<td>DVL Beam 1 Slant Range</td>
+<td>m</td>
+<td></td>
+<td>DVL</td>
+<td>Float</td>
+<td>4</td>
+<td>Compensated for SV Note: Beam angles need to be taken into account and vary on different products (see manual)</td>
+</tr>
+<tr>
+<td>DVL Beam 1 XC</td>
+<td></td>
+<td></td>
+<td>DVL</td>
+<td>Float</td>
+<td>4</td>
+<td>Cross Correlation is a measure of similarity between the expected and received signal. Excellent values are &gt;90, good values &gt;60 and acceptable values &gt;40</td>
+</tr>
+<tr>
+<td>DVL Beam 2 TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>DVL</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>DVL Beam 2 Slant Range</td>
+<td>m</td>
+<td></td>
+<td>DVL</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>DVL Beam 2 XC</td>
+<td></td>
+<td></td>
+<td>DVL</td>
+<td>Float</td>
+<td>4</td>
+<td>Cross Correlation is a measure of similarity between the expected and received signal. Excellent values are &gt;90, good values &gt;60 and acceptable values &gt;40</td>
+</tr>
+<tr>
+<td>DVL Beam 3 TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>DVL</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>DVL Beam 3 Slant Range</td>
+<td>m</td>
+<td></td>
+<td>DVL</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>DVL Beam 3 XC</td>
+<td></td>
+<td></td>
+<td>DVL</td>
+<td>Float</td>
+<td>4</td>
+<td>Cross Correlation is a measure of similarity between the expected and received signal. Excellent values are &gt;90, good values &gt;60 and acceptable values &gt;40</td>
+</tr>
+<tr>
+<td>DVL Beam 4 TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>DVL</td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>DVL Beam 4 Slant Range</td>
+<td>m</td>
+<td></td>
+<td>DVL</td>
+<td>Float</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>DVL Beam 4 XC</td>
+<td></td>
+<td></td>
+<td>DVL</td>
+<td>Float</td>
+<td>4</td>
+<td>Cross Correlation is a measure of similarity between the expected and received signal. Excellent values are &gt;90, good values &gt;60 and acceptable values &gt;40</td>
+</tr>
+<tr>
+<td>Altitude TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>DVL</td>
+<td>Double </td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>Altitude</td>
+<td>m</td>
+<td></td>
+<td>DVL</td>
+<td>Float</td>
+<td>4</td>
+<td>Mean of valid beams. Valid at DVL. Altitude only considered valid if the DVL observation has passed pre-filter (e.g. observation has / is being presented suitable for use in INS algorithm).</td>
+</tr>
+<tr>
+<td>Sound Velocity TOV (Instrument Time)</td>
+<td>s</td>
+<td></td>
+<td>System</td>
+<td>Double </td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>Sound Velocity</td>
+<td>m/s</td>
+<td></td>
+<td>System </td>
+<td>Float</td>
+<td>4</td>
+<td>Sound speed source as configured by the system</td>
+</tr>
+<tr>
+<td>Water Temperature TOV (Instrument Time)</td>
+<td>s</td>
+<td></td>
+<td>System </td>
+<td>Double</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>Water Temperature</td>
+<td>degC</td>
+<td></td>
+<td>System</td>
+<td>Float</td>
+<td>4</td>
+<td>Best available sensor </td>
+</tr>
+<tr>
+<td>Error Status</td>
+<td></td>
+<td></td>
+<td>System</td>
+<td>UINT32</td>
+<td>4</td>
+<td>Bit 1: System Error, Bit 2: System Warning, Bit 3-32: Unused</td>
+</tr>
+<tr>
+<td>Aiding Status TOV (Instrument Time)</td>
+<td>s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Time the follow aiding status data was valid for.</td>
+</tr>
+<tr>
+<td>DVL: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Kalman filter cycle runs at 1Hz</td>
+</tr>
+<tr>
+<td>DVL: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>DVL: Last Observation TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS since start or most recent reset</td>
+</tr>
+<tr>
+<td>DVL: Normalised Residual</td>
+<td>m/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised velocity residual for all accepted DVL observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>DVL: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all DVL observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>GNSS: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Kalman filter cycle runs at 1Hz</td>
+</tr>
+<tr>
+<td>GNSS: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>GNSS: Last Observation TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS since start or most recent reset</td>
+</tr>
+<tr>
+<td>GNSS: Normalised Residual</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised position residual for all accepted GNSS observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>GNSS: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all GNSS observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>USBL: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Kalman filter cycle runs at 1Hz</td>
+</tr>
+<tr>
+<td>USBL: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>USBL: Last Observation TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS since start or most recent reset</td>
+</tr>
+<tr>
+<td>USBL: Normalised Residual</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised position residual for all accepted USBL observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>USBL: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all USBL observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>XPOS: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Kalman filter cycle runs at 1Hz</td>
+</tr>
+<tr>
+<td>XPOS: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>XPOS: Last Observation TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS  since start or most recent reset</td>
+</tr>
+<tr>
+<td>XPOS: Normalised Residual</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised position residual for all accepted XPOS observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>XPOS: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all XPOS observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>XVEL: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Kalman filter cycle runs at 1Hz</td>
+</tr>
+<tr>
+<td>XVEL: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>XVEL: Last Observation TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS since start or most recent reset</td>
+</tr>
+<tr>
+<td>XVEL: Normalised Residual</td>
+<td>m/s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised velocity residual for all accepted XVEL observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>XVEL: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all XVEL observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>Depth: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>Kalman filter cycle runs at 1Hz</td>
+</tr>
+<tr>
+<td>Depth: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>Depth: Last Observation TOV (Instrument time)</td>
+<td>s</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS since start or most recent reset</td>
+</tr>
+<tr>
+<td>Depth: Normalised Residual</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised depth residual for all accepted Depth observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>Depth: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all DEPTH observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL1: Beacon Address</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>LBL1-5 ordered by # of ranges</td>
+</tr>
+<tr>
+<td>LBL1: SLAM Status</td>
+<td>Enum</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>0: Off, 1: Depth SLAM, 2: 2-D SLAM, 3: 3-D SLAM</td>
+</tr>
+<tr>
+<td>LBL1: Number of range observations in the last 60s</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL1: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL1: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL1: Last Observation TOV (Instrument time)</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS  since start or most recent reset</td>
+</tr>
+<tr>
+<td>LBL1: Range Residual</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised residual for all accepted LBL1 range observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL1: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all LBL1 range observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL2: Beacon Address</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>LBL1-5 ordered by # of ranges</td>
+</tr>
+<tr>
+<td>LBL2: SLAM Status</td>
+<td>Enum</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>0: Off, 1: Depth SLAM, 2: 2-D SLAM, 3: 3-D SLAM</td>
+</tr>
+<tr>
+<td>LBL2: Number of range observations in the last 60s</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL2: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL2: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL2: Last Observation TOV (Instrument time)</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS since start or most recent reset</td>
+</tr>
+<tr>
+<td>LBL2: Range Residual</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised residual for all accepted LBL2 range observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL2: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all LBL2 range observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL3: Beacon Address</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>LBL1-5 ordered by # of ranges</td>
+</tr>
+<tr>
+<td>LBL3: SLAM Status</td>
+<td>Enum</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>0: Off, 1: Depth SLAM, 2: 2-D SLAM, 3: 3-D SLAM</td>
+</tr>
+<tr>
+<td>LBL3: Number of range observations in the last 60s</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL3: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL3: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL3: Last Observation TOV (Instrument time)</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS since start or most recent reset</td>
+</tr>
+<tr>
+<td>LBL3: Range Residual</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised residual for all accepted LBL3 range observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL3: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all LBL3 range observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL4: Beacon Address</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>LBL1-5 ordered by # of ranges</td>
+</tr>
+<tr>
+<td>LBL4: SLAM Status</td>
+<td>Enum</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>0: Off, 1: Depth SLAM, 2: 2-D SLAM, 3: 3-D SLAM</td>
+</tr>
+<tr>
+<td>LBL4: Number of range observations in the last 60s</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL4: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL4: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL4: Last Observation TOV (Instrument time)</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS since start or most recent reset</td>
+</tr>
+<tr>
+<td>LBL4: Range Residual</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised residual for all accepted LBL4 range observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL4: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all LBL4 range observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL5: Beacon Address</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>LBL1-5 ordered by # of ranges</td>
+</tr>
+<tr>
+<td>LBL5: SLAM Status</td>
+<td>Enum</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td>0: Off, 1: Depth SLAM, 2: 2-D SLAM, 3: 3-D SLAM</td>
+</tr>
+<tr>
+<td>LBL5: Number of range observations in the last 60s</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL5: Number of observations accepted in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL5: Number of observations rejected in last Kalman filter cycle</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT16</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>LBL5: Last Observation TOV (Instrument time)</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Double</td>
+<td>8</td>
+<td>Last observation accepted by INS since start or most recent reset</td>
+</tr>
+<tr>
+<td>LBL5: Range Residual</td>
+<td>m</td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>Float</td>
+<td>4</td>
+<td>Averaged normalised residual for all accepted LBL5 range observations in the last Kalman filter cycle</td>
+</tr>
+<tr>
+<td>LBL5: Status Mask</td>
+<td></td>
+<td></td>
+<td>Navigation Algorithm</td>
+<td>UINT32</td>
+<td>4</td>
+<td>OR'd rejection status bits for all LBL5 range observations in the last Kalman filter cycle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes">Notes</h3>
+<h4 id="data-source">Data Source</h4>
+<p>The following provides an overview of the different data sources identified in the table above. Where a note in the table above is available, this supersedes anything in these notes if there is a conflict.</p>
+<p>Time System: The time system maintains the relationship between Instrument Time (time since start up) and UTC based on the user configuration. The time system is available and providing status from power on and is not impacted by any resets.</p>
+<p>DVL: These data items are derived purely from the DVL sensor, the data parameters will be updated on each DVL observation, which depending on user configuration is either set at a requested frequency or set to use an external trigger.</p>
+<p>System: These data items are collated at a system level for use within this and other messages.</p>
+<p>Navigation Algorithm: These data items are available when the device has entered Hybrid Mode. If a fallback option is available from a secondary source (e.g. Pressure sensor for Depth), values may be provided when not in Navigation mode. Not all data will be available from the navigation algorithm immediately after a hard reset.</p>
+<h4 id="lbl-range-aiding">LBL Range Aiding</h4>
+<p>XLHNAV can accomodate information from up to 5 aiding LBL beacons. 
+Information from the 5 beacons which have provided the most observations in the last 60 seconds will be shown.</p>
+<h4 id="status-masks">Status Masks</h4>
+<p>The table below details the status masks for each sensor. Any blank field can be considered not used.</p>
+<table>
+<thead>
+<tr>
+<th>Bit Number</th>
+<th>DVL</th>
+<th>GNSS</th>
+<th>USBL</th>
+<th>XPOS</th>
+<th>XVEL</th>
+<th>Depth</th>
+<th>LBL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Zero Range</td>
+<td>Rate of change</td>
+<td>Rate of change</td>
+<td>Rate of change</td>
+<td></td>
+<td>Rate of change</td>
+<td>Missing beacon info</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Zero Velocity</td>
+<td>Quality</td>
+<td>Quality</td>
+<td>Quality</td>
+<td></td>
+<td>Time</td>
+<td>Signal To Noise</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Time Delta</td>
+<td>Time</td>
+<td>Time</td>
+<td>Time</td>
+<td></td>
+<td>Invalid data</td>
+<td>Signal Level</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Velocity Change</td>
+<td></td>
+<td>Message Format</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Too few observations</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Invalid Status</td>
+<td></td>
+<td>Beacon ID</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Range exceeds min &amp; max</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Janus Error</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Predicted Range error</td>
+</tr>
+<tr>
+<td>7</td>
+<td>All Beams Invalid</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Correlation Score Limit exceeded</td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Range rate</td>
+</tr>
+<tr>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Acoustic</td>
+</tr>
+<tr>
+<td>10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Disabled</td>
+<td>Disabled</td>
+<td>Disabled</td>
+<td>Disabled</td>
+<td></td>
+<td>Disabled</td>
+<td>Disabled</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Sigma rejection</td>
+<td>Sigma rejection</td>
+<td>Sigma rejection</td>
+<td>Sigma rejection</td>
+<td></td>
+<td>Sigma rejection</td>
+<td>sigma rejection</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Time out</td>
+<td>Time out</td>
+<td>Time out</td>
+<td>Time out</td>
+<td></td>
+<td>Time out</td>
+<td>Integrity</td>
+</tr>
+<tr>
+<td>20</td>
+<td></td>
+<td></td>
+<td>Navigation uncertainty too high</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Time out</td>
+</tr>
+<tr>
+<td>21</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Fix position rejected</td>
+</tr>
+<tr>
+<td>22</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Misc</td>
+<td>Misc</td>
+<td>Misc</td>
+<td>Misc</td>
+<td>Misc</td>
+<td>Misc</td>
+<td>Misc</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lnav-lnavutc">LNAV &amp; LNAVUTC</h2>
+<p>The Long Navigation (LNAV) message is a generic navigation output from the SPRINT-Nav, populated by data from the Hybrid mode.
+All fields will be initialised to 0.
+Once a field has been assigned a value, it will retain that value until updated.
+The status bits should be used to determine when data is old/stale.</p>
+<p>LNAV requires the <a href="#multiplex-protocol">Multiplex Protocol</a> to seperate LNAV binary messages and is transmitted LSB first.</p>
+<p><a href="https://github.com/Sonardyne/multiplexed-LNAV-decoder-example">A Python LNAV Decoder is available on Sonardyne's Github</a></p>
+<h3 id="definition_2">Definition</h3>
+<ul>
+<li>LNAV Multiplex Message ID (MID) = 224</li>
+<li>LNAVUTC Multiplex Message ID (MID) = 232</li>
+</ul>
+<p>Size = 97 bytes (99 bytes if <a href="https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing">COBS</a> encoded)</p>
+<table>
+<thead>
+<tr>
+<th>Byte # (from 0)</th>
+<th>Field Name</th>
+<th>Units</th>
+<th>Data Source</th>
+<th>Data Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>DLE STX</td>
+<td>0x10 0x02</td>
+<td>N/A</td>
+<td>—</td>
+<td>See <a href="#multiplex-protocol">Multiplex Protocol</a></td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>ID</td>
+<td>0x10 0xE0</td>
+<td>N/A</td>
+<td>—</td>
+<td>See <a href="#multiplex-protocol">Multiplex Protocol</a></td>
+</tr>
+<tr>
+<td>5–10</td>
+<td>Time Tag</td>
+<td>10⁻⁶ s (LNAV) / 10⁻⁵ s (LNAVUTC)</td>
+<td>System</td>
+<td>Uint48</td>
+<td>LNAV is instrument time base (since power up), UTC for LNAVUTC (seconds since 1st Jan 1970, 0.01ms resolution</td>
+</tr>
+<tr>
+<td>11–14</td>
+<td>Latitude</td>
+<td>2⁻³¹ × 90 deg</td>
+<td>Navigation Algorithm</td>
+<td>Int32</td>
+<td>Latitude is north positive 0.5cm resolution, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>15–18</td>
+<td>Longitude</td>
+<td>2⁻³¹ × 180 deg</td>
+<td>Navigation Algorithm</td>
+<td>Int32</td>
+<td>Longitude is east positive, 1cm resolution at equator, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>19–22</td>
+<td>Depth</td>
+<td>10⁻³ m</td>
+<td>Navigation Algorithm</td>
+<td>Int32</td>
+<td>Depth below sea level, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Positive down.</td>
+</tr>
+<tr>
+<td>23–24</td>
+<td>Altitude</td>
+<td>10⁻² m</td>
+<td>Navigation Algorithm</td>
+<td>Uint16</td>
+<td>Height above seabed, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Altitude is calculated from the last received DVL message: valid beam ranges are averaged while accounting for their direction relative to DVL down. Vehicle roll/pitch and non-zero DVL mounting angles are not compensated for.</td>
+</tr>
+<tr>
+<td>25–26</td>
+<td>Roll</td>
+<td>2⁻¹⁵ × 180 deg</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Roll is the angle between the starboard axis and horizontal. Roll is positive when the starboard axis points below the horizontal (starboard down). Populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>27–28</td>
+<td>Pitch</td>
+<td>2⁻¹⁵ × 180 deg</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Pitch is the angle between the forward axis and horizontal. Pitch is positive when the forward axis is pointed above the horizontal (bow up). Populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>29–30</td>
+<td>Heading</td>
+<td>2⁻¹⁵ × 180 deg</td>
+<td>Navigation Algorithm</td>
+<td>Uint16</td>
+<td>Heading is the angle between North and the projection of the forward axis onto the horizontal, measured about the down direction (i.e. as seen from above). Populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>31–32</td>
+<td>vN</td>
+<td>10⁻³ m/s</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Vehicle North velocity, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>33–34</td>
+<td>vE</td>
+<td>10⁻³ m/s</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Vehicle East velocity, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>35–36</td>
+<td>vDwn</td>
+<td>10⁻³ m/s</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Vehicle Down velocity, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>37–38</td>
+<td>wFwd</td>
+<td>10⁻² deg/s</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Angular rate about forward axis, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Accelerations and angular rates are from the IMU, compensated for any gyro and accelerometer bias estimated by the system.</td>
+</tr>
+<tr>
+<td>39–40</td>
+<td>wStbd</td>
+<td>10⁻² deg/s</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Angular rate about starboard axis, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Accelerations and angular rates are from the IMU, compensated for any gyro and accelerometer bias estimated by the system.</td>
+</tr>
+<tr>
+<td>41–42</td>
+<td>wDwn</td>
+<td>10⁻² deg/s</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Angular rate about down axis, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Accelerations and angular rates are from the IMU, compensated for any gyro and accelerometer bias estimated by the system.</td>
+</tr>
+<tr>
+<td>43–44</td>
+<td>aFwd</td>
+<td>10⁻³ m/s²</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Forward acceleration, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Accelerations and angular rates are from the IMU, compensated for any gyro and accelerometer bias estimated by the system. Accelerations are valid at the IMU and are in vehicle frame if a SPRINT mounting angle has been configured. Compensated for gravity.</td>
+</tr>
+<tr>
+<td>45–46</td>
+<td>aStbd</td>
+<td>10⁻³ m/s²</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Starboard acceleration, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Accelerations and angular rates are from the IMU, compensated for any gyro and accelerometer bias estimated by the system. Accelerations are valid at the IMU and are in vehicle frame if a SPRINT mounting angle has been configured. Compensated for gravity.</td>
+</tr>
+<tr>
+<td>47–48</td>
+<td>aDwn</td>
+<td>10⁻³ m/s²</td>
+<td>Navigation Algorithm</td>
+<td>Int16</td>
+<td>Down acceleration, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Accelerations and angular rates are from the IMU, compensated for any gyro and accelerometer bias estimated by the system. Accelerations are valid at the IMU and are in vehicle frame if a SPRINT mounting angle has been configured. Compensated for gravity.</td>
+</tr>
+<tr>
+<td>49–52</td>
+<td>posMajor</td>
+<td>m</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>Horizontal position 1σ error ellipse, semi-major axis, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>53–56</td>
+<td>posMinor</td>
+<td>m</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>Semi-minor axis, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>57–60</td>
+<td>dirMajor</td>
+<td>deg</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>Direction of semi-major axis, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>61–64</td>
+<td>stdDepth</td>
+<td>m</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>1σ depth error, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>65–68</td>
+<td>stdLevN</td>
+<td>deg</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>1σ level error about North, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>69–72</td>
+<td>stdLevE</td>
+<td>deg</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>1σ level error about East, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Roll and Pitch 1σ ≈ max(stdLevN, stdLevE) for roll/pitch ≪ 45°.</td>
+</tr>
+<tr>
+<td>73–76</td>
+<td>stdHeading</td>
+<td>deg</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>1σ heading error, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>77–80</td>
+<td>velMajor</td>
+<td>m/s</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>Horizontal velocity 1σ error ellipse, semi-major axis, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Velocity RMS = `sqrt(velMajor² + velMinor²).</td>
+</tr>
+<tr>
+<td>81–84</td>
+<td>velMinor</td>
+<td>m/s</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>Semi-minor axis, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised. Velocity RMS = `sqrt(velMajor² + velMinor²).</td>
+</tr>
+<tr>
+<td>85–88</td>
+<td>dirVMajor</td>
+<td>deg</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>Direction of velocity semi-major axis, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>89–92</td>
+<td>velDown</td>
+<td>m/s</td>
+<td>Navigation Algorithm</td>
+<td>Float32</td>
+<td>1σ down velocity error, populated once hybrid mode has initialised, 0 if hybrid mode is not initialised.</td>
+</tr>
+<tr>
+<td>93–94</td>
+<td>Status</td>
+<td>N/A</td>
+<td>Navigation Algorithm</td>
+<td>Bit16</td>
+<td>See <a href="#status-bit-fields">LNAV Status Bit Fields</a></td>
+</tr>
+<tr>
+<td>95</td>
+<td>Checksum</td>
+<td>—</td>
+<td>Navigation Algorithm</td>
+<td>—</td>
+<td>Checksum: This is the byte-wise exclusive-OR of the pre-byte-stuffed fields: ID and Payload.</td>
+</tr>
+<tr>
+<td>96–97</td>
+<td>DLE ETX</td>
+<td>0x10 0x03</td>
+<td>Navigation Algorithm</td>
+<td>—</td>
+<td>See <a href="#multiplex-protocol">Multiplex Protocol</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="lnav-notes">LNAV Notes</h4>
+<ul>
+<li>Where a number is prepended by <code>0x</code>, the following characters are a number in hexadecimal notation (e.g. <code>0x40 = 64</code>).  </li>
+<li><strong>Horizontal position statistics:</strong><ul>
+<li>1DRMS = <code>sqrt(posMajor² + posMinor²)</code></li>
+<li>CEP (50%) ≈ <code>0.589 × (posMajor + posMinor)</code></li>
+<li>1σ error ellipse represents 39.4% probability<br></li>
+<li>95% probability error ellipse = <code>2.447 ×</code> 1σ error ellipse.</li>
+</ul>
+</li>
+<li>The LNAV Roll, Pitch, and Heading are defined as Euler rotations.                                                      </li>
+</ul>
+<h4 id="status-bit-fields">Status Bit Fields</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Status Bit</th>
+<th>Field Name</th>
+<th>Notes / Bit Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>bOrientationStatus</td>
+<td>Orientation invalid (e.g. AHRS not OK or unsettled).</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>bPosStatus</td>
+<td>Hybrid mode not OK or not initialised.</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>bAltitudeStatus</td>
+<td><strong>0</strong> indicates that the altitude and DVL velocities have been updated in this message compared to the last time LNAV was sent.<br><strong>1</strong> indicates that the altitude and DVL velocities data are either old (no update from DVL since last LNAV message sent) or invalid.</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Not Used</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>bOrientationSource</td>
+<td><strong>0</strong> indicates orientation source = Aligning.<br><strong>1</strong> indicates orientation source = Hybrid mode.</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>bSubseaUSBLUsed</td>
+<td><strong>0</strong> indicates data received and some or all used by the Hybrid mode within the last second; otherwise <strong>1</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>bDepthUsed</td>
+<td><strong>0</strong> indicates data received and some or all used by the Hybrid mode within the last second; otherwise <strong>1</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>bDVLUsed</td>
+<td><strong>0</strong> indicates data received and some or all used by the Hybrid mode within the last second; otherwise <strong>1</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Not Used</td>
+<td>Reserved.</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>Not Used</td>
+<td>Reserved.</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>bXPOSUsed</td>
+<td><strong>0</strong> indicates data received and some or all used by the Hybrid mode within the last second; otherwise <strong>1</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>bGPSUsed</td>
+<td><strong>0</strong> indicates data received and some or all used by the Hybrid mode within the last second; otherwise <strong>1</strong>. Includes GNSS height, if selected.</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>Not Used</td>
+<td>Reserved.</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>Not Used</td>
+<td>Reserved.</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td>bEuler</td>
+<td><strong>1</strong> indicates Roll, Pitch, and Heading are Euler rotations.</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td>Not Used</td>
+<td>Reserved for future use.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="multiplex-protocol">Multiplex Protocol</h3>
+<p>The Multiplex Protocol uses the Byte Stuffing technique to separate binary messages. Byte stuffing ensures
+that unique control bytes (e.g. message delimiters) are not wrongly interpreted when they are part of a message payload.</p>
+<p>In the Multiplex Protocol, the unique control byte is <code>0x10</code> - this is the 'Data Link Escape' (DLE). The DLE byte is used in the following cases:
+- For every DLE byte found within the message payload an extra DLE byte is inserted (stuffed). 
+- When the DLE byte is placed before a <code>0x02</code> byte (the 'Start of Text' or STX byte), it is used to mark the start of the message. 
+- When the DLE byte is placed before a <code>0x03</code> byte (the 'End of Text' or ETX byte), it is used to mark the end of the message.</p>
+<h4 id="packet-format">Packet Format</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>DLE STX</th>
+<th>ID</th>
+<th>Payload</th>
+<th>Checksum</th>
+<th>DLE ETX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Size</strong></td>
+<td>2 Bytes</td>
+<td>2 Bytes</td>
+<td>0–2047 Bytes</td>
+<td>1 Byte</td>
+<td>2 Bytes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="id-field-format">ID Field Format</h4>
+<table>
+<thead>
+<tr>
+<th>Bit Field</th>
+<th>TS</th>
+<th>RES</th>
+<th>SID</th>
+<th>MID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Size</strong></td>
+<td>1 bit</td>
+<td>1 bit</td>
+<td>4 bits</td>
+<td>10 bits (LSB)</td>
+</tr>
+<tr>
+<td>Total Size: 2 Bytes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="example-message">Example Message</h4>
+<p>The following example demonstrates data encoding using the Multiplex Protocol.</p>
+<p>Data to encode:
+</p><div class="highlight"><pre><span></span><code>0x00
+0x01
+0x02
+0x03
+0x04
+0x0E
+0x0F
+0x10
+0x11
+</code></pre></div>
+<p>Multiplex-Protocol-Encoded Message:
+</p><div class="highlight"><pre><span></span><code>0x0A Packet Size
+
+0x10 Message Start
+0x02
+
+0x00 ID
+0x01
+
+0x00 Message Payload 
+0x01
+0x02
+0x03
+0x04
+0x0E
+0x0F
+0x10 &lt; (Stuffed Byte)
+0x10
+0x11
+
+0x00 Checksum
+
+0x10 Message End
+0x03
+</code></pre></div></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../versioning-and-compatibility/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Versioning &amp; Compatibility">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Versioning & Compatibility
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../vehicle-guides/" class="md-footer__link md-footer__link--next" aria-label="Next: Vehicle Guides">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Vehicle Guides
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Sonardyne International Ltd – <a href="#__consent">Change cookie settings</a>
+
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Sonardyne" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/user/sonardyne" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.x.com/sonardyne" target="_blank" rel="noopener" title="www.x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/Sonardyne" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/sonardyne-international-ltd/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.footer", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.726fbb30.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
