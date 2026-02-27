@@ -1,0 +1,51 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.modules.sprint_module;
+
+// SprintModuleConfiguration defines the configuration and status of the SPRINT module.
+// It includes identifying information, firmware version, function and user levels, and
+// flags indicating which operational features are enabled.
+message SprintModuleConfiguration {
+  // SprintModuleConfiguration.SprintFunctionLevel enumerates the different function levels available
+  // for Sprint navigation. It indicates the permissions or capabilities
+  // assigned to a particular user or system component.
+  enum SprintFunctionLevel {
+    SPRINT_FUNCTION_LEVEL_UNSPECIFIED                 = 0;  // Unspecified function level.
+    SPRINT_FUNCTION_LEVEL_GUIDANCE                    = 1;  // Guidance function level - restricted relative to Navigator function level.
+    SPRINT_FUNCTION_LEVEL_NAVIGATOR                   = 2;  // Navigator function level - provides full functionality.
+  }
+
+  sonardyne.api.common.UniqueID uid                   = 1;  // Unique ID of the SPRINT.
+  SprintFunctionLevel function_level                  = 2;  // Function level of the SPRINT.
+  bool has_onboard_logging_enabled                    = 3;  // Whether onboard logging is enabled for the SPRINT.
+  bool has_adcp_mode_enabled                          = 4;  // Whether Acoustic Doppler Current Profiler (ADCP) mode is enabled for the SPRINT.
+  bool has_dp_mode_enabled                            = 5;  // Whether Dynamic Positioning (DP) mode is enabled for the SPRINT.
+  bool has_lbl_range_aiding_enabled                   = 6;  // Whether Long Baseline (LBL) range aiding is enabled for the SPRINT.
+  bool has_xvel_aiding_enabled                        = 7;  // Whether External Velocity (XVEL) aiding is enabled for the SPRINT.
+}

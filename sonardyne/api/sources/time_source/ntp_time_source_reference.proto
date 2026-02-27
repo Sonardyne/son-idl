@@ -1,0 +1,46 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/unique_id.proto";
+import "sonardyne/api/sources/time_source/ntp_time_source_configuration.proto";
+
+package sonardyne.api.sources.time_source;
+
+
+// NtpTimeSourceReference represents a reference to a specific NTP time source configuration.
+// It allows selecting a source by UniqueId, selecting any available source, or selecting none.
+// The readonly_reference field contains the full configuration of the referenced NTP source.
+message NtpTimeSourceReference {
+  oneof selector_options {
+    bool set_any                                                  = 1;  // Select any NtpTimeSourceConfiguration (selects lowest uid).
+    bool set_none                                                 = 2;  // Select no NtpTimeSourceConfiguration.
+    sonardyne.api.common.UniqueID set_uid                         = 3;  // Select NtpTimeSourceConfiguration by uid.
+  }
+  oneof readonly_reference {
+    bool readonly_none_set                                        = 4;  // If true, no NtpTimeSourceConfiguration source set.
+    NtpTimeSourceConfiguration readonly_ntp_time_source_reference = 5;  // Contains the referenced NtpTimeSourceConfiguration.
+  }
+}

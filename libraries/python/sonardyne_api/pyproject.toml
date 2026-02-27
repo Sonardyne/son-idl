@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling", "hatch-protobuf"]
+build-backend = "hatchling.build"
+
+# Ensure that only the generated/copied files from CreateSonIDLPackage.py go into the package.
+[tool.hatch.build.targets.sdist]
+packages = ["sonardyne_api"]
+
+[tool.hatch.version]
+path = "sonardyne_api/__about__.py"
+
+[tool.hatch.build.hooks.custom]
+# required for hatch-protobuf
+dependencies = ["hatch-protobuf"]
+proto_paths = ["protos"]
+output_path = "sonardyne_api/"
+# required for wrapper around hatch-protobuf
+proto_paths_source = ["../../.."]
+exclude_dirs = ["^.*_docs$", "^sonardyne_.*$", "^release$"]
+
+[project]
+name = "sonardyne_api"
+description = "Sonardyne gRPC / Protocol Buffer API"
+dynamic = [
+  "version"
+]
+maintainers = [
+  { name = "Sonardyne" },
+]
+requires-python = ">=3.8"
+
+dependencies = [
+    "grpcio==1.78.1",
+    "protobuf==6.33.0",
+    "cobs==1.2.2"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/Sonardyne/son-idl"
+Documentation = "https://sonardyne.github.io/son-idl/"
+"Bug Tracker" = "https://github.com/Sonardyne/son-idl/issues"
+

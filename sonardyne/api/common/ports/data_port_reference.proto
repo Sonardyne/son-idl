@@ -1,0 +1,54 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/ports/ethernet_port/ethernet_port.proto";
+import "sonardyne/api/common/ports/external_control_port/external_control_port.proto";
+import "sonardyne/api/common/ports/serial_port/serial_port.proto";
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.common.ports;
+
+// DataPortReference defines a reference to a data port, allowing selection
+// from various types of ports using multiple options. The reference can select
+// no port, a specific port by UniqueId, or any available port of a given type
+// (Ethernet, Serial, or External Control). Read-only fields provide the
+// actual referenced port information, if available.
+message DataPortReference {
+  oneof selector_options {
+    bool set_none                                                                       = 1;  // Select no DataPortConfiguration.
+    sonardyne.api.common.UniqueID set_uid                                               = 2;  // Select an EthernetPort, SerialPort, or ExternalControlPort by unique ID.
+    bool set_any_ethernet_port                                                          = 3;  // Select any available Ethernet Port.
+    bool set_any_serial_port                                                            = 4;  // Select any available Serial Port.
+    bool set_any_external_control_port                                                  = 5;  // Select any available External Control Port.
+  }
+  optional sonardyne.api.common.UniqueID readonly_uid                                   = 6;  // Optional read-only unique ID of a set EthernetPort, SerialPort, or ExternalControlPort.
+  oneof readonly_reference {
+    bool readonly_none_set                                                              = 7;  // If true, no data port set.
+    ethernet_port.EthernetPort readonly_ethernet_port_reference                         = 8;  // Contains the referenced EthernetPort (readonly).
+    serial_port.SerialPort readonly_serial_port_reference                               = 9;  // Contains the referenced SerialPort (readonly).
+    external_control_port.ExternalControlPort readonly_external_control_port_reference  = 10;  // Contains the referenced ExternalControlPort (readonly).
+  }
+}

@@ -1,0 +1,39 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/unique_id.proto";
+import "sonardyne/api/sources/sound_velocity_source/sound_velocity_data_source_reference.proto";
+
+package sonardyne.api.sources.sound_velocity_source;
+
+// SoundVelocitySourceConfiguration represents the configuration of a sound velocity source.
+// It defines a unique identifier for the source and specifies the input source from which
+// sound velocity data will be obtained, which could be a manual value, a salinity-based
+// calculation, or a connected instrument.
+message SoundVelocitySourceConfiguration {
+  sonardyne.api.common.UniqueID uid                                                     = 1;  // Unique identifier of the depth source.
+  optional SoundVelocityDataSourceReference input_sound_velocity_data_source_reference  = 2;  // Reference to the input depth data source.
+}

@@ -1,0 +1,57 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/ports/ethernet_port/ethernet_port.proto";
+import "sonardyne/api/common/ports/external_control_port/external_control_port.proto";
+import "sonardyne/api/common/ports/serial_port/serial_port.proto";
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.sources.sound_velocity_source;
+
+// SoundVelocityDataSourceReference is the source of sound velocity data.
+// The source can be one of a manual input, salinity-based calculation,
+// or an instrument connected via Ethernet, Serial, or External Control Port.
+// Provides read-only references to the selected source for verification or downstream use.
+message SoundVelocityDataSourceReference {
+  oneof selector_options {
+    sonardyne.api.common.UniqueID set_uid                                                                         = 1;  // Select an EthernetPort, SerialPort, or ExternalControlPort by unique ID.
+    bool set_any_ethernet_port                                                                                    = 2;  // Select any available Ethernet port.
+    bool set_any_serial_port                                                                                      = 3;  // Select any available serial port.
+    bool set_any_external_control_port                                                                            = 4;  // Select any available external control port.
+    double set_manual_sound_velocity_metres_per_second                                                            = 5;  // Sets the manual sound velocity value for use.
+    double set_salinity_parts_per_thousand                                                                        = 6;  // Sets the salinity used in derived sound velocity calculations.
+  }
+
+  optional sonardyne.api.common.UniqueID readonly_uid                                                             = 7;  // Optional read-only unique ID of a set EthernetPort, SerialPort, or ExternalControlPort.
+  oneof readonly_reference {
+    bool readonly_none_set                                                                                        = 8;  // If true, no PpsTimeSourceConfiguration set.
+    sonardyne.api.common.ports.ethernet_port.EthernetPort readonly_ethernet_port_reference                        = 9;  // Read-only reference to an Ethernet port.
+    sonardyne.api.common.ports.serial_port.SerialPort readonly_serial_port_reference                              = 10;  // Read-only reference to a serial port.
+    sonardyne.api.common.ports.external_control_port.ExternalControlPort readonly_external_control_port_reference = 11;  // Read-only reference to an external control port.
+    double readonly_manual_sound_velocity_metres_per_second                                                       = 12;  // Read-only set manual sound velocity.
+    double readonly_salinity_parts_per_thousand                                                                   = 13;  // Read-only set salinity used in derived sound velocity calculations.
+  }
+}

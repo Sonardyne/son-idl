@@ -1,0 +1,44 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/envelope/request_envelope.proto";
+import "sonardyne/api/common/envelope/response_envelope.proto";
+import "sonardyne/api/common/version/get_version_request.proto";
+import "sonardyne/api/common/version/get_version_response.proto";
+import "sonardyne/api/services/command_service/send_command_request.proto";
+import "sonardyne/api/services/command_service/send_command_response.proto";
+
+package sonardyne.api.services.command_service;
+
+// CommandService provides RPC methods to interact with Sonardyne instruments.
+// It supports querying API version, sending commands, listing available commands,
+// and sending generic requests either synchronously or asynchronously.
+service CommandService {
+
+  rpc GetVersion(sonardyne.api.common.version.GetVersionRequest)                returns (sonardyne.api.common.version.GetVersionResponse);        // Gets the version of the Sonardyne API.
+  rpc SendCommand(SendCommandRequest)                                           returns (SendCommandResponse);                                    // Sends an instrument command and returns the updated command, result, and timestamp.
+  rpc SendRequest(sonardyne.api.common.envelope.RequestEnvelope)                returns (sonardyne.api.common.envelope.ResponseEnvelope);         // Sends a generic request and returns the corresponding response.
+}

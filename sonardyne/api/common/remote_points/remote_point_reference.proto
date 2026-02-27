@@ -1,0 +1,47 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/remote_points/remote_point.proto";
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.common.remote_points;
+
+// RemotePointReference defines a reference to a remote point using one of several selection options.
+// It can select any available remote point (lowest UniqueId), the Common Reference Point (CRP),
+// or a specific remote point by its unique ID. The readonly_reference field contains the
+// actual referenced RemotePoint, if available.
+message RemotePointReference {
+  oneof selector_options {
+    bool set_crp                                                                    = 1;  // Select Common Reference Point.
+    bool set_any_remote_point                                                       = 2;  // Select any available RemotePoint (selects lowest uid).
+    sonardyne.api.common.UniqueID set_uid                                           = 3;  // Select RemotePoint by a specific uid.
+  }
+  optional sonardyne.api.common.UniqueID readonly_uid                               = 4;  // Optional read-only unique ID of a a RemotePoint.
+  oneof readonly_reference {
+    bool readonly_crp_set                                                           = 5;  // If true, no PpsTimeSourceConfiguration set.
+    sonardyne.api.common.remote_points.RemotePoint readonly_remote_point_reference  = 6;  // Contains the referenced RemotePoint.
+  }
+}

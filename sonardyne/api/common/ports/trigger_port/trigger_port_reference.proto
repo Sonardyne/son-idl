@@ -1,0 +1,45 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/ports/trigger_port/trigger_port.proto";
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.common.ports.trigger_port;
+
+// TriggerPortReference defines a reference to a trigger port using one of several selection options.
+// It can select any available port (lowest UniqueId), no port, or a specific port by its unique ID.
+// The readonly_reference field contains the actual referenced TriggerPort, if available.
+message TriggerPortReference {
+  oneof selector_options {
+    bool set_any                                      = 1;  // Select any available TriggerPort (selects lowest uid).
+    bool set_none                                     = 2;  // Select no TriggerPort.
+    sonardyne.api.common.UniqueID set_uid             = 3;  // Select TriggerPort by a specific uid.
+  }
+  oneof readonly_reference {
+    bool readonly_none_set                            = 4;  // If true, no TriggerPort set.
+    TriggerPort readonly_trigger_port_reference       = 5;  // Contains the referenced TriggerPort.
+  }
+}

@@ -1,0 +1,54 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+
+package sonardyne.api.modules.output_message_module;
+
+// OutputMessageType enumerates the different types of output messages
+// that can be produced by an output message module. The default value
+// is unspecified if the field is not populated.
+enum OutputMessageType {
+
+  OUTPUT_MESSAGE_TYPE_UNSPECIFIED                 = 0;  // Unspecified output message type.
+  OUTPUT_MESSAGE_TYPE_HNAV                        = 1;  // HNAV message type.
+  OUTPUT_MESSAGE_TYPE_SON2                        = 2;  // SON2 message type.
+  OUTPUT_MESSAGE_TYPE_GGA                         = 3;  // GGA message type.
+  OUTPUT_MESSAGE_TYPE_PSONNAV                     = 4;  // PSONNAV message type.
+  OUTPUT_MESSAGE_TYPE_ZDA                         = 5;  // ZDA message type.
+  OUTPUT_MESSAGE_TYPE_LNAV                        = 6;  // LNAV message type.
+  OUTPUT_MESSAGE_TYPE_LNAVUTC                     = 7;  // LNAVUTC message type.
+  OUTPUT_MESSAGE_TYPE_TSS1                        = 8;  // TSS1 message type.
+  OUTPUT_MESSAGE_TYPE_TSS2                        = 9;  // TSS2 message type.
+  OUTPUT_MESSAGE_TYPE_EM3000                      = 10;  // EM3000 message type.
+  OUTPUT_MESSAGE_TYPE_HDT                         = 11;  // HDT message type.
+  OUTPUT_MESSAGE_TYPE_PD4                         = 12;  // PD4 message type.
+  OUTPUT_MESSAGE_TYPE_PD0                         = 13;  // PD0 message type.
+  OUTPUT_MESSAGE_TYPE_PSONDIGI                    = 14;  // PSONDIGI message type.
+  OUTPUT_MESSAGE_TYPE_KM_BINARY                   = 15;  // KMBinary message type.
+  OUTPUT_MESSAGE_TYPE_GLL                         = 16;  // GLL message type.
+  OUTPUT_MESSAGE_TYPE_XLHNAV                      = 17;  // XLHNAV message type.
+  OUTPUT_MESSAGE_TYPE_SONDV                       = 18;  // SONDV message type.
+}

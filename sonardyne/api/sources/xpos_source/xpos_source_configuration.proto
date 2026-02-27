@@ -1,0 +1,44 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/bounded_values/bounded_double.proto";
+import "sonardyne/api/common/installation/lever_arms.proto";
+import "sonardyne/api/common/ports/data_port_reference.proto";
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.sources.xpos_source;
+
+
+// XposSourceConfiguration represents the configuration of an XPOS positioning source.
+// This includes its unique identifier, the input data port providing XPOS measurements,
+// lever arm offsets relative to the vessel reference point, and an optional fallback
+// horizontal uncertainty value.
+message XposSourceConfiguration {
+  sonardyne.api.common.UniqueID uid                                                                 = 1;  // Unique identifier of the XPOS source.
+  optional sonardyne.api.common.ports.DataPortReference input_data_port                             = 2;  // Reference to the input data port providing XPOS data.
+  optional sonardyne.api.common.installation.LeverArms lever_arms                                   = 3;  // Lever arms from the vessel reference point.
+  optional sonardyne.api.common.bounded_values.BoundedDouble fallback_horizontal_uncertainty_metres = 4;  // 1σ of horizontal uncertainty applied to incoming XPOS measurements;  ignored if 0.
+}

@@ -1,0 +1,90 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/timestamp.proto";
+
+package sonardyne.api.common.telegrams;
+
+// PsimssbTelegram represents a measurement from a Short Baseline (SUSBL) acoustic positioning system.
+// It includes the position, orientation, depth, and any additional information from the transponder.
+// The coordinates, orientation, and additional info fields are interpreted according to the specified
+// coordinate system and SUSBL configuration.
+message PsimssbTelegram {
+  // PsimssbTelegram.PsimssbAdditionalInfo represents the type of supplementary information available
+  // from a SUSBL (Short Baseline) measurement, such as compass, inclinometer, depth,
+  // or timing data from the transponder.
+  enum PsimssbAdditionalInfo {
+    PSIMSSB_ADDITIONAL_INFO_UNSPECIFIED               = 0;  // Unspecified additional info.
+    PSIMSSB_ADDITIONAL_INFO_NONE                      = 1;  // No additional info.
+    PSIMSSB_ADDITIONAL_INFO_COMPASS                   = 2;  // Compass heading info.
+    PSIMSSB_ADDITIONAL_INFO_INCLINOMETER              = 3;  // Inclinometer info.
+    PSIMSSB_ADDITIONAL_INFO_DEPTH                     = 4;  // Depth info.
+    PSIMSSB_ADDITIONAL_INFO_TIME_FROM_TRANSPONDER     = 5;  // Time from transponder.
+  };
+  // PsimssbTelegram.PsimssbCoordinateSystem represents the coordinate system used for PSIMSSB (Short Baseline) measurements.
+  // It can be Cartesian, Polar, UTM, or expressed in radians, depending on the measurement context.
+  enum PsimssbCoordinateSystem {
+    PSIMSSB_COORDINATE_SYSTEM_UNSPECIFIED             = 0;  // Unspecified coordinate system.
+    PSIMSSB_COORDINATE_SYSTEM_UNKNOWN                 = 1;  // Unknown coordinate system.
+    PSIMSSB_COORDINATE_SYSTEM_CARTESIAN               = 2;  // Cartesian coordinates.
+    PSIMSSB_COORDINATE_SYSTEM_POLAR                   = 3;  // Polar coordinates.
+    PSIMSSB_COORDINATE_SYSTEM_UTM                     = 4;  // UTM coordinates.
+    PSIMSSB_COORDINATE_SYSTEM_RADIANS                 = 5;  // Coordinates in radians.
+  };
+  // PsimssbTelegram.PsimssbOrientation enumerates the reference frame used for the orientation of a PSIMSSB measurement.
+  // It indicates whether the reported orientation is relative to the vessel, true north, east, or unknown.
+  enum PsimssbOrientation {
+    PSIMSSB_ORIENTATION_UNSPECIFIED                   = 0;  // Unspecified orientation.
+    PSIMSSB_ORIENTATION_UNKNOWN                       = 1;  // Unknown orientation.
+    PSIMSSB_ORIENTATION_VESSEL_HEADING                = 2;  // Orientation relative to vessel heading.
+    PSIMSSB_ORIENTATION_NORTH                         = 3;  // Orientation relative to north.
+    PSIMSSB_ORIENTATION_EAST                          = 4;  // Orientation relative to east.
+  };
+  // PsimssbTelegram.PsimssbSoftwareFilter specifies the type of software processing applied to PSIMSSB measurements.
+  // It indicates whether the values are raw, filtered, or predicted by the system.
+  enum PsimssbSoftwareFilter {
+    PSIMSSB_SOFTWARE_FILTER_UNSPECIFIED               = 0;  // Unspecified filter type.
+    PSIMSSB_SOFTWARE_FILTER_UNKNOWN                   = 1;  // Unknown filter type.
+    PSIMSSB_SOFTWARE_FILTER_MEASURED                  = 2;  // Measured values.
+    PSIMSSB_SOFTWARE_FILTER_FILTERED                  = 3;  // Filtered values.
+    PSIMSSB_SOFTWARE_FILTER_PREDICTED                 = 4;  // Predicted values.
+  };
+
+  sonardyne.api.common.Timestamp time_of_validity     = 1;  // Time at which the SUSBL data is valid.
+  PsimssbCoordinateSystem coordinate_type             = 2;  // Coordinate system used for the position.
+  double x_coordinate                                 = 3;  // X coordinate in metres or radians (matching NMEA standard).
+  double y_coordinate                                 = 4;  // Y coordinate in metres or radians (matching NMEA standard).
+  uint32 transponder_code                             = 5;  // Code identifying the transponder.
+  bool is_valid                                       = 6;  // True if the measurement is valid.
+  PsimssbOrientation orientation_type                 = 7;  // Orientation reference type.
+  string error_code                                   = 8;  // Error code associated with the measurement.
+  PsimssbSoftwareFilter software_filter               = 9;  // Type of software filtering applied.
+  double depth_metres                                 = 10;  // Depth in metres.
+  double position_uncertainty_metres                  = 11;  // 1σ of position uncertainty in metres.
+  PsimssbAdditionalInfo additional_info_type          = 12;  // Type of additional info.
+  double additional_info_value_1                      = 13;  // First value for additional info.
+  double additional_info_value_2                      = 14;  // Second value for additional info.
+}

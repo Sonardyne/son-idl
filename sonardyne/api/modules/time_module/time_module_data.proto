@@ -1,0 +1,52 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/timestamp.proto";
+
+package sonardyne.api.modules.time_module;
+
+// TimeModuleData represents the current time information provided by a Time Module.
+// It includes the timestamp, the origins of the reported time, the uncertainty
+// of the time measurement, and the age of the reported time in seconds.
+message TimeModuleData {
+  // TimeModuleData.TimeOrigin enumerates the possible sources of time for a Time Module.
+  // It indicates how the module's time was derived or synchronized.
+  enum TimeOrigin {
+    TIME_ORIGIN_UNSPECIFIED                           = 0;  // Unspecified time origin (default when unpopulated).
+    TIME_ORIGIN_RTC                                   = 1;  // Real-Time Clock (RTC).
+    TIME_ORIGIN_NMEA                                  = 2;  // Time from NMEA messages.
+    TIME_ORIGIN_NMEA_AND_1PPS                         = 3;  // Time from NMEA combined with 1PPS.
+    TIME_ORIGIN_1PPS                                  = 4;  // Time from 1 Pulse Per Second (1PPS).
+    TIME_ORIGIN_NTP                                   = 5;  // Network Time Protocol (NTP).
+    TIME_ORIGIN_PTP                                   = 6;  // Precision Time Protocol (PTP).
+    TIME_ORIGIN_MSYS                                  = 7;  // Internal MSys time source.
+  }
+
+  sonardyne.api.common.Timestamp time                 = 1;  // Current time reported by the Time Module.
+  repeated TimeOrigin time_origins                    = 2;  // Origins of the reported time.
+  double time_uncertainty_seconds                     = 3;  // 1σ of uncertainty of the reported time in seconds.
+  double age_seconds                                  = 4;  // Age of the reported time in seconds.
+}

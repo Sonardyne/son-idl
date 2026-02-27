@@ -1,0 +1,47 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/data/data_encoding.proto";
+import "sonardyne/api/common/ports/ethernet_port/tcp_client_parameters.proto";
+import "sonardyne/api/common/ports/ethernet_port/tcp_server_parameters.proto";
+import "sonardyne/api/common/ports/ethernet_port/udp_socket_parameters.proto";
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.common.ports.ethernet_port;
+
+// EthernetPort defines the configuration of a single Ethernet port on the instrument.
+// It includes a unique identifier, the source port number, a flag indicating whether
+// COBS framing is enabled, and the port type, which can be a TCP server, TCP client, or UDP socket.
+message EthernetPort {
+  sonardyne.api.common.UniqueID uid                     = 1;  // Unique ID of the ethernet port. These are unique and assigned by the system.
+  uint32 source_port                                    = 2;  // Source port number for the ethernet port.
+  sonardyne.api.common.data.DataEncoding data_encoding  = 3;  // Data encoding on this port, where inputs are decoded and outputs are encoded.
+  oneof type {
+    TcpServerParameters tcp_server                      = 4;  // TCP server parameters - present if the port is configured as a TCP server.
+    TcpClientParameters tcp_client                      = 5;  // TCP client parameters - present if the port is configured as a TCP client.
+    UdpSocketParameters udp_socket                      = 6;  // UDP socket parameters - present if the port is configured as a UDP socket.
+  };
+}

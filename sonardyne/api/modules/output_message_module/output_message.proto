@@ -1,0 +1,41 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/ports/data_port_reference.proto";
+import "sonardyne/api/common/remote_points/remote_point_reference.proto";
+import "sonardyne/api/modules/output_message_module/output_message_type.proto";
+
+package sonardyne.api.modules.output_message_module;
+
+// OutputMessage defines the configuration for a single output message from a module.
+// It specifies the type of message, the output rate in Hz, the remote point reference
+// where the data is valid, and the data port to which the message is sent.
+message OutputMessage {
+  OutputMessageType output_message_type                                         = 1;  // Type of message (e.g. GGA, LNAV, ZDA) to output.
+  sonardyne.api.common.ports.DataPortReference data_port_output                 = 2;  // Reference to a data port over which the data will be output.
+  optional double rate_hz                                                       = 3;  // Rate at which to output the message - may be unset for a message to be output at an "automatic" rate.
+  optional sonardyne.api.common.remote_points.RemotePointReference remote_point = 4;  // Reference to a remote point at which the data will be valid  - may be unset for a non-positional message with e.g. ZDA.
+}

@@ -1,0 +1,43 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/telegrams/gga_telegram.proto";
+import "sonardyne/api/common/telegrams/gst_telegram.proto";
+import "sonardyne/api/common/timestamp.proto";
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.sources.gnss_source;
+
+// GnssSourceObservation is data from a GNSS source, including position and optional uncertainty information.
+// Contains the unique ID of the GNSS source and the timestamp of data arrival.
+message GnssSourceObservation {
+  sonardyne.api.common.UniqueID uid                         = 1;  // Unique identifier of the GNSS source.
+  optional sonardyne.api.common.Timestamp time_of_arrival   = 2;  // Timestamp when the data was received;  set if not provided.
+  oneof data {                                                    // The GNSS observation data.
+    sonardyne.api.common.telegrams.GgaTelegram gga_telegram = 3;  // GGA message received by the GNSS source.
+    sonardyne.api.common.telegrams.GstTelegram gst_telegram = 4;  // GST message received by the GNSS source.
+  };
+}

@@ -1,0 +1,53 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/data/data_encoding.proto";
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.common.ports.serial_port;
+
+// SerialPort represents a physical serial port on the device.
+message SerialPort {
+  // SerialPort.BaudRate enumerates the serial communication baud rates. It
+  // specifies the speed at which data is transmitted over a serial port.
+  enum BaudRate {
+    BAUD_RATE_UNSPECIFIED                               = 0;  // Unspecified Baud rate.
+    BAUD_RATE_4800                                      = 1;  // 4800 Baud.
+    BAUD_RATE_9600                                      = 2;  // 9600 Baud.
+    BAUD_RATE_19200                                     = 3;  // 19200 Baud.
+    BAUD_RATE_38400                                     = 4;  // 38400 Baud.
+    BAUD_RATE_57600                                     = 5;  // 57600 Baud.
+    BAUD_RATE_115200                                    = 6;  // 115200 Baud.
+    BAUD_RATE_230400                                    = 7;  // 230400 Baud.
+    BAUD_RATE_460800                                    = 8;  // 460800 Baud.
+    BAUD_RATE_921600                                    = 9;  // 921600 Baud.
+    BAUD_RATE_1000000                                   = 10;  // 1000000 Baud.
+  };
+
+  sonardyne.api.common.UniqueID uid                     = 1;  // Unique ID of the serial port. These are unique and assigned by the system.
+  BaudRate baud_rate                                    = 2;  // Baud rate of the serial port.
+  sonardyne.api.common.data.DataEncoding data_encoding  = 3;  // Data encoding on this port, where inputs are decoded and outputs are encoded.
+}

@@ -1,0 +1,48 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/envelope/request_envelope.proto";
+import "sonardyne/api/common/envelope/response_envelope.proto";
+import "sonardyne/api/common/version/get_version_request.proto";
+import "sonardyne/api/common/version/get_version_response.proto";
+import "sonardyne/api/services/configuration_service/configuration_envelope.proto";
+import "sonardyne/api/services/configuration_service/get_configuration_request.proto";
+import "sonardyne/api/services/configuration_service/get_configuration_response.proto";
+import "sonardyne/api/services/configuration_service/set_configuration_request.proto";
+import "sonardyne/api/services/configuration_service/set_configuration_response.proto";
+
+package sonardyne.api.services.configuration_service;
+
+// ConfigurationService provides methods for managing and retrieving instrument configurations.
+// It supports synchronous and asynchronous requests, as well as streaming of configuration updates.
+service ConfigurationService {
+
+  rpc GetVersion(sonardyne.api.common.version.GetVersionRequest)                returns (sonardyne.api.common.version.GetVersionResponse);        // Gets the version of the Sonardyne API.
+  rpc SetConfiguration(SetConfigurationRequest)                                 returns (SetConfigurationResponse);                               // Sets a configuration.
+  rpc GetConfiguration(GetConfigurationRequest)                                 returns (GetConfigurationResponse);                               // Gets one or more configurations based on matching criteria.
+  rpc SendRequest(sonardyne.api.common.envelope.RequestEnvelope)                returns (sonardyne.api.common.envelope.ResponseEnvelope);         // Sends one or more ConfigurationRequests.
+  rpc ConfigurationStream(stream ConfigurationEnvelope)                         returns (stream ConfigurationEnvelope);                           // Publishes all configuration changes; publishes all configurations on initial connection.
+}

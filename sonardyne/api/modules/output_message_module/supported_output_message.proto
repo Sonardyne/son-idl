@@ -1,0 +1,45 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/modules/output_message_module/output_message_type.proto";
+
+package sonardyne.api.modules.output_message_module;
+
+// OutputRateType represents the type of output rate which is valid for an output message type.
+// For example, an output messages types may only be output at a system-defined rate.
+enum OutputRateType {
+  OUTPUT_RATE_TYPE_UNSPECIFIED                              = 0;  // Unspecified output rate type.
+  OUTPUT_RATE_TYPE_SYSTEM_DEFINED                           = 1;  // Signifies that a user-defined rate is not valid.
+  OUTPUT_RATE_TYPE_USER_SELECTED_PRESET                     = 2;  // Signifies that choosing a preset rate to output at is valid.
+}
+
+// SupportedOutputMessage defines the supported configurations for a single output message from a module.
+// It specifies the type of message, the valid output rates in Hz, and if a remote point reference is valid for the type.
+message SupportedOutputMessage {
+  OutputMessageType output_message_type                     = 1;  // Type of message (e.g. GGA, LNAV, ZDA) for which the output_rate_type and is_remote_point_applicable information is valid.
+  OutputRateType output_rate_type                           = 2;  // Represents the type of output rate which this output message permits.
+  bool is_remote_point_applicable                           = 3;  // If true, a remote point is applicable for this message. Otherwise, the message is not affected by the choice of remote point.
+}
