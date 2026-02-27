@@ -76,7 +76,7 @@
 <polygon fill="#a6cee3" stroke="none" points="1056,-133 1056,-148 1089,-148 1089,-133 1056,-133"/>
 <text text-anchor="start" x="1058" y="-139" font-family="Ubuntu" font-style="italic" font-size="10.00">double</text>
 <text text-anchor="start" x="971" y="-123" font-family="Ubuntu" font-size="10.00">4</text>
-<text text-anchor="start" x="981" y="-123" font-family="Ubuntu" font-size="10.00">heading_degress</text>
+<text text-anchor="start" x="981" y="-123" font-family="Ubuntu" font-size="10.00">heading_degrees</text>
 <polygon fill="#a6cee3" stroke="none" points="1056,-118 1056,-133 1089,-133 1089,-118 1056,-118"/>
 <text text-anchor="start" x="1058" y="-124" font-family="Ubuntu" font-style="italic" font-size="10.00">double</text>
 <polygon fill="none" stroke="black" points="964,-117 964,-179 1090,-179 1090,-117 964,-117"/>

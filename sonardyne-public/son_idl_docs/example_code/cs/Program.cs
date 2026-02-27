@@ -92,19 +92,19 @@ namespace Sonardyne.Api.Example
             {
                 if (configuration.Is(AidingConfiguration.Descriptor))
                 {
-                    Console.WriteLine($"Aiding configuration rceived = {configuration.Unpack<AidingConfiguration>()}");
+                    Console.WriteLine($"Aiding configuration received = {configuration.Unpack<AidingConfiguration>()}");
                 }                
                 else if (configuration.Is(ResetConfiguration.Descriptor))
                 {
-                    Console.WriteLine($"Reset configuration rceived = {configuration.Unpack<ResetConfiguration>()}");
+                    Console.WriteLine($"Reset configuration received = {configuration.Unpack<ResetConfiguration>()}");
                 }
                 else if (configuration.Is(SoundVelocityConfiguration.Descriptor))
                 {
-                    Console.WriteLine($"Sound velocity configuration rceived = {configuration.Unpack<SoundVelocityConfiguration>()}");
+                    Console.WriteLine($"Sound velocity configuration received = {configuration.Unpack<SoundVelocityConfiguration>()}");
                 }
                 else if (configuration.Is(DvlConfiguration.Descriptor))
                 {
-                    Console.WriteLine($"DVL configuration rceived = {configuration.Unpack<DvlConfiguration>()}");
+                    Console.WriteLine($"DVL configuration received = {configuration.Unpack<DvlConfiguration>()}");
                 }                                
                 else
                 {
