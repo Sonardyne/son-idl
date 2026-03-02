@@ -13,7 +13,7 @@ socket.sendall(json.dumps(
                     "@type": "type.googleapis.com/sonardyne.api.sources.susbl_source.SusblSourceObservation",
                     "psimssbTelegram": {
                         "timeOfValidity": {
-                            "commonTimeSeconds": 1772209964.555889
+                            "commonTimeSeconds": 1772458214.0693219
                         },
                         "coordinateType": "PSIMSSB_COORDINATE_SYSTEM_RADIANS",
                         "isValid": true,

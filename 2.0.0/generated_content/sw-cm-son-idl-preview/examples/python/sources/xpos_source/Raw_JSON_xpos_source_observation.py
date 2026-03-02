@@ -13,7 +13,7 @@ socket.sendall(json.dumps(
                     "@type": "type.googleapis.com/sonardyne.api.sources.xpos_source.XposSourceObservation",
                     "xposData": {
                         "timeOfValidity": {
-                            "commonTimeSeconds": 1772209964.022302
+                            "commonTimeSeconds": 1772458213.6010525
                         },
                         "horizontalPositionUncertaintyMetres": 0.5,
                         "depthUncertaintyMetres": 1.0,

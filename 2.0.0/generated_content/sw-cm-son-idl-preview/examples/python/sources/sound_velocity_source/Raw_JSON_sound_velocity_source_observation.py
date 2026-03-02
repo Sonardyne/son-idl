@@ -13,9 +13,9 @@ socket.sendall(json.dumps(
                     "@type": "type.googleapis.com/sonardyne.api.sources.sound_velocity_source.SoundVelocitySourceObservation",
                     "soundVelocityData": {
                         "timeOfValidity": {
-                            "commonTimeSeconds": 1772209964.7356508
+                            "commonTimeSeconds": 1772458214.2173042
                         },
-                        "soundVelocityMetersPerSecond": 1495.7
+                        "soundVelocityMetersPerSecond": 1503.64
                     }
                 }
             ]
