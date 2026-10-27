@@ -1,0 +1,373 @@
+// Sonardyne PDF theme for mkdocs-exporter
+// Palette taken from docs/stylesheets/colourscheme.css (sonardyne_light)
+
+$son-navy:        #0E1033;  // header / primary
+$son-navy-mid:    #23235B;  // background box
+$son-purple:      #713795;  // primary accent / links
+$son-purple-lt:   #B075C1;  // primary accent light
+$son-purple-dk:   #472a78;
+$son-teal:        #4ea39c;  // secondary accent
+$son-text:        #3c3c3c;
+$son-box:         #E6E6E6;
+
+:root {
+  --son-width: 21cm;
+  --son-height: 29.6cm;   // just under A4 so a cover never spills onto a 2nd page
+}
+
+// ---------------------------------------------------------------------------
+// Page setup
+// ---------------------------------------------------------------------------
+
+@page {
+  size: A4;
+  margin: 2.2cm 1.8cm 2cm 1.8cm;
+
+  @top-left {
+    content: string(doc-title);
+    font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $son-purple;
+    vertical-align: bottom;
+    padding-bottom: 0.3cm;
+    border-bottom: 0.6pt solid $son-purple-lt;
+  }
+
+  @top-right {
+    content: string(chapter);
+    font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+    color: #888;
+    vertical-align: bottom;
+    padding-bottom: 0.3cm;
+    border-bottom: 0.6pt solid $son-purple-lt;
+  }
+
+  @bottom-left {
+    content: "\00A9  Sonardyne International Ltd";
+    font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+    font-size: 7.5pt;
+    color: #888;
+    vertical-align: top;
+    padding-top: 0.3cm;
+  }
+
+  @bottom-right {
+    content: counter(page);
+    font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    color: $son-navy;
+    vertical-align: top;
+    padding-top: 0.3cm;
+  }
+}
+
+// Front cover: styled via :first (never forces a page break -> no blank page 1)
+@page :first {
+  margin: 0;
+
+  @top-left     { content: none; border: none; }
+  @top-right    { content: none; border: none; }
+  @bottom-left  { content: none; }
+  @bottom-right { content: none; }
+}
+
+// Back cover: named page (the forced break before it is wanted)
+@page son-cover {
+  margin: 0;
+
+  @top-left     { content: none; border: none; }
+  @top-right    { content: none; border: none; }
+  @bottom-left  { content: none; }
+  @bottom-right { content: none; }
+}
+
+// ---------------------------------------------------------------------------
+// Base typography
+// ---------------------------------------------------------------------------
+
+body {
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  text-rendering: geometricPrecision;
+  font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+  color: $son-text;
+  background: #fff;
+}
+
+.md-typeset {
+  font-size: 10pt;
+  line-height: 1.55;
+
+  h1 {
+    string-set: doc-title content();
+    color: $son-navy;
+    font-weight: 700;
+    font-size: 22pt;
+    margin: 0 0 0.6cm;
+    padding-bottom: 0.25cm;
+    border-bottom: 2.5pt solid $son-teal;
+  }
+
+  h2, h3 {
+    string-set: chapter content();
+    break-after: avoid;
+  }
+
+  h2 {
+    color: $son-purple-dk;
+    font-weight: 700;
+    font-size: 15pt;
+    margin-top: 0.9cm;
+  }
+
+  h3 {
+    color: $son-purple;
+    font-weight: 600;
+    font-size: 12pt;
+  }
+
+  h4, h5, h6 {
+    color: $son-navy;
+    break-after: avoid;
+  }
+
+  a {
+    color: $son-purple;
+    text-decoration: none;
+  }
+
+  // Code
+  code {
+    background: $son-box;
+    color: $son-text;
+    font-size: 0.85em;
+    border-radius: 2px;
+  }
+
+  pre {
+    break-inside: avoid;
+
+    > code {
+      background: #F5F5F5;
+      border-left: 3pt solid $son-purple;
+      white-space: pre-wrap;      // wrap long lines instead of clipping
+      word-break: break-word;
+    }
+  }
+
+  // Tables
+  table:not([class]) {
+    font-size: 8.5pt;
+    border: none;
+    break-inside: auto;
+
+    th {
+      background: $son-navy;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    tr {
+      break-inside: avoid;
+    }
+
+    tr:nth-child(even) td {
+      background: #F5F5F5;
+    }
+
+    td, th {
+      border: 0.5pt solid #d9d9d9;
+    }
+  }
+
+  // Admonitions (incl. the custom son-info type)
+  .admonition, details {
+    break-inside: avoid;
+    border-color: $son-purple;
+    background: $son-box;
+    box-shadow: none;
+  }
+
+  img {
+    break-inside: avoid;
+    max-width: 100%;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Hide web-only chrome
+// ---------------------------------------------------------------------------
+
+.md-header,
+.md-sidebar,
+.md-footer,
+.md-content__button,
+.md-source-file,
+hr:has(+ div.md-source-file),
+.md-top,
+.md-dialog,
+.md-consent,
+.md-announce {
+  display: none !important;
+}
+
+summary::after { display: none; }
+
+.md-main .md-main__inner { margin: 0; }
+
+.md-content .md-content__inner {
+  margin: 0;
+  padding: 0;
+
+  &::before { height: 0; }
+}
+
+// ---------------------------------------------------------------------------
+// Covers (shared)
+// ---------------------------------------------------------------------------
+
+.son-cover {
+  position: relative;
+  width: var(--son-width);
+  height: var(--son-height);
+  overflow: hidden;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+  background: linear-gradient(160deg, $son-navy 0%, $son-navy 55%, $son-purple-dk 100%);
+
+  // Decorative sonar arcs, bottom-right
+  .son-arcs {
+    position: absolute;
+    right: -6cm;
+    bottom: -6cm;
+    width: 18cm;
+    height: 18cm;
+    border-radius: 50%;
+    border: 1.2pt solid rgba($son-purple-lt, 0.35);
+    box-shadow:
+      0 0 0 1.5cm rgba($son-purple-lt, 0.06),
+      0 0 0 1.6cm rgba($son-purple-lt, 0.25),
+      0 0 0 3.2cm rgba($son-purple-lt, 0.04),
+      0 0 0 3.3cm rgba($son-purple-lt, 0.18),
+      0 0 0 5cm   rgba($son-purple-lt, 0.03),
+      0 0 0 5.1cm rgba($son-purple-lt, 0.12);
+  }
+
+  .son-logo {
+    position: absolute;
+    top: 2.2cm;
+    left: 2cm;
+    width: 6.5cm;
+    height: auto;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Front cover
+// ---------------------------------------------------------------------------
+
+.son-cover--front {
+  page: auto;            // uses @page :first, no named-page break
+  break-before: avoid;
+  break-after: page;
+
+  .son-front-body {
+    position: absolute;
+    left: 2cm;
+    right: 3cm;
+    top: 11cm;
+  }
+
+  .son-eyebrow {
+    display: inline-block;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $son-teal;
+    margin-bottom: 0.5cm;
+  }
+
+  .son-title {
+    font-size: 34pt;
+    font-weight: 700;
+    line-height: 1.08;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .son-rule {
+    width: 3cm;
+    height: 4pt;
+    background: $son-teal;
+    margin: 0.8cm 0 0.6cm;
+  }
+
+  .son-subtitle {
+    font-size: 13pt;
+    font-weight: 400;
+    color: $son-purple-lt;
+    margin: 0;
+  }
+
+  .son-meta {
+    position: absolute;
+    left: 2cm;
+    bottom: 2cm;
+    font-size: 9pt;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+
+    strong {
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Back cover
+// ---------------------------------------------------------------------------
+
+.son-cover--back {
+  page: son-cover;
+  break-before: page;
+
+  .son-back-body {
+    position: absolute;
+    left: 2cm;
+    right: 2cm;
+    bottom: 2.4cm;
+    font-size: 9pt;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .son-back-web {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.3cm;
+  }
+
+  .son-rule {
+    width: 2cm;
+    height: 3pt;
+    background: $son-teal;
+    margin: 0 0 0.6cm;
+  }
+
+  .son-legal {
+    margin-top: 0.6cm;
+    font-size: 7.5pt;
+    color: rgba(255, 255, 255, 0.55);
+  }
+}

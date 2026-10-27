@@ -1,0 +1,162 @@
+:root {
+    --md-text-font: "Proxima Nova";
+
+    --md-primary-fg-color:               #713795; /* Primary Accent */
+    --md-primary-fg-color--light:        #B075C1; /* Primary Accent Light */
+    --md-primary-fg-color--dark:         #472a78;
+    --md-primary-bg-color:               #F5F5F5;
+    --md-primary-bg-color--light:        #ffffff;
+  
+    --md-accent-fg-color:                #4ea39c; /* Secondary Accent */
+    --md-accent-fg-color--transparent:   #4ea39c1a;
+    --md-accent-bg-color:                hsla(0, 0%, 100%, 1);
+    --md-accent-bg-color--light:         hsla(0, 0%, 100%, 0.7);
+
+
+}
+
+
+[data-md-color-scheme="sonardyne_dark"] {
+    --md-primary-fg-color:        #713795;
+    --md-primary-fg-color--light: #B075C1;
+    --md-primary-fg-color--dark:  #472a78;
+    --md-accent-fg-color:         #4ea39c;
+    --md-accent-fg-color--transparent:   hsla(#{hex2hsl($clr-indigo-a200)}, 0.1);
+    --md-accent-bg-color:                hsla(0, 0%, 100%, 1);
+    --md-accent-bg-color--light:         hsla(0, 0%, 100%, 0.7);
+
+    --amonition-bg-color:                #23235B;
+    --amonition-fg-color:                #e5e5e5;
+    --amonition-border-color:            #B075C1;
+    --amonition-icon-color:              #B075C1;
+
+    --md-default-fg-color:               #e5e5e5;
+    --md-default-fg-color--light:        #FFFFFF;
+    --md-default-fg-color--lighter:      hsla(0, 0%, 0%, 0.32);
+    --md-default-fg-color--lightest:     hsla(0, 0%, 0%, 0.07);
+    --md-default-bg-color:               #0E1033;
+    --md-default-bg-color--light:        hsla(0, 0%, 100%, 0.7);
+    --md-default-bg-color--lighter:      hsla(0, 0%, 100%, 0.3);
+    --md-default-bg-color--lightest:     hsla(0, 0%, 100%, 0.12);
+
+    --md-code-fg-color:                  #FFFFFF;
+    --md-code-bg-color:                  #23235B; /* Background Box */
+
+    --md-code-hl-color:                  hsla(#{hex2hsl($clr-yellow-a200)}, 0.5);
+    --md-code-hl-number-color:           #EA5514;
+    --md-code-hl-special-color:          #7598A2;
+    --md-code-hl-function-color:         #9CABF0;
+    --md-code-hl-constant-color:         #00C997;
+    --md-code-hl-keyword-color:          #379AED;
+    --md-code-hl-string-color:           #9A6AE6;
+    --md-code-hl-name-color:             var(--md-code-fg-color);
+    --md-code-hl-operator-color:         var(--md-default-fg-color--light);
+    --md-code-hl-punctuation-color:      var(--md-default-fg-color--light);
+    --md-code-hl-comment-color:          var(--md-default-fg-color--light);
+    --md-code-hl-generic-color:          var(--md-default-fg-color--light);
+    --md-code-hl-variable-color:         var(--md-default-fg-color--light);
+
+    /* Warning color shades */
+    --md-warning-fg-color:              hsla(0, 0%, 0%, 0.87);
+    --md-warning-bg-color:              hsla(60, 100%, 80%, 1);
+
+    /* Footer color shades */
+    --md-footer-fg-color:                hsla(0, 0%, 100%, 1);
+    --md-footer-fg-color--light:         hsla(0, 0%, 100%, 0.7);
+    --md-footer-fg-color--lighter:       hsla(0, 0%, 100%, 0.45);
+    --md-footer-bg-color:               #472a78;
+    --md-footer-bg-color--dark:          hsla(0, 0%, 0%, 0.32);
+
+    /* // Typeset color shades */
+    --md-typeset-color:                  var(--md-default-fg-color);
+
+    /* // Typeset `a` color shades */
+    --md-typeset-a-color:                var(--md-primary-fg-color--light);
+
+    /* // Typeset `mark` color shades */
+    --md-typeset-mark-color:             hsla(#{hex2hsl($clr-yellow-a200)}, 0.5);
+  
+    /* // Typeset `del` and `ins` color shades */
+    --md-typeset-del-color:              hsla(6, 90%, 60%, 0.15);
+    --md-typeset-ins-color:              hsla(150, 90%, 44%, 0.15);
+
+    /* Dropshadow colours */
+    --md-shadow-z2:                          0 0.0rem 0.5rem #713795,0 0 0.05rem #7137951a;
+
+  
+  
+}
+
+[data-md-color-scheme="sonardyne_light"]  {
+    --primary-fg-color:           #713795;
+    --md-primary-fg-color:        #0E1033; /* Primary Accent */
+    --md-primary-fg-color--light: #B075C1; /* Primary Accent Light */
+    --md-primary-fg-color--dark:  #472a78;
+    --md-accent-fg-color:         #4ea39c; /* Secondary Accent */
+    --md-accent-fg-color--transparent:   hsla(#{hex2hsl($clr-indigo-a200)}, 0.1);
+    --md-accent-bg-color:                hsla(0, 0%, 100%, 1);
+    --md-accent-bg-color--light:         hsla(0, 0%, 100%, 0.7);
+
+    --amonition-bg-color:                #E6E6E6;
+    --amonition-fg-color:                #3c3c3c;
+    --amonition-border-color:            #713795;
+    --amonition-icon-color:              #713795;
+
+
+    --md-default-fg-color:               #3c3c3c;
+    --md-default-fg-color--light:        #000000;
+    --md-default-fg-color--lighter:      hsla(0, 0%, 0%, 0.32);
+    --md-default-fg-color--lightest:     hsla(0, 0%, 0%, 0.07);
+    --md-default-bg-color:               #F5F5F5;
+    --md-default-bg-color--light:        hsla(0, 0%, 100%, 0.7);
+    --md-default-bg-color--lighter:      hsla(0, 0%, 100%, 0.3);
+    --md-default-bg-color--lightest:     hsla(0, 0%, 100%, 0.12);
+
+    --md-code-fg-color:                  #3c3c3c;
+    --md-code-bg-color:                  #E6E6E6; /* Background Box */
+
+    --md-code-hl-color:                  hsla(#{hex2hsl($clr-yellow-a200)}, 0.5);
+    --md-code-hl-number-color:           #EA5514;
+    --md-code-hl-special-color:          #557882;
+    --md-code-hl-function-color:         #5C6BC0;
+    --md-code-hl-constant-color:         #00C997;
+    --md-code-hl-keyword-color:          #379AED;
+    --md-code-hl-string-color:           #9A6AE6;
+    --md-code-hl-name-color:             var(--md-code-fg-color);
+    --md-code-hl-operator-color:         var(--md-default-fg-color--light);
+    --md-code-hl-punctuation-color:      var(--md-default-fg-color--light);
+    --md-code-hl-comment-color:          var(--md-default-fg-color--light);
+    --md-code-hl-generic-color:          var(--md-default-fg-color--light);
+    --md-code-hl-variable-color:         var(--md-default-fg-color--light);
+
+    /* Warning color shades */
+    --md-warning-fg-color:              hsla(0, 0%, 0%, 0.87);
+    --md-warning-bg-color:              hsla(60, 100%, 80%, 1);
+
+    /* Footer color shades */
+    --md-footer-fg-color:                hsla(0, 0%, 100%, 1);
+    --md-footer-fg-color--light:         hsla(0, 0%, 100%, 0.7);
+    --md-footer-fg-color--lighter:       hsla(0, 0%, 100%, 0.45);
+    --md-footer-bg-color:               #713795;
+
+    --md-footer-bg-color--dark:          hsla(0, 0%, 0%, 0.32);
+
+    /* // Typeset color shades */
+    --md-typeset-color:                  var(--md-default-fg-color);
+
+    /* // Typeset `a` color shades */
+    --md-typeset-a-color:                var(--primary-fg-color);
+
+    /* // Typeset `mark` color shades */
+    --md-typeset-mark-color:             hsla(#{hex2hsl($clr-yellow-a200)}, 0.5);
+  
+    /* // Typeset `del` and `ins` color shades */
+    --md-typeset-del-color:              hsla(6, 90%, 60%, 0.15);
+    --md-typeset-ins-color:              hsla(150, 90%, 44%, 0.15);
+
+    /* Dropshadow colours */
+    --md-shadow-z2:                          0 0.2rem 0.5rem #0d082f1a,0 0 0.05rem #0d082f3a;
+
+  
+    
+}

@@ -1,0 +1,20 @@
+/* This patch file fixes table borders being too dark in dark mode. */
+[data-md-color-scheme="sonardyne_dark"] {
+    table, th, td {
+        border: 1px solid #3c216a;
+        border-collapse: collapse;
+    }
+}
+
+/* Compact tables on the Message Reference page, which has many wide field tables. */
+.md-typeset:has(h1#message-reference) table:not([class]) :is(th, td) {
+    padding: 0.3em 0.6em;
+    line-height: 1.4;
+}
+
+/* Shrink columns whose header is split over lines (e.g. Size<br>(Bytes)) to fit their content,
+   overriding Material's 5rem minimum header width. */
+.md-typeset:has(h1#message-reference) table:not([class]) th:has(> br) {
+    min-width: 0;
+    width: 1%;
+}
