@@ -30,8 +30,9 @@ import sonardyne_api as son
 from sonardyne_api import unpacking
 
 import grpc
-import grpc._channel
 import queue
+import time
+from typing_extensions import deprecated
 
 
 class WrapperGrpc:
@@ -44,7 +45,13 @@ class WrapperGrpc:
         self.comms_service_stub = None
         self.observation_service_stub = None
         self.command_service_stub = None
+        self.status_service_stub = None
+        self.state_service_stub = None
+        self.observable_service_stub = None
         self.is_open = False
+        self.device_cert = None
+        self.client_cert = None
+        self.client_key = None
 
     def __enter__(self):
         self.open()
@@ -54,11 +61,27 @@ class WrapperGrpc:
         self.close()
 
     def open(self):
-        self.channel = grpc.insecure_channel(self.ipaddress + ":" + str(self.port))
+        if self.device_cert:
+            self.channel = grpc.secure_channel(
+                self.ipaddress + ":" + str(self.port),
+                credentials=grpc.ssl_channel_credentials(root_certificates=self.device_cert,
+                                                         certificate_chain=self.client_cert,
+                                                         private_key=self.client_key),
+                options=[('grpc.ssl_target_name_override', 'sonardyne')]
+            )
+        elif self.device_cert is None and self.client_cert is None and self.client_key is None:
+            self.channel = grpc.insecure_channel(self.ipaddress + ":" + str(self.port))
+        else:
+            raise RuntimeError("""Must provide either:
+- device_cert (TLS)
+- device_cert, client_cert & client_key (mTLS)
+- None (TCP)""")
+
         self.configuration_service_stub = son.ConfigurationServiceStub(self.channel)
         self.comms_service_stub = son.CommsServiceStub(self.channel)
         self.observation_service_stub = son.ObservationServiceStub(self.channel)
         self.command_service_stub = son.CommandServiceStub(self.channel)
+        self.status_service_stub = son.StatusServiceStub(self.channel)
         self.is_open = True
 
     def close(self):
@@ -76,7 +99,6 @@ class WrapperGrpc:
     def get_configurations_by_type_suffix(self, type_name_suffix: str) -> list[object]:
         self.throw_if_not_open()
         get_configuration_request = son.GetConfigurationRequest(matching_criteria=son.MatchingCriteria(match_type_name_suffix=type_name_suffix))
-        self.configuration_service_stub.GetConfiguration(get_configuration_request)
         get_configuration_response = self.configuration_service_stub.GetConfiguration(get_configuration_request)
         typed_messages = []
         for any_message in get_configuration_response.configuration_messages:
@@ -90,9 +112,10 @@ class WrapperGrpc:
     def get_configuration(self, any_type: any) -> any:
         self.throw_if_not_open()
         configurations = self.get_configurations(any_type)
-        if len(configurations) == 0 or not isinstance(configurations[0], unpacking.get_type(any_type)):
-            raise RuntimeError(f"Configuration '{unpacking.get_type_name(any_type)}' not found.")
-        return configurations[0]
+        for configuration in configurations:
+            if isinstance(configuration, unpacking.get_type(any_type)):
+                return configuration
+        raise RuntimeError(f"Configuration '{unpacking.get_type_name(any_type)}' not found.")
 
     def set_configuration(self, request: any) -> any:
         self.throw_if_not_open()
@@ -163,6 +186,35 @@ class WrapperGrpc:
                 return unpacking.unpack_list_from_any(response.observation_messages)
 
         stream = ObservationStream(self.observation_service_stub)
+        if subscription_request is not None:
+            stream.send(subscription_request)
+        return stream
+
+    def open_status_stream(self, subscription_request: son.StatusSubscriptionRequest | None = None, timeout_seconds=None):
+        self.throw_if_not_open()
+
+        class StatusStream:
+            def __init__(self, stub):
+                self.send_queue = queue.SimpleQueue()
+                self.stream_response_iterator = stub.StatusStream(iter(self.send_queue.get, None), timeout=timeout_seconds)
+
+            def send(self, port_status: son.StatusSubscriptionRequest | list):
+                status_envelope = son.StatusEnvelope()
+                if not isinstance(port_status, list):
+                    port_status = [port_status]
+                for msg in port_status:
+                    target = google.protobuf.any_pb2.Any()
+                    target.Pack(msg)
+                    status_envelope.status_messages.append(target)
+                self.send_queue.put(status_envelope)
+
+            def recv(self):
+                response = next(self.stream_response_iterator)
+                if not isinstance(response, son.StatusEnvelope):
+                    return []
+                return unpacking.unpack_list_from_any(response.status_messages)
+
+        stream = StatusStream(self.status_service_stub)
         if subscription_request is not None:
             stream.send(subscription_request)
         return stream

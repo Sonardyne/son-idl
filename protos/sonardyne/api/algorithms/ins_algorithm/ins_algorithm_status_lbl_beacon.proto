@@ -1,0 +1,89 @@
+/**
+* MIT License
+*
+* Copyright (c) 2026 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+package sonardyne.api.algorithms.ins_algorithm;
+
+// InsAlgorithmStatusLblBeacon contains data from the INS algorithm about the LBL aiding from a single beacon used in a Kalman cycle.
+message InsAlgorithmStatusLblBeacon {
+  // InsAlgorithmStatusLblBeacon.ReasonsRejected defines one or more reasons for LBL data being rejected by an INS.
+  message ReasonsRejected {
+    // Beacon data rejected due to missing beacon info.
+    bool missing_beacon_info = 1;
+    // Beacon data rejected based on signal to noise and rate limiting.
+    bool signal_to_noise_and_rate_limit = 2;
+    // Beacon data rejected based on signal level and rate limiting.
+    bool signal_level_and_rate_limit = 3;
+    // Beacon data rejected as enough observations.
+    bool not_enough_observations = 4;
+    // Beacon data rejected based on range min/max limits.
+    bool range_min_max = 5;
+    // Beacon data rejected based on predicted range error.
+    bool predicted_range_error = 6;
+    // Beacon data rejected due to poor correlation score.
+    bool correlation_score_limit = 7;
+    // Beacon data rejected based on range rate.
+    bool range_rate = 8;
+    // Beacon data rejected as marked invalid.
+    bool marked_invalid = 9;
+    // Beacon data rejected due to timeout.
+    bool timeout = 10;
+    // Beacon data rejected as disabled.
+    bool disabled = 11;
+    // Beacon data rejected due to sigma rejection.
+    bool sigma = 12;
+    // Beacon data rejected due to integrity.
+    bool integrity = 13;
+    // Beacon data rejected due to fix being rejected.
+    bool fix_rejected = 14;
+    // Beacon data rejected as awaiting slam states.
+    bool awaiting_slam_states = 15;
+    // Beacon data rejected due to invalid slam mode change.
+    bool invalid_slam_mode_change = 16;
+    // Beacon range data rejected due to invalid time tag (e.g. timestamp in the future). May indicate poor time sync.
+    bool invalid_time_tag = 17;
+  }
+
+  // Mean average of the normalised residuals of observations processed by the algorithm this cycle.
+  double mean_normalised_residual = 1;
+  // Count of the number of observations accepted and used by the algorithm this cycle.
+  int32 observations_accepted_count = 2;
+  // Count of the number of observations rejected by the algorithm this cycle.
+  int32 observations_rejected_count = 3;
+  // Time of validity of the last observation used by the algorithm this cycle.
+  double last_used_time_of_validity = 4;
+  // Reasons observations were rejected by the algorithm this cycle.
+  ReasonsRejected reasons_rejected = 5;
+  // Range sound velocity of the last observation used by the algorithm this cycle.
+  double last_used_sound_velocity_metres_per_second = 6;
+  // Acoustic address of the beacon.
+  int32 beacon_address = 7;
+  // Range sound velocity of the last observation processed by the algorithm this cycle.
+  double last_processed_sound_velocity_metres_per_second = 8;
+  // Time of validity of the last observation processed by the algorithm this cycle.
+  double last_processed_time_of_validity = 9;
+  // Range residual of the last observations processed by the algorithm this cycle.
+  double last_processed_residual_metres = 10;
+}

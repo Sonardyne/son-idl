@@ -25,7 +25,7 @@
 import sonardyne_api as son
 
 with son.WrapperGrpc('0.0.0.0', 8103) as wrapper:  # Device IP address & gRPC port:
-    print(wrapper.send_command(son.OutputMessageModuleCommandAddOutput(
+    wrapper.send_command(son.OutputMessageModuleCommandAddOutput(
         output_message=
         son.OutputMessage(
             output_message_type=son.OutputMessageType.OUTPUT_MESSAGE_TYPE_GGA,
@@ -33,4 +33,4 @@ with son.WrapperGrpc('0.0.0.0', 8103) as wrapper:  # Device IP address & gRPC po
             remote_point=son.RemotePointReference(set_uid=son.UniqueID(name="Remote Point 3")),
             data_port_output=son.DataPortReference(set_any_ethernet_port=True)
         )
-    )))
+    ))

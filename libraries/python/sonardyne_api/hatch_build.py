@@ -22,8 +22,9 @@ class CustomHook(BuildHookInterface):
     def tidy_up(self):
         # Remove generated python
         entries_to_remove = [
+            "sonardyne_api/legacy.py",
+            "sonardyne_api/__init__.py",
             "sonardyne_api/sonardyne",
-            "sonardyne_api/sonardyne/__init__.py",
             "sonardyne_api/sonardyne_private",
             "sonardyne_api/sonardyne_public"
         ]
@@ -88,7 +89,7 @@ class CustomHook(BuildHookInterface):
             for f in fn:
                 filepaths.append(os.path.join(dp, f))
 
-        init_lines = []
+        module_paths = []
         for filepath in filepaths:
             if os.path.isfile(filepath) and (filepath[-6:] == "pb2.py" or filepath[-11:] == "pb2_grpc.py") and filepath != "__init__.py":
                 with open(filepath, "r") as proto_filehandle:
@@ -101,16 +102,37 @@ class CustomHook(BuildHookInterface):
                 file = filepath[:-3]
                 file = file.replace('/', '.')
                 file = file.replace('\\', '.')
-                init_lines.append(f"from {file} import *\n")
+                module_paths.append(file)
+
+        # Make legacy file if v1 protos found
+        file_path = Path(f"{output_directory}/legacy.py")
+        file_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(file_path, "w") as init_filehandle:
+            for module in module_paths:
+                if "sonardyne_public" in module or "sonardyne_private" in module:
+                    init_filehandle.write(f"from {module} import *\n")
+        if file_path.is_file() and file_path.stat().st_size == 0:
+            file_path.unlink()
+
         with open(f"{output_directory}/__init__.py", "w") as init_filehandle:
-            for init_line in init_lines:
-                if ".sonardyne.api." in init_line:
-                    init_filehandle.write(init_line)
-            init_filehandle.write(f"from {output_directory}.wrapper_grpc import WrapperGrpc\n")
+            for module in module_paths:
+                if "sonardyne_public" in module or "sonardyne_private" in module:
+                    continue
+                init_filehandle.write(f"from {module} import *\n")
+
             init_filehandle.write(f"from {output_directory}.wrapper_json_tcp import WrapperJsonTcp\n")
+            init_filehandle.write(f"from {output_directory}.wrapper_json_udp import WrapperJsonUdp\n")
+            init_filehandle.write(f"from {output_directory}.wrapper_json_serial import WrapperJsonSerial\n")
             init_filehandle.write(f"from {output_directory}.wrapper_framed_tcp import WrapperFramedTcp\n")
+            init_filehandle.write(f"from {output_directory}.wrapper_framed_udp import WrapperFramedUdp\n")
+            init_filehandle.write(f"from {output_directory}.wrapper_framed_serial import WrapperFramedSerial\n")
             init_filehandle.write(f"from {output_directory}.unpacking import *\n")
 
+            # Provide the internal wrapper if it exists
+            if os.path.exists(f"{output_directory}/wrapper_grpc_internal.py"):
+                init_filehandle.write(f"from {output_directory}.wrapper_grpc_internal import WrapperGrpcInternal as WrapperGrpc\n")
+            else:
+                init_filehandle.write(f"from {output_directory}.wrapper_grpc import WrapperGrpc\n")
 
 class ProtocWrapperHook(BuildHookInterface):
     def __init__(self, *args, **kwargs):
@@ -125,7 +147,6 @@ class ProtocWrapperHook(BuildHookInterface):
         )
 
     def initialize(self, version, build_data):
-        self.custom_hook.tidy_up()
         self.custom_hook.pre_protoc(version, build_data)
         self.pb_hook.initialize(version, build_data)
         self.custom_hook.post_protoc(version, build_data)

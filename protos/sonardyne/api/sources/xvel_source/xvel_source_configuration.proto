@@ -1,0 +1,55 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/bounded_values/bounded_double.proto";
+import "sonardyne/api/common/data/data_quality_source.proto";
+import "sonardyne/api/common/installation/lever_arms.proto";
+import "sonardyne/api/common/installation/mounting_angles.proto";
+import "sonardyne/api/common/ports/data_port_reference.proto";
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.sources.xvel_source;
+
+// XvelSourceConfiguration represents the configuration of an XVEL data source.
+// This includes its unique identifier, the input data port providing XVEL measurements,
+// lever arms and mounting angles relative to the vessel reference point,
+// an uncertainty scale factor value, and an optional fallback velocity uncertainty value.
+message XvelSourceConfiguration {
+  // Unique identifier of the XVEL source.
+  sonardyne.api.common.UniqueID uid = 1;
+  // Reference to the input data port providing XVEL data.
+  optional sonardyne.api.common.ports.DataPortReference input_data_port = 2;
+  // Lever arms from the vessel reference point.
+  optional sonardyne.api.common.installation.LeverArms lever_arms = 3;
+  // Mounting angles in vessel frame.
+  optional sonardyne.api.common.installation.MountingAngles mounting_angles = 4;
+  // 1σ of uncertainty applied to incoming XVEL measurements;  ignored if 0.
+  optional sonardyne.api.common.bounded_values.BoundedDouble fallback_velocity_uncertainty_metres_per_second = 5;
+  // Scale factor applied to uncertainty values in the XVEL message.
+  optional sonardyne.api.common.bounded_values.BoundedDouble scale_uncertainty = 6;
+  // Mode to determine input data quality.
+  optional sonardyne.api.common.data.DataQualitySource data_quality_source = 7;
+}

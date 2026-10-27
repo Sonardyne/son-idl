@@ -1,0 +1,72 @@
+/**
+* MIT License
+*
+* Copyright (c) 2025 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/algorithms/dvl_filter_algorithm/dvl_filter_beam_data.proto";
+import "sonardyne/api/algorithms/dvl_filter_algorithm/dvl_filter_rejection_reasons.proto";
+import "sonardyne/api/common/timestamp.proto";
+
+package sonardyne.api.algorithms.dvl_filter_algorithm;
+
+// FilteredDvlData provides processed DVL measurement data, including timestamps,
+// altitude, sound velocity, ping status, individual beam data, and any rejection reasons.
+message FilteredDvlData {
+  // DvlPingStatus enumerates the possible statuses of a DVL ping, including bottom search,
+  // bottom ambiguity resolution, active bottom tracking, water column measurement,
+  // manual trigger, or no transmission.
+  enum DvlPingStatus {
+    // Unspecified DVL ping status.
+    DVL_PING_STATUS_UNSPECIFIED = 0;
+    // Searching for the bottom return.
+    DVL_PING_STATUS_BOTTOM_SEARCH = 1;
+    // Resolving ambiguity in bottom detection.
+    DVL_PING_STATUS_BOTTOM_AMBIGUITY_RESOLVE = 2;
+    // Actively tracking the bottom.
+    DVL_PING_STATUS_BOTTOM_TRACK = 3;
+    // Measuring velocity in the water column (not bottom tracking).
+    DVL_PING_STATUS_WATER_TRACK = 4;
+    // Manual ping triggered by an operator or external command.
+    DVL_PING_STATUS_MANUAL = 5;
+    // Ping not transmitted.
+    DVL_PING_STATUS_NO_TX = 6;
+  }
+
+  // Timestamp when the data is valid.
+  sonardyne.api.common.Timestamp time_of_validity = 1;
+  // Timestamp when the data was received;  set if not provided.
+  optional sonardyne.api.common.Timestamp time_of_arrival = 2;
+  // Note that this "altitude" is the distance from the DVL to whichever way it is facing
+  // e.g. (could be the distance to a dam wall or could be under ice looking up)
+  // Altitude above based on average slant ranges in metres, corrected for the angle of the beams.
+  double altitude_metres = 3;
+  // Sound speed used in DVL calculations, in metres per second.
+  double sound_velocity_metres_per_second = 4;
+  // Status of the most recent DVL ping.
+  DvlPingStatus ping_status = 5;
+  // Individual beam data including per-beam rejection reasons.
+  repeated DvlFilterBeamData dvl_beam_data = 6;
+  // Overall rejection reasons for this DVL measurement;  empty if valid.
+  DvlFilterRejectionReasons rejection_reasons = 7;
+}

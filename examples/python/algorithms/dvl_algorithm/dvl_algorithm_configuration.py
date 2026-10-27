@@ -39,5 +39,6 @@ with son.WrapperGrpc('0.0.0.0', 8103) as wrapper:  # Device IP address & gRPC po
             input_trigger_port=son.TriggerPortReference(set_uid=son.UniqueID(name="Trigger A1")),
             input_trigger_edge=son.TRIGGER_EDGE_RISING,
             input_trigger_delay_seconds=son.BoundedDouble(value=0.1)
-        )
+        ),
+        dvl_blanking_distance_metres=son.BoundedDouble(value=5.687)
     )))

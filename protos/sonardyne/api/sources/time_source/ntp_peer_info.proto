@@ -1,0 +1,70 @@
+/**
+* MIT License
+*
+* Copyright (c) 2026 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+package sonardyne.api.sources.time_source;
+
+// NtpPeerInfo holds a collection of statistics relating a connection to an NTP server.
+message NtpPeerInfo {
+  // NtpPeerInfo.NtpPeerStatus represents the status of the connection to the server.
+  enum NtpPeerStatus {
+    // Unspecified connection status.
+    NTP_PEER_STATUS_UNSPECIFIED = 0;
+    // Peer stratum is too high or the peer is unreachable.
+    NTP_PEER_STATUS_DISCARDED_HIGH_STRATUM = 1;
+    // Peer was rejected as an outlier.
+    NTP_PEER_STATUS_FALSE_TICKER = 2;
+    // Peer was removed during culling process.
+    NTP_PEER_STATUS_CULLED = 3;
+    // Peer was rejected by the clustering algorithm.
+    NTP_PEER_STATUS_DISCARDED_BY_CLUSTERING = 4;
+    // Peer is a valid candidate for synchronisation.
+    NTP_PEER_STATUS_IN_FINAL_SELECTION = 5;
+    // Peer is valid but its root distance exceeds the maximum distance limit.
+    NTP_PEER_STATUS_SELECTED_FOR_SYNC_BUT_EXCEEDS_MAX_DISTANCE = 6;
+    // Peer is the system peer used for synchronisation.
+    NTP_PEER_STATUS_SELECTED_FOR_SYNC = 7;
+    // Peer is the system peer and is augmented by a pulse-per-second signal.
+    NTP_PEER_STATUS_SELECTED_FOR_SYNC_WITH_PPS = 8;
+  }
+  // Status of the connection to the peer.
+  NtpPeerStatus status = 1;
+  // Identifier of the source used for synchronization.
+  string reference_id = 2;
+  // Distance from the reference clock (0 is highest precision).
+  uint32 stratum = 3;
+  // Time elapsed since the last valid NTP packet was received.
+  uint32 age_of_last_packet_seconds = 4;
+  // Current interval between outgoing NTP requests.
+  uint32 polling_interval_seconds = 5;
+  // 8-bit shift register representing the success of the last 8 polls.
+  uint32 reachability = 6;
+  // Round-trip time to the peer in seconds.
+  double delay_seconds = 7;
+  // Time difference between the local clock and the peer in seconds.
+  double offset_seconds = 8;
+  // Variance in the time offset.
+  double jitter_seconds = 9;
+}

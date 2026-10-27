@@ -1,0 +1,65 @@
+/**
+* MIT License
+*
+* Copyright (c) 2026 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+package sonardyne.api.algorithms.ins_algorithm;
+
+// InsAlgorithmStatusSusbl contains data from the INS algorithm about the SUSBL aiding used in a Kalman cycle.
+message InsAlgorithmStatusSusbl {
+  // InsAlgorithmStatusSusbl.ReasonsRejected defines one or more reasons for SUSBL data being rejected by an INS.
+  message ReasonsRejected {
+    // SUSBL data rejected due to rate of change.
+    bool rate_of_change = 1;
+    // SUSBL data rejected due to quality.
+    bool quality = 2;
+    // SUSBL data rejected due to bad time tag.
+    bool bad_time_tag = 3;
+    // SUSBL data rejected due to message format.
+    bool message_format = 4;
+    // SUSBL data rejected due to beacon id.
+    bool beacon_id = 5;
+    // SUSBL data rejected due to timeout.
+    bool timeout = 6;
+    // SUSBL data rejected as disabled.
+    bool disabled = 7;
+    // SUSBL data rejected due to sigma rejection.
+    bool sigma = 8;
+    // SUSBL data rejected due to INS position uncertainty being too high.
+    bool ins_position_uncertainty_too_high = 9;
+  }
+
+  // Mean average of the normalised residuals of observations processed by the algorithm this cycle.
+  double mean_normalised_residual = 1;
+  // Count of the number of observations accepted and used by the algorithm this cycle.
+  int32 observations_accepted_count = 2;
+  // Count of the number of observations rejected by the algorithm this cycle.
+  int32 observations_rejected_count = 3;
+  // Time of validity of the last observation used by the algorithm this cycle.
+  double last_used_time_of_validity = 4;
+  // Reasons observations were rejected by the algorithm this cycle.
+  ReasonsRejected reasons_rejected = 5;
+  // Time of validity of the last observation processed by the algorithm this cycle.
+  double last_processed_time_of_validity = 6;
+}

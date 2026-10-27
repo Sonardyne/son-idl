@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2025 Sonardyne International Limited
+# Copyright (c) 2026 Sonardyne International Limited
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -27,5 +27,8 @@ import sonardyne_api as son
 with son.WrapperGrpc('0.0.0.0', 8103) as wrapper:  # Device IP address & gRPC port:
     print(wrapper.set_configuration(son.InsAlgorithmConfiguration(
         is_gnss_enabled=True,
-        is_xpos_enabled=False
+        is_xpos_enabled=False,
+        is_external_depth_enabled=False,
+        is_internal_depth_enabled=False,
+        is_gnss_height_enabled=True
     )))

@@ -1,0 +1,49 @@
+/**
+* MIT License
+*
+* Copyright (c) 2026 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+import "sonardyne/api/common/unique_id.proto";
+
+package sonardyne.api.modules.device_module;
+
+// DeviceModuleStatus represents the overall status of the device.
+message DeviceModuleStatus {
+  // DeviceModuleStatus.OverallStatus represents the overall status of the device.
+  enum OverallStatus {
+    // Unspecified device status.
+    OVERALL_STATUS_UNSPECIFIED = 0;
+    // Device status is OK, no active errors or warnings.
+    OVERALL_STATUS_OK = 1;
+    // Device has one or more active warnings.
+    OVERALL_STATUS_WARNING = 2;
+    // Device has one or more errors raised.
+    OVERALL_STATUS_ERROR = 3;
+  }
+
+  // Unique ID of the device.
+  sonardyne.api.common.UniqueID uid = 1;
+  // Overall status of the device.
+  OverallStatus overall_status = 2;
+}

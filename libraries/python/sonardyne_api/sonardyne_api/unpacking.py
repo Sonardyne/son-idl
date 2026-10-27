@@ -25,8 +25,14 @@
 import google.protobuf.any_pb2
 import google.protobuf.empty_pb2
 import google.protobuf
+import importlib.util
 
 import sonardyne_api as son
+
+# Import legacy protos if found
+__legacy_found = importlib.util.find_spec("sonardyne_api.legacy") is not None
+if __legacy_found:
+    import sonardyne_api.legacy as son_legacy
 
 
 class ResultException(Exception):
@@ -75,20 +81,36 @@ def unpack_message_from_any(message_any: google.protobuf.any_pb2.Any):
         raise Exception("Could not parse message_any type url.")
     message_type_name_full = message_type_url_split[1]
     message_type_name = message_type_name_full.split('.')[-1]
-    # check message type name exists in namespace
-    if not hasattr(son, message_type_name):
-        print(f"Couldn't unpack '{message_type_name}' message")
-        return None
-    # Find the type in son-idl which matches this type url
-    message_type = getattr(son, message_type_name)
-    # Create an object of this type to allow unpacking of the Any
-    message_typed = message_type()
 
-    # Now unpack the Any, double check it is a valid type, and add it to the dictionary
-    if message_any.Unpack(message_typed):
-        return message_typed
+    # check message type name exists in namespace
+    if hasattr(son, message_type_name):
+        # Find the type in son-idl which matches this type url
+        message_type = getattr(son, message_type_name)
+        # Create an object of this type to allow unpacking of the Any
+        message_typed = message_type()
+
+        # Now unpack the Any, double check it is a valid type, and add it to the dictionary
+        if message_any.Unpack(message_typed):
+            return message_typed
+        else:
+            print(f"Failed to unpack '{message_type_name}' message")
+            return None
+
+    elif __legacy_found and hasattr(son_legacy, message_type_name):
+        # Find the type in son-idl which matches this type url
+        message_type = getattr(son_legacy, message_type_name)
+        # Create an object of this type to allow unpacking of the Any
+        message_typed = message_type()
+
+        # Now unpack the Any, double check it is a valid type, and add it to the dictionary
+        if message_any.Unpack(message_typed):
+            return message_typed
+        else:
+            print(f"Failed to unpack '{message_type_name}' message")
+            return None
+
     else:
-        print(f"Failed to unpack '{message_type_name}' message")
+        print(f"Couldn't unpack '{message_type_name}' message")
         return None
 
 
@@ -107,13 +129,22 @@ def get_type_name(any_type: any):
 
 def get_type(any_type: any):
     if isinstance(any_type, str):
+
         # check message type name exists in namespace
-        if not hasattr(son, any_type):
+        if hasattr(son, any_type):
+            # Find the type in son-idl which matches this type url
+            message_type = getattr(son, any_type)
+            return message_type
+
+        elif __legacy_found and hasattr(son_legacy, any_type):
+            # Find the type in son-idl which matches this type url
+            message_type = getattr(son_legacy, any_type)
+            return message_type
+
+        else:
             print(f"Couldn't unpack '{any_type}' message")
             return None
-        # Find the type in son-idl which matches this type url
-        message_type = getattr(son, any_type)
-        return message_type
+
     if type(any_type).__name__ == "MessageMeta":
         return type(any_type())
     return type(any_type)

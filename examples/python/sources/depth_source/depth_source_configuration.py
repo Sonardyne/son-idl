@@ -29,5 +29,6 @@ with son.WrapperGrpc('0.0.0.0', 8103) as wrapper:  # Device IP address & gRPC po
         input_depth_data_source_reference=son.DepthDataSourceReference(
             set_uid=son.UniqueID(name="TCP-8110")
         ),
-        lever_arms=son.LeverArms(forward_metres=1.5, starboard_metres=2, down_metres=3.2)
+        lever_arms=son.LeverArms(forward_metres=1.5, starboard_metres=2, down_metres=3.2),
+        manual_depth_offset_metres=0
     )))

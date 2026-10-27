@@ -1,0 +1,51 @@
+/**
+* MIT License
+*
+* Copyright (c) 2026 Sonardyne International Limited
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+syntax = "proto3";
+
+package sonardyne.api.algorithms.ins_algorithm;
+
+// InsAlgorithmStatusFreeInertial contains data from the INS algorithm about predicted free inertial performance: time for uncertainty to reach 1NM, CEP50.
+message InsAlgorithmStatusFreeInertial {
+  // InsAlgorithmStatusFreeInertial.FreeInertialStatus provides classification fields for predicted free-inertial performance
+  enum FreeInertialStatus {
+    // Free inertial status unspecified
+    FREE_INERTIAL_STATUS_UNSPECIFIED = 0;
+    // Free inertial status disabled
+    FREE_INERTIAL_STATUS_DISABLED = 1;
+    // Free inertial status initial
+    FREE_INERTIAL_STATUS_INITIAL = 2;
+    // Free inertial status good
+    FREE_INERTIAL_STATUS_GOOD = 3;
+    // Free inertial status excellent
+    FREE_INERTIAL_STATUS_EXCELLENT = 4;
+    // Free inertial status optimal
+    FREE_INERTIAL_STATUS_OPTIMAL = 5;
+  }
+
+  // Predicted time in seconds for an INS algorithm solution to reach 1NM CEP50 uncertainty
+  double time_to_1nm_cep50_uncertainty_seconds = 1;
+  // Classification of an INS algorithm's expected time to reach 1NM CEP50 uncertainty
+  FreeInertialStatus free_inertial_status = 2;
+}
