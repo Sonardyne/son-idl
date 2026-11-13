@@ -475,6 +475,66 @@
 
 <span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="mi">8103</span><span class="p">))</span>
+<span class="n">socket</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.common.envelope.RequestEnvelope"</span><span class="p">,</span>
+    <span class="s2">"uid"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"requests"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.services.configuration_service.SetConfigurationRequest"</span><span class="p">,</span>
+            <span class="s2">"configuration"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.modules.output_message_module.OutputMessageModuleConfiguration"</span><span class="p">,</span>
+                <span class="s2">"outputMessageList"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"outputMessages"</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">"outputMessageType"</span><span class="p">:</span> <span class="s2">"OUTPUT_MESSAGE_TYPE_GGA"</span><span class="p">,</span>
+                            <span class="s2">"dataPortOutput"</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">"setAnyEthernetPort"</span><span class="p">:</span> <span class="n">true</span>
+                            <span class="p">},</span>
+                            <span class="s2">"rateHz"</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+                            <span class="s2">"remotePoint"</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">"setUid"</span><span class="p">:</span> <span class="p">{</span>
+                                    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Remote Point 2"</span>
+                                <span class="p">}</span>
+                            <span class="p">}</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">"outputMessageType"</span><span class="p">:</span> <span class="s2">"OUTPUT_MESSAGE_TYPE_LNAV"</span><span class="p">,</span>
+                            <span class="s2">"dataPortOutput"</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">"setAnyEthernetPort"</span><span class="p">:</span> <span class="n">true</span>
+                            <span class="p">},</span>
+                            <span class="s2">"rateHz"</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                            <span class="s2">"remotePoint"</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">"setUid"</span><span class="p">:</span> <span class="p">{</span>
+                                    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Common Reference Point"</span>
+                                <span class="p">}</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+<span class="n">socket</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.common.envelope.RequestEnvelope"</span><span class="p">,</span>
+    <span class="s2">"uid"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"requests"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.services.command_service.SendCommandRequest"</span><span class="p">,</span>
+            <span class="s2">"command"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.modules.output_message_module.OutputMessageModuleCommandRemoveOutput"</span><span class="p">,</span>
+                <span class="s2">"outputMessage"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"uid"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"LNAV Output Message"</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 </code></pre></div>
 </div>
 </div>

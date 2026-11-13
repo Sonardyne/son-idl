@@ -523,6 +523,54 @@
 
 <span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="mi">8103</span><span class="p">))</span>
+<span class="n">socket</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.common.envelope.RequestEnvelope"</span><span class="p">,</span>
+    <span class="s2">"requests"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.services.observation_service.ObservationEnvelope"</span><span class="p">,</span>
+            <span class="s2">"observationMessages"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.sources.susbl_source.SusblSourceObservation"</span><span class="p">,</span>
+                    <span class="s2">"psimssbTelegram"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"timeOfValidity"</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">"commonTimeSeconds"</span><span class="p">:</span> <span class="mf">1794587185.86073</span>
+                        <span class="p">},</span>
+                        <span class="s2">"coordinateType"</span><span class="p">:</span> <span class="s2">"PSIMSSB_COORDINATE_SYSTEM_RADIANS"</span><span class="p">,</span>
+                        <span class="s2">"isValid"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                        <span class="s2">"orientationType"</span><span class="p">:</span> <span class="s2">"PSIMSSB_ORIENTATION_NORTH"</span><span class="p">,</span>
+                        <span class="s2">"softwareFilter"</span><span class="p">:</span> <span class="s2">"PSIMSSB_SOFTWARE_FILTER_UNKNOWN"</span><span class="p">,</span>
+                        <span class="s2">"positionUncertaintyMetres"</span><span class="p">:</span> <span class="mf">1.0</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+<span class="n">socket</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.common.envelope.RequestEnvelope"</span><span class="p">,</span>
+    <span class="s2">"uid"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"requests"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.services.observation_service.ObservationEnvelope"</span><span class="p">,</span>
+            <span class="s2">"observationMessages"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.services.observation_service.ObservationSubscriptionRequest"</span><span class="p">,</span>
+                    <span class="s2">"observationSubscriptions"</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">"matchingCriteria"</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">"matchTypeNameSuffix"</span><span class="p">:</span> <span class="s2">"SusblSourceObservation"</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">data</span> <span class="o">:=</span> <span class="n">socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">10240</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>

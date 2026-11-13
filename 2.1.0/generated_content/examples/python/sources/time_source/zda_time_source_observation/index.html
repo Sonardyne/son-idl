@@ -442,6 +442,23 @@
 
 <span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="mi">8103</span><span class="p">))</span>
+<span class="n">socket</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.common.envelope.RequestEnvelope"</span><span class="p">,</span>
+    <span class="s2">"requests"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.services.observation_service.ObservationEnvelope"</span><span class="p">,</span>
+            <span class="s2">"observationMessages"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.sources.time_source.ZdaTimeSourceObservation"</span><span class="p">,</span>
+                    <span class="s2">"zdaData"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"currentUtcTimeSeconds"</span><span class="p">:</span> <span class="mf">1794587186.3257792</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 </code></pre></div>
 </div>
 </div>

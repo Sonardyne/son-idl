@@ -463,6 +463,56 @@
 
 <span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="mi">8103</span><span class="p">))</span>
+<span class="n">socket</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.common.envelope.RequestEnvelope"</span><span class="p">,</span>
+    <span class="s2">"uid"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"requests"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.services.configuration_service.SetConfigurationRequest"</span><span class="p">,</span>
+            <span class="s2">"configuration"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.algorithms.dvl_algorithm.DvlAlgorithmConfiguration"</span><span class="p">,</span>
+                <span class="s2">"dvlRate"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"DVL_RATE_ENUM_FIXED_5HZ"</span>
+                <span class="p">},</span>
+                <span class="s2">"dvlMode"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"DVL_MODE_ENUM_DVL"</span>
+                <span class="p">},</span>
+                <span class="s2">"inputTriggerParameters"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"inputTriggerPort"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"setUid"</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Trigger A1"</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="s2">"inputTriggerEdge"</span><span class="p">:</span> <span class="s2">"TRIGGER_EDGE_RISING"</span><span class="p">,</span>
+                    <span class="s2">"inputTriggerDelaySeconds"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"value"</span><span class="p">:</span> <span class="mf">0.1</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s2">"adcpParameters"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"numberOfCells"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"value"</span><span class="p">:</span> <span class="mi">100</span>
+                    <span class="p">},</span>
+                    <span class="s2">"preferredCellWidthMetres"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"value"</span><span class="p">:</span> <span class="mf">0.1</span>
+                    <span class="p">},</span>
+                    <span class="s2">"pingsToAverage"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"value"</span><span class="p">:</span> <span class="mi">10</span>
+                    <span class="p">},</span>
+                    <span class="s2">"dvlAdcpPingRatio"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"value"</span><span class="p">:</span> <span class="mi">10</span>
+                    <span class="p">},</span>
+                    <span class="s2">"velocityLimit"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"ADCP_VELOCITY_LIMIT_ENUM_STANDARD"</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s2">"dvlBlankingDistanceMetres"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"value"</span><span class="p">:</span> <span class="mf">5.687</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 </code></pre></div>
 </div>
 </div>

@@ -523,11 +523,9 @@ Note that although these bytes are not human-readable in the serialised JSON, th
 <h4 id="modules">Modules</h4>
 <p>The <em><strong>Module</strong></em> component represents non-algorithm, non-sensor, non-data source components e.g. a <code>BatteryModule</code> is responsible for managing a battery and enabling/disabling charging. Another example module is the <code>NetworkModule</code>.</p>
 <ul>
-<li><code>AlarmsModule</code> Allows raising/acknowledging/clearing of alarms.</li>
 <li><code>BatteryModule</code> Allows battery management e.g. enabling charging.</li>
 <li><code>DeviceInstallationModule</code> Allows configuration of the device's lever arms &amp; mounting angles relative to the vessel.</li>
 <li><code>DeviceModule</code> Allows reading of product name and serial number as well as sending of shutdown &amp; factory reset commands.</li>
-<li><code>EventsModule</code> Allows management of system and user events.</li>
 <li><code>ExternalLoggingModule</code> Allows configuration of logging to an external client via a TCP server.</li>
 <li><code>NavigationModule</code> Allows streaming of navigation solutions, in SPRINT this is the combined result of the AHRS &amp; INS algorithm.</li>
 <li><code>NetworkModule</code> Allows configuration of the device's network interface e.g. changing the device IP address.</li>
@@ -579,18 +577,6 @@ Note that although these bytes are not human-readable in the serialised JSON, th
 <span class="p">}</span>
 </code></pre></div>
 <em>The response to the battery module configuration request.</em>
-<h5 id="alarms-module">Alarms Module</h5>
-<p>An <em><strong>Alarm</strong></em> is an ongoing state that tracks a problem until it is resolved, e.g. "No GNSS data received".
-Alarms have a lifespan, transitioning between: Raised -&gt; Acknowledged -&gt; Cleared.
-Alarms alert a user to problems as they arise and advise intervention may be required. They can be streamed over gRPC or
-visualised on a dashboard.
-An alarm can be latched (e.g. IMU error which is only cleared by power cycling) or non-latched (e.g. serial tx overflow which resolves
-by increasing the baud rate).</p>
-<h5 id="events-module">Events Module</h5>
-<p>An <em><strong>Event</strong></em> is a permanent record of timestamped actions, e.g. "TCP Client X connected".
-Events are a single point in time, appended to a list and stored permanently.
-Events provide a history of system usage, useful for diagnosing and replicating issues. They can be streamed over gRPC or read from logfiles.
-Events are also created when an alarm is raised of lowered, allowing visibility of alarms in the event log. </p>
 <h4 id="algorithms">Algorithms</h4>
 <p>The <em><strong>Algorithm</strong></em> component represents internal algorithms e.g. an INS algorithm.</p>
 <ul>

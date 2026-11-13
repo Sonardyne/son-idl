@@ -436,6 +436,30 @@
 
 <span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="mi">8103</span><span class="p">))</span>
+<span class="n">socket</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.common.envelope.RequestEnvelope"</span><span class="p">,</span>
+    <span class="s2">"uid"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"requests"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.services.configuration_service.SetConfigurationRequest"</span><span class="p">,</span>
+            <span class="s2">"configuration"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"type.googleapis.com/sonardyne.api.modules.time_module.TimeModuleConfiguration"</span><span class="p">,</span>
+                <span class="s2">"inputTimeSources"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"inputZdaTimeSource"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"setAny"</span><span class="p">:</span> <span class="n">true</span>
+                    <span class="p">},</span>
+                    <span class="s2">"inputPpsTimeSource"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"setNone"</span><span class="p">:</span> <span class="n">true</span>
+                    <span class="p">},</span>
+                    <span class="s2">"inputNtpTimeSource"</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">"setNone"</span><span class="p">:</span> <span class="n">true</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 </code></pre></div>
 </div>
 </div>
