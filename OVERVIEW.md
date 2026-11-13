@@ -7,22 +7,24 @@ The API continues the "envelope" pattern, making it backwards and forwards compa
 
 **Table of Contents**
 
-- [Services](#services)
-  - [Configuration Service](#configuration-service)
-  - [Command Service](#command-service)
-  - [Observation Service](#observation-service)
-  - [Comms Service](#comms-service)
-- [Message Types](#message-types)
-  - [Component Messages](#component-messages)
-    - [Modules](#modules)
-    - [Algorithms](#algorithms)
-    - [Sources](#sources)
-    - [Sensors](#sensors)
-    - [Port Lists](#port-lists)
-  - [Common Messages](#common-messages)
-  - [Additional Message Types](#additional-message-types)
-    - [Reference Messages](#reference-messages)
+- [Sonardyne API 2.1.0](#sonardyne-api-210)
+  - [Services](#services)
+    - [Configuration Service](#configuration-service)
+    - [Command Service](#command-service)
+    - [Observation Service](#observation-service)
+    - [Comms Service](#comms-service)
+  - [Message Types](#message-types)
+    - [Component Messages](#component-messages)
+      - [Modules](#modules)
+      - [Algorithms](#algorithms)
+      - [Sources](#sources)
+      - [Sensors](#sensors)
+      - [Port Lists](#port-lists)
+    - [Common Messages](#common-messages)
+    - [Additional Message Types](#additional-message-types)
+      - [Reference Messages](#reference-messages)
   - [Using Non-gRPC Modes](#using-non-grpc-modes)
+  - [Subscribing to Streams](#subscribing-to-streams)
 
 
 
@@ -123,11 +125,9 @@ _modules, algorithms, sources,_ and _port lists._
 #### Modules
 The _**Module**_ component represents non-algorithm, non-sensor, non-data source components e.g. a `BatteryModule` is responsible for managing a battery and enabling/disabling charging. Another example module is the `NetworkModule`.
 
-- `AlarmsModule` Allows raising/acknowledging/clearing of alarms.
 - `BatteryModule` Allows battery management e.g. enabling charging.
 - `DeviceInstallationModule` Allows configuration of the device's lever arms & mounting angles relative to the vessel.
 - `DeviceModule` Allows reading of product name and serial number as well as sending of shutdown & factory reset commands.
-- `EventsModule` Allows management of system and user events.
 - `ExternalLoggingModule` Allows configuration of logging to an external client via a TCP server.
 - `NavigationModule` Allows streaming of navigation solutions, in SPRINT this is the combined result of the AHRS & INS algorithm.
 - `NetworkModule` Allows configuration of the device's network interface e.g. changing the device IP address.
@@ -181,20 +181,6 @@ _A request to disable battery charging._
 }
 ```
 _The response to the battery module configuration request._
-
-##### Alarms Module
-An _**Alarm**_ is an ongoing state that tracks a problem until it is resolved, e.g. "No GNSS data received".
-Alarms have a lifespan, transitioning between: Raised -> Acknowledged -> Cleared.
-Alarms alert a user to problems as they arise and advise intervention may be required. They can be streamed over gRPC or
-visualised on a dashboard.
-An alarm can be latched (e.g. IMU error which is only cleared by power cycling) or non-latched (e.g. serial tx overflow which resolves
-by increasing the baud rate).
-
-##### Events Module
-An _**Event**_ is a permanent record of timestamped actions, e.g. "TCP Client X connected".
-Events are a single point in time, appended to a list and stored permanently.
-Events provide a history of system usage, useful for diagnosing and replicating issues. They can be streamed over gRPC or read from logfiles.
-Events are also created when an alarm is raised of lowered, allowing visibility of alarms in the event log. 
 
 
 #### Algorithms
@@ -478,6 +464,7 @@ The `ConfigurationSubscriptionRequest` may be used to monitor changing configura
 The `CommsSubscriptionRequest` may be used to monitor incoming and outgoing data over a port (serial or ethernet).
 The `CommsEnvelope` allows the sending of data out over a port, and must contain messages ending in _"Comms"_ e.g.
 `DataPortComms`.
+
 
 
 
